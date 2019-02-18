@@ -1,6 +1,12 @@
 # ujian-online-ci
 Aplikasi Ujian Online Menggunakan CodeIgniter
 
+<h3>User</h3>
+<ul>
+<li>Administrator <br/> Email: admin@admin.com <br/> Password : password </li>
+  
+</ul>
+
 Thanks to :
 <ul>
   <li>AdminLTE</li>
