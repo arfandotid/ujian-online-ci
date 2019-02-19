@@ -10,14 +10,10 @@ Aplikasi Ujian Online Menggunakan CodeIgniter
   <li>
     <h2>HTACCESS</h2>
     buat file dengan nama .htaccess pada direktori aplikasi ini, yang isinya sebagai berikut.
-    <pre>
-      <code>
-RewriteEngine On
+    <pre><code>RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php/$1 [L]
-      </code>
-    </pre>
+RewriteRule ^(.*)$ index.php/$1 [L]</code></pre>
   </li>
 </ol>
 
