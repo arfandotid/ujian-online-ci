@@ -4,16 +4,7 @@ Aplikasi Ujian Online Menggunakan CodeIgniter
 <h1>Cara Install</h1>
 <ol>
   <li>
-    <h2>Database</h2>
     Buat database dengan nama <kbd>ci_online_test</kbd>. Kemudian import database pada folder <kbd>sql</kbd>. Jangan lupa setting lagi file <kbd>config.php</kbd> nya.
-  </li>
-  <li>
-    <h2>HTACCESS</h2>
-    buat file dengan nama .htaccess pada direktori aplikasi ini, yang isinya sebagai berikut.
-    <pre><code>RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php/$1 [L]</code></pre>
   </li>
 </ol>
 
