@@ -360,7 +360,6 @@ INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activ
 (1, '127.0.0.1', 'Administrator', '$argon2i$v=19$m=16384,t=4,p=2$YjA3enNRZGZTaW5ablBtSg$As9dFc0GiflWXpFUnFruvZ84z4pRf7r+GQmBxYt4vQk', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1550743180, 1, 'Admin', 'Istrator', 'ADMIN', '0'),
 (3, '::1', '12183018', '$argon2i$v=19$m=4096,t=2,p=2$amM2Lm5NcVRwSlI1N3hhUw$Rtar8c7TNKT05w2Y898GftT6WiOLXhCqWi7pgJdNPI0', 'mghifariarfan@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1550225511, 1550289951, 1, 'Muhammad', 'Arfananda', NULL, NULL),
 (4, '::1', '12345678', '$argon2i$v=19$m=4096,t=2,p=2$cFFOY3dva1NkV2VVZk5iNQ$T/F7bT/Bx3jt13XN/1RBS5ct4FupiHKcwjBXkGXvmJc', 'korosensei@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1550226286, 1550285783, 1, 'Koro', 'Sensei', NULL, NULL),
-(6, '::1', '12183019', '$argon2i$v=19$m=4096,t=2,p=2$QjdjLjJZeEFFQjZDZkQyaQ$1M86VAIh9kHWA6/5KRsAHxtWHIaiRcTeMubmFfb/BDA', 'ghifaridesu@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1550288622, NULL, 1, 'Ghifari', 'Desu', NULL, NULL),
 (8, '::1', '01234567', '$argon2i$v=19$m=4096,t=2,p=2$SlJjb2I1a1JtVW1lSVBnZQ$eUY3YAQcAg0m59zArsJOrTuME64ApGp48QkPqngFAYY', 'tobirama@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1550289356, 1550289567, 1, 'Tobirama', 'Sensei', NULL, NULL);
 
 -- --------------------------------------------------------
