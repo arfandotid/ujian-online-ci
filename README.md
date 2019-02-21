@@ -4,7 +4,9 @@ Aplikasi Ujian Online Menggunakan CodeIgniter
 <h1>Cara Install</h1>
 <ol>
   <li>
-    Buat database dengan nama <kbd>ci_online_test</kbd>. Kemudian import database pada folder <kbd>sql</kbd>. Jangan lupa setting lagi file <kbd>config.php</kbd> nya.
+    Buat database dengan nama <kbd>ci_online_test</kbd>. Kemudian import database pada folder <kbd>sql</kbd>. Jangan lupa setting lagi file <kbd>config.php</kbd> nya. 
+    <br/>
+    Secara default password method hashnya adalah <code>BCRYPT</code>. Jadi untuk database import yang ada didalam folder <kbd>hash_method_bcrypt</kbd> 
   </li>
 </ol>
 
