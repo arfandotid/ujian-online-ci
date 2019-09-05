@@ -28,9 +28,9 @@ class Jurusan extends CI_Controller {
 			'judul'	=> 'Jurusan',
 			'subjudul'=> 'Data Jurusan'
 		];
-		$this->load->view('_templates/dashboard/_header.php', $data);
+		$this->load->view('_templates/dashboard/_header', $data);
 		$this->load->view('master/jurusan/data');
-		$this->load->view('_templates/dashboard/_footer.php');
+		$this->load->view('_templates/dashboard/_footer');
 	}
 
 	public function add()
@@ -41,9 +41,9 @@ class Jurusan extends CI_Controller {
 			'subjudul'	=> 'Tambah Data Jurusan',
 			'banyak'	=> $this->input->post('banyak', true)
 		];
-		$this->load->view('_templates/dashboard/_header.php', $data);
+		$this->load->view('_templates/dashboard/_header', $data);
 		$this->load->view('master/jurusan/add');
-		$this->load->view('_templates/dashboard/_footer.php');
+		$this->load->view('_templates/dashboard/_footer');
 	}
 
 	public function data()
@@ -64,9 +64,9 @@ class Jurusan extends CI_Controller {
 				'subjudul'	=> 'Edit Data Jurusan',
 				'jurusan'	=> $jurusan
 			];
-			$this->load->view('_templates/dashboard/_header.php', $data);
+			$this->load->view('_templates/dashboard/_header', $data);
 			$this->load->view('master/jurusan/edit');
-			$this->load->view('_templates/dashboard/_footer.php');
+			$this->load->view('_templates/dashboard/_footer');
 		}
 	}
     
@@ -131,5 +131,17 @@ class Jurusan extends CI_Controller {
 	{
 		$data = $this->master->getJurusan();
 		$this->output_json($data);
+	}
+
+	public function import()
+	{
+		$data = [
+			'user' => $this->ion_auth->user()->row(),
+			'judul'	=> 'Jurusan',
+			'subjudul'=> 'Import Jurusan'
+		];
+		$this->load->view('_templates/dashboard/_header', $data);
+		$this->load->view('master/jurusan/import');
+		$this->load->view('_templates/dashboard/_footer');
 	}
 }

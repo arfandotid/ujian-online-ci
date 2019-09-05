@@ -19,6 +19,17 @@
 	<script src="<?=base_url()?>assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="<?=base_url()?>assets/bower_components/datatables.net-bs/js/jquery.dataTables.min.js"></script>
 	<script src="<?=base_url()?>assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
+	<!-- Datatables Buttons -->
+	<script src="<?=base_url()?>assets/bower_components/datatables.net-bs/plugins/Buttons-1.5.6/js/dataTables.buttons.min.js"></script>
+	<script src="<?=base_url()?>assets/bower_components/datatables.net-bs/plugins/Buttons-1.5.6/js/buttons.bootstrap.min.js"></script>
+	<script src="<?=base_url()?>assets/bower_components/datatables.net-bs/plugins/JSZip-2.5.0/jszip.min.js"></script>
+	<script src="<?=base_url()?>assets/bower_components/datatables.net-bs/plugins/pdfmake-0.1.36/pdfmake.min.js"></script>
+	<script src="<?=base_url()?>assets/bower_components/datatables.net-bs/plugins/pdfmake-0.1.36/vfs_fonts.js"></script>
+	<script src="<?=base_url()?>assets/bower_components/datatables.net-bs/plugins/Buttons-1.5.6/js/buttons.html5.min.js"></script>
+	<script src="<?=base_url()?>assets/bower_components/datatables.net-bs/plugins/Buttons-1.5.6/js/buttons.print.min.js"></script>
+	<script src="<?=base_url()?>assets/bower_components/datatables.net-bs/plugins/Buttons-1.5.6/js/buttons.colVis.min.js"></script>
+
 	<script src="<?=base_url()?>assets/bower_components/pace/pace.min.js"></script>
 	<script src="<?=base_url()?>assets/dist/js/adminlte.min.js"></script>
 
