@@ -194,6 +194,9 @@ class Jurusan extends CI_Controller
 					$jurusan[] = $sheetData[$i][0];
 				}
 			}
+
+			unlink($file);
+
 			$this->import($jurusan);
 		}
 	}

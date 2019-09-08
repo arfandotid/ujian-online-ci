@@ -15,11 +15,11 @@
             </div>
         </div>
         <div class="text-center">
-            <a href="<?= base_url('uploads/import/format/jurusan.xlsx') ?>" class="btn-default btn">Download Format</a>
+            <a href="<?= base_url('uploads/import/format/matkul.xlsx') ?>" class="btn-default btn">Download Format</a>
         </div>
         <br>
         <div class="row">
-            <?= form_open_multipart('jurusan/preview'); ?>
+            <?= form_open_multipart('matkul/preview'); ?>
             <label for="file" class="col-sm-offset-1 col-sm-3 text-right">Pilih File</label>
             <div class="col-sm-4">
                 <div class="form-group">
@@ -38,7 +38,7 @@
                         <thead>
                             <tr>
                                 <td>No</td>
-                                <td>Jurusan</td>
+                                <td>Mata Kuliah</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,11 +47,11 @@
                                     echo '<tr><td colspan="2" class="text-center">Data kosong! pastikan anda menggunakan format yang telah disediakan.</td></tr>';
                                 } else {
                                     $no = 1;
-                                    foreach ($import as $jurusan) :
+                                    foreach ($import as $matkul) :
                                         ?>
                                     <tr>
                                         <td><?= $no++; ?></td>
-                                        <td><?= $jurusan; ?></td>
+                                        <td><?= $matkul; ?></td>
                                     </tr>
                             <?php
                                     endforeach;
@@ -61,7 +61,7 @@
                     </table>
                     <?php if (!empty($import)) : ?>
 
-                        <?= form_open('jurusan/do_import', null, ['jurusan' => json_encode($import)]); ?>
+                        <?= form_open('matkul/do_import', null, ['matkul' => json_encode($import)]); ?>
                         <button type='submit' class='btn btn-block btn-flat bg-purple'>Import</button>
                         <?= form_close(); ?>
 
