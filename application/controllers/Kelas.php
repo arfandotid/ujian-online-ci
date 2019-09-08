@@ -156,6 +156,7 @@ class Kelas extends CI_Controller
 		$this->load->view('master/kelas/import');
 		$this->load->view('_templates/dashboard/_footer');
 	}
+
 	public function preview()
 	{
 		$config['upload_path']		= './uploads/import/';
