@@ -1,13 +1,18 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Master_model extends CI_Model {
+class Master_model extends CI_Model
+{
+    public function __construct()
+    {
+        $this->db->query("SET sql_mode=(SELECT REPLACE(@@sql_mode, 'ONLY_FULL_GROUP_BY', ''));");
+    }
 
     public function create($table, $data, $batch = false)
     {
-        if($batch === false){
+        if ($batch === false) {
             $insert = $this->db->insert($table, $data);
-        }else{
+        } else {
             $insert = $this->db->insert_batch($table, $data);
         }
         return $insert;
@@ -15,9 +20,9 @@ class Master_model extends CI_Model {
 
     public function update($table, $data, $pk, $id = null, $batch = false)
     {
-        if($batch === false){
+        if ($batch === false) {
             $insert = $this->db->update($table, $data, array($pk => $id));
-        }else{
+        } else {
             $insert = $this->db->update_batch($table, $data, $pk);
         }
         return $insert;
@@ -38,7 +43,7 @@ class Master_model extends CI_Model {
         $this->datatables->select('id_kelas, nama_kelas, id_jurusan, nama_jurusan');
         $this->datatables->from('kelas');
         $this->datatables->join('jurusan', 'jurusan_id=id_jurusan');
-        $this->datatables->add_column('bulk_select', '<div class="text-center"><input type="checkbox" class="check" name="checked[]" value="$1"/></div>', 'id_kelas, nama_kelas, id_jurusan, nama_jurusan');        
+        $this->datatables->add_column('bulk_select', '<div class="text-center"><input type="checkbox" class="check" name="checked[]" value="$1"/></div>', 'id_kelas, nama_kelas, id_jurusan, nama_jurusan');
         return $this->datatables->generate();
     }
 
@@ -107,10 +112,10 @@ class Master_model extends CI_Model {
 
     public function getAllJurusan($id = null)
     {
-        if($id === null){
+        if ($id === null) {
             $this->db->order_by('nama_jurusan', 'ASC');
-            return $this->db->get('jurusan')->result();    
-        }else{
+            return $this->db->get('jurusan')->result();
+        } else {
             $this->db->select('jurusan_id');
             $this->db->from('jurusan_matkul');
             $this->db->where('matkul_id', $id);
@@ -119,7 +124,7 @@ class Master_model extends CI_Model {
             foreach ($jurusan as $j) {
                 $id_jurusan[] = $j->jurusan_id;
             }
-            if($id_jurusan === []){
+            if ($id_jurusan === []) {
                 $id_jurusan = null;
             }
             
@@ -173,11 +178,11 @@ class Master_model extends CI_Model {
 
     public function getMatkulById($id, $single = false)
     {
-        if($single === false){
+        if ($single === false) {
             $this->db->where_in('id_matkul', $id);
             $this->db->order_by('nama_matkul');
             $query = $this->db->get('matkul')->result();
-        }else{
+        } else {
             $query = $this->db->get_where('matkul', array('id_matkul'=>$id))->row();
         }
         return $query;
@@ -201,7 +206,7 @@ class Master_model extends CI_Model {
     {
         $this->db->select('dosen_id');
         $this->db->from('kelas_dosen');
-        if($id !== null){
+        if ($id !== null) {
             $this->db->where_not_in('dosen_id', [$id]);
         }
         $dosen = $this->db->get()->result();
@@ -209,7 +214,7 @@ class Master_model extends CI_Model {
         foreach ($dosen as $d) {
             $id_dosen[] = $d->dosen_id;
         }
-        if($id_dosen === []){
+        if ($id_dosen === []) {
             $id_dosen = null;
         }
 
@@ -256,7 +261,7 @@ class Master_model extends CI_Model {
     {
         $this->db->select('matkul_id');
         $this->db->from('jurusan_matkul');
-        if($id !== null){
+        if ($id !== null) {
             $this->db->where_not_in('matkul_id', [$id]);
         }
         $matkul = $this->db->get()->result();
@@ -264,7 +269,7 @@ class Master_model extends CI_Model {
         foreach ($matkul as $d) {
             $id_matkul[] = $d->matkul_id;
         }
-        if($id_matkul === []){
+        if ($id_matkul === []) {
             $id_matkul = null;
         }
 

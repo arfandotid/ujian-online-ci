@@ -358,7 +358,7 @@ class TCPDF_COLORS {
 				$color_code = self::$webcolor[$color];
 			} else {
 				// spot color
-				$returncolor = self::getSpotColor($color, $spotc);
+				$returncolor = self::getSpotColor($hcolor, $spotc);
 				if ($returncolor === false) {
 					$returncolor = $defcol;
 				}
@@ -449,7 +449,7 @@ class TCPDF_COLORS {
 		}
 		if (!in_array($color, self::$jscolor)) {
 			// default transparent color
-			$color = $jscolor[0];
+			$color = self::$jscolor[0];
 		}
 		return 'color.'.$color;
 	}
