@@ -14,7 +14,7 @@
                     <div class="col-sm-8 col-sm-offset-2">
                         <div class="form-group col-sm-12">
                             <label>Dosen (Mata Kuliah)</label>
-                            <?php if( $this->ion_auth->is_admin() ) : ?>
+                            <?php if ($this->ion_auth->is_admin()) : ?>
                             <select name="dosen_id" required="required" id="dosen_id" class="select2 form-group" style="width:100% !important">
                                 <option value="" disabled selected>Pilih Dosen</option>
                                 <?php foreach ($dosen as $d) : ?>
@@ -36,7 +36,7 @@
                                 <small class="help-block" style="color: #dc3545"><?=form_error('file_soal')?></small>
                             </div>
                             <div class="form-group">
-                                <textarea name="soal" id="soal" class="form-control froala-editor"><?=set_value('soal')?></textarea>
+                                <textarea name="soal" id="soal" class="form-control summernote"><?=set_value('soal')?></textarea>
                                 <small class="help-block" style="color: #dc3545"><?=form_error('soal')?></small>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                             Membuat perulangan A-E 
                         -->
                         <?php
-                        $abjad = ['a', 'b', 'c', 'd', 'e']; 
+                        $abjad = ['a', 'b', 'c', 'd', 'e'];
                         foreach ($abjad as $abj) :
                             $ABJ = strtoupper($abj); // Abjad Kapital
                         ?>
@@ -57,7 +57,7 @@
                                 <small class="help-block" style="color: #dc3545"><?=form_error('file_'.$abj)?></small>
                             </div>
                             <div class="form-group">
-                                <textarea name="jawaban_<?= $abj; ?>" id="jawaban_<?= $abj; ?>" class="form-control froala-editor"><?=set_value('jawaban_a')?></textarea>
+                                <textarea name="jawaban_<?= $abj; ?>" id="jawaban_<?= $abj; ?>" class="form-control summernote"><?=set_value('jawaban_a')?></textarea>
                                 <small class="help-block" style="color: #dc3545"><?=form_error('jawaban_'.$abj)?></small>
                             </div>
                         </div>

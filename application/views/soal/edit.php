@@ -15,12 +15,12 @@
                         <div class="row">
                             <div class="form-group col-sm-12">
                                 <label for="dosen_id" class="control-label">Dosen (Mata Kuliah)</label>
-                                <?php if( $this->ion_auth->is_admin() ) : ?>
+                                <?php if ($this->ion_auth->is_admin()) : ?>
                                 <select required="required" name="dosen_id" id="dosen_id" class="select2 form-group" style="width:100% !important">
                                     <option value="" disabled selected>Pilih Dosen</option>
-                                    <?php 
+                                    <?php
                                     $sdm = $soal->dosen_id.':'.$soal->matkul_id;
-                                    foreach ($dosen as $d) : 
+                                    foreach ($dosen as $d) :
                                         $dm = $d->id_dosen.':'.$d->matkul_id;?>
                                         <option <?=$sdm===$dm?"selected":"";?> value="<?=$dm?>"><?=$d->nama_dosen?> (<?=$d->nama_matkul?>)</option>
                                     <?php endforeach; ?>
@@ -39,12 +39,12 @@
                                     <div class="form-group col-sm-3">
                                         <input type="file" name="file_soal" class="form-control">
                                         <small class="help-block" style="color: #dc3545"><?=form_error('file_soal')?></small>
-                                        <?php if(!empty($soal->file)) : ?>
+                                        <?php if (!empty($soal->file)) : ?>
                                             <?=tampil_media('uploads/bank_soal/'.$soal->file);?>
                                         <?php endif;?>
                                     </div>
                                     <div class="form-group col-sm-9">
-                                        <textarea name="soal" id="soal" class="form-control froala-editor"><?=$soal->soal?></textarea>
+                                        <textarea name="soal" id="soal" class="form-control summernote"><?=$soal->soal?></textarea>
                                         <small class="help-block" style="color: #dc3545"><?=form_error('soal')?></small>
                                     </div>
                                 </div>
@@ -54,7 +54,7 @@
                                 Membuat perulangan A-E 
                             -->
                             <?php
-                            $abjad = ['a', 'b', 'c', 'd', 'e']; 
+                            $abjad = ['a', 'b', 'c', 'd', 'e'];
                             foreach ($abjad as $abj) :
                                 $ABJ = strtoupper($abj); // Abjad Kapital
                                 $file = 'file_'.$abj;
@@ -67,12 +67,12 @@
                                     <div class="form-group col-sm-3">
                                         <input type="file" name="<?= $file; ?>" class="form-control">
                                         <small class="help-block" style="color: #dc3545"><?=form_error($file)?></small>
-                                        <?php if(!empty($soal->$file)) : ?>
+                                        <?php if (!empty($soal->$file)) : ?>
                                             <?=tampil_media('uploads/bank_soal/'.$soal->$file);?>
                                         <?php endif;?>
                                     </div>
                                     <div class="form-group col-sm-9">
-                                        <textarea name="jawaban_<?= $abj; ?>" id="jawaban_<?= $abj; ?>" class="form-control froala-editor"><?=$soal->$opsi?></textarea>
+                                        <textarea name="jawaban_<?= $abj; ?>" id="jawaban_<?= $abj; ?>" class="form-control summernote"><?=$soal->$opsi?></textarea>
                                         <small class="help-block" style="color: #dc3545"><?=form_error('jawaban_'.$abj)?></small>
                                     </div>
                                 </div>

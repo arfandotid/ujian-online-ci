@@ -38,6 +38,8 @@
 			<script src="<?= base_url() ?>assets/bower_components/codemirror/mode/xml.min.js"></script>
 			<script src="<?= base_url() ?>assets/bower_components/froala_editor/js/froala_editor.pkgd.min.js"></script>
 
+			<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
 			<!-- App JS -->
 			<script src="<?= base_url() ?>assets/dist/js/app/dashboard.js"></script>
 
@@ -68,6 +70,20 @@
 				function reload_ajax() {
 					table.ajax.reload(null, false);
 				}
+
+				$(document).ready(function() {
+					$('.summernote').summernote({
+						toolbar: [
+							// [groupName, [list of button]]
+							['style', ['bold', 'italic', 'underline', 'clear']],
+							['font', ['strikethrough', 'superscript', 'subscript']],
+							['fontsize', ['fontsize']],
+							['color', ['color']],
+							['para', ['ul', 'ol', 'paragraph']],
+							['height', ['height']]
+						]
+					});
+				});
 			</script>
 
 			</body>
