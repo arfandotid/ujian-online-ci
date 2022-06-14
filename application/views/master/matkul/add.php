@@ -24,7 +24,7 @@
                     <thead>
                         <tr>
                             <th># No</th>
-                            <th>Mata Kuliah</th>
+                            <th>Jenis Tes</th>
                         </tr>
                     </thead>
                     <tbody>

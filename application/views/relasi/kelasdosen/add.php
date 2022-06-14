@@ -12,18 +12,18 @@
             <div class="col-sm-4">
                 <div class="alert bg-purple">
                     <h4><i class="fa fa-info-circle"></i> Informasi</h4>
-                    Jika kolom dosen kosong, berikut ini kemungkinan penyebabnya :
+                    Jika kolom pembuat soal kosong, berikut ini kemungkinan penyebabnya :
                     <br><br>
                     <ol class="pl-4">
-                        <li>Anda belum menambahkan master data dosen (Master dosen kosong/belum ada data sama sekali).</li>
-                        <li>Dosen sudah ditambahkan, jadi anda tidak perlu tambah lagi. Anda hanya perlu mengedit data kelas dosen nya saja.</li>
+                        <li>Anda belum menambahkan master data pembuat soal (Master pembuat soal kosong/belum ada data sama sekali).</li>
+                        <li>pembuat soal sudah ditambahkan, jadi anda tidak perlu tambah lagi. Anda hanya perlu mengedit data kelas dosen nya saja.</li>
                     </ol>
                 </div>
             </div>
             <div class="col-sm-4">
                 <?=form_open('kelasdosen/save', array('id'=>'kelasdosen'), array('method'=>'add'))?>
                 <div class="form-group">
-                    <label>Dosen</label>
+                    <label>pembuat soal</label>
                     <select name="dosen_id" class="form-control select2" style="width: 100%!important">
                         <option value="" disabled selected></option>
                         <?php foreach ($dosen as $d) : ?>

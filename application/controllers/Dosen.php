@@ -27,8 +27,8 @@ class Dosen extends CI_Controller
 	{
 		$data = [
 			'user' => $this->ion_auth->user()->row(),
-			'judul'	=> 'Dosen',
-			'subjudul' => 'Data Dosen'
+			'judul'	=> 'Pembuat Soal',
+			'subjudul' => 'Data Pembuat Soal'
 		];
 		$this->load->view('_templates/dashboard/_header.php', $data);
 		$this->load->view('master/dosen/data');
@@ -44,8 +44,8 @@ class Dosen extends CI_Controller
 	{
 		$data = [
 			'user' => $this->ion_auth->user()->row(),
-			'judul'	=> 'Tambah Dosen',
-			'subjudul' => 'Tambah Data Dosen',
+			'judul'	=> 'Tambah Pembuat Soal',
+			'subjudul' => 'Tambah Data Pembuat Soal',
 			'matkul'	=> $this->master->getAllMatkul()
 		];
 		$this->load->view('_templates/dashboard/_header.php', $data);
@@ -86,7 +86,7 @@ class Dosen extends CI_Controller
 		$this->form_validation->set_rules('nip', 'NIP', 'required|numeric|trim|min_length[8]|max_length[12]' . $u_nip);
 		$this->form_validation->set_rules('nama_dosen', 'Nama Dosen', 'required|trim|min_length[3]|max_length[50]');
 		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email' . $u_email);
-		$this->form_validation->set_rules('matkul', 'Mata Kuliah', 'required');
+		$this->form_validation->set_rules('matkul', 'Jenis Tes', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
 			$data = [

@@ -13,10 +13,10 @@
                 <div class="row">
                     <div class="col-sm-8 col-sm-offset-2">
                         <div class="form-group col-sm-12">
-                            <label>Dosen (Mata Kuliah)</label>
+                            <label>Pembuat Soal (Jenis Tes)</label>
                             <?php if ($this->ion_auth->is_admin()) : ?>
                             <select name="dosen_id" required="required" id="dosen_id" class="select2 form-group" style="width:100% !important">
-                                <option value="" disabled selected>Pilih Dosen</option>
+                                <option value="" disabled selected>Pilih Pembuat Soal</option>
                                 <?php foreach ($dosen as $d) : ?>
                                     <option value="<?=$d->id_dosen?>:<?=$d->matkul_id?>"><?=$d->nama_dosen?> (<?=$d->nama_matkul?>)</option>
                                 <?php endforeach; ?>

@@ -25,8 +25,8 @@ class JurusanMatkul extends CI_Controller {
 	{
 		$data = [
 			'user' => $this->ion_auth->user()->row(),
-			'judul'	=> 'Jurusan Mata Kuliah',
-			'subjudul'=> 'Data Jurusan Mata Kuliah'
+			'judul'	=> 'Kategori dan Ujian Jenis Tes',
+			'subjudul'=> 'Data Kategori dan Ujian Jenis Tes'
 		];
 		$this->load->view('_templates/dashboard/_header.php', $data);
 		$this->load->view('relasi/jurusanmatkul/data');
@@ -47,8 +47,8 @@ class JurusanMatkul extends CI_Controller {
 	{
 		$data = [
 			'user' 		=> $this->ion_auth->user()->row(),
-			'judul'		=> 'Tambah Jurusan Mata Kuliah',
-			'subjudul'	=> 'Tambah Data Jurusan Mata Kuliah',
+			'judul'		=> 'Tambah Kategori dan Jenis Tes',
+			'subjudul'	=> 'Tambah Data Kategori dan Jenis Tes',
 			'matkul'	=> $this->master->getMatkul()
 		];
 		$this->load->view('_templates/dashboard/_header.php', $data);
@@ -60,8 +60,8 @@ class JurusanMatkul extends CI_Controller {
 	{
 		$data = [
 			'user' 			=> $this->ion_auth->user()->row(),
-			'judul'			=> 'Edit Jurusan Mata Kuliah',
-			'subjudul'		=> 'Edit Data Jurusan Mata Kuliah',
+			'judul'			=> 'Edit Kategori dan Jenis Tes',
+			'subjudul'		=> 'Edit Data Kategori dan Jenis Tes',
 			'matkul'		=> $this->master->getMatkulById($id, true),
 			'id_matkul'		=> $id,
 			'all_jurusan'	=> $this->master->getAllJurusan(),
@@ -75,7 +75,7 @@ class JurusanMatkul extends CI_Controller {
 	public function save()
 	{
 		$method = $this->input->post('method', true);
-		$this->form_validation->set_rules('matkul_id', 'Mata Kuliah', 'required');
+		$this->form_validation->set_rules('matkul_id', 'Jenis Tes', 'required');
 		$this->form_validation->set_rules('jurusan_id[]', 'Jurusan', 'required');
 	
 		if($this->form_validation->run() == FALSE){

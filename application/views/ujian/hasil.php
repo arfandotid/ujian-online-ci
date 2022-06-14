@@ -19,8 +19,8 @@
             <tr>
                 <th>No.</th>
                 <th>Nama Ujian</th>
-                <th>Mata Kuliah</th>
-                <th>Dosen</th>
+                <th>Jenis Tes</th>
+                <th>Pembuat Soal</th>
                 <th>Jumlah Soal</th>
                 <th>Waktu</th>
                 <th>Tanggal</th>
@@ -33,8 +33,8 @@
             <tr>
                 <th>No.</th>
                 <th>Nama Ujian</th>
-                <th>Mata Kuliah</th>
-                <th>Dosen</th>
+                <th>Jenis Tes</th>
+                <th>Pembuat Soal</th>
                 <th>Jumlah Soal</th>
                 <th>Waktu</th>
                 <th>Tanggal</th>

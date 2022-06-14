@@ -88,7 +88,7 @@ Dolore distinctio, at consequuntur magnam cupiditate voluptate hic ratione ea il
 <h2>Data Ujian</h2>
 <table id="data-hasil">
     <tr>
-        <th>Mata Kuliah</th>
+        <th>Jenis Tes</th>
         <td>{$ujian->nama_matkul}</td>
     </tr>
     <tr>

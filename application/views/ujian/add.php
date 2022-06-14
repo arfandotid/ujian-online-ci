@@ -11,11 +11,11 @@
         <div class="row">
             <div class="col-sm-4">
                 <div class="alert bg-purple">
-                    <h4>Mata Kuliah <i class="fa fa-book pull-right"></i></h4>
+                    <h4>Jenis Tes <i class="fa fa-book pull-right"></i></h4>
                     <p><?=$matkul->nama_matkul?></p>
                 </div>
                 <div class="alert bg-purple">
-                    <h4>Dosen <i class="fa fa-address-book-o pull-right"></i></h4>
+                    <h4>Pembuat Soal <i class="fa fa-address-book-o pull-right"></i></h4>
                     <p><?=$dosen->nama_dosen?></p>
                 </div>
             </div>

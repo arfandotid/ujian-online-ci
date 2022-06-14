@@ -17,19 +17,19 @@
                     <small class="help-block"></small>
                 </div>
                 <div class="form-group">
-                    <label for="nama_dosen">Nama Dosen</label>
+                    <label for="nama_dosen">Nama Pembuat Soal</label>
                     <input value="<?=$data->nama_dosen?>" type="text" class="form-control" name="nama_dosen" placeholder="Nama Dosen">
                     <small class="help-block"></small>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email Dosen</label>
+                    <label for="email">Email Pembuat Soal</label>
                     <input value="<?=$data->email?>" type="text" class="form-control" name="email" placeholder="Email Dosen">
                     <small class="help-block"></small>
                 </div>
                 <div class="form-group">
-                    <label for="matkul">Mata Kuliah</label>
+                    <label for="matkul">Jenis Tes</label>
                     <select name="matkul" id="matkul" class="form-control select2" style="width: 100%!important">
-                        <option value="" disabled selected>Pilih Mata Kuliah</option>
+                        <option value="" disabled selected>Pilih Jenis Tes</option>
                         <?php foreach ($matkul as $row) : ?>
                             <option <?=$data->matkul_id===$row->id_matkul?"selected":""?> value="<?=$row->id_matkul?>"><?=$row->nama_matkul?></option>
                         <?php endforeach; ?>

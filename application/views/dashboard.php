@@ -40,7 +40,7 @@
                     <td><?=$dosen->email?></td>
                 </tr>
                 <tr>
-                    <th>Mata Kuliah</th>
+                    <th>Jenis Tes</th>
                     <td><?=$dosen->nama_matkul?></td>
                 </tr>
                 <tr>

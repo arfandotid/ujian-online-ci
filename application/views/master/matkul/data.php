@@ -21,7 +21,7 @@
 			<thead>
 				<tr>
 					<th>No.</th>
-					<th>Mata Kuliah</th>
+					<th>Jenis Tes</th>
 					<th class="text-center">
 						<input type="checkbox" class="select_all">
 					</th>
@@ -30,7 +30,7 @@
 			<tfoot>
 				<tr>
 					<th>No.</th>
-					<th>Mata Kuliah</th>
+					<th>Jenis Tes</th>
 					<th class="text-center">
 						<input type="checkbox" class="select_all">
 					</th>

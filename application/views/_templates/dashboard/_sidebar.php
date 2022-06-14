@@ -48,13 +48,13 @@
 					<li class="<?=$page==='matkul'?"active":""?>">
 						<a href="<?=base_url('matkul')?>">
 							<i class="fa fa-circle-o"></i>
-							Master Mata Kuliah
+							Master Jenis Tes
 						</a>
 					</li>
 					<li class="<?=$page==='dosen'?"active":""?>">
 						<a href="<?=base_url('dosen')?>">
 							<i class="fa fa-circle-o"></i>
-							Master Dosen
+							Master Pembuat soal
 						</a>
 					</li>
 					<li class="<?=$page==='mahasiswa'?"active":""?>">
@@ -81,7 +81,7 @@
 					<li class="<?=$page==='jurusanmatkul'?"active":""?>">
 						<a href="<?=base_url('jurusanmatkul')?>">
 							<i class="fa fa-circle-o"></i>
-							Jurusan - Mata Kuliah
+							Kategori - Jenis Tes
 						</a>
 					</li>
 				</ul>

@@ -38,7 +38,7 @@
                         <thead>
                             <tr>
                                 <td>No</td>
-                                <td>Mata Kuliah</td>
+                                <td>Jenis Tes</td>
                             </tr>
                         </thead>
                         <tbody>

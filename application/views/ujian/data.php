@@ -23,7 +23,7 @@
 				</th>
                 <th>No.</th>
                 <th>Nama Ujian</th>
-                <th>Mata Kuliah</th>
+                <th>Jenis Tes</th>
                 <th>Jumlah Soal</th>
                 <th>Waktu</th>
                 <th>Acak Soal</th>
@@ -38,7 +38,7 @@
 				</th>
                 <th>No.</th>
                 <th>Nama Ujian</th>
-                <th>Mata Kuliah</th>
+                <th>Jenis Tes</th>
                 <th>Jumlah Soal</th>
                 <th>Waktu</th>
                 <th>Acak Soal</th>                

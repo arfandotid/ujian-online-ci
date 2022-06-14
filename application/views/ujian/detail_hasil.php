@@ -44,11 +44,11 @@
             <div class="col-sm-6">
                 <table class="table w-100">
                     <tr>
-                        <th>Mata Kuliah</th>
+                        <th>Jenis Tes</th>
                         <td><?=$ujian->nama_matkul?></td>
                     </tr>
                     <tr>
-                        <th>Dosen</th>
+                        <th>Pembuat Soal</th>
                         <td><?=$ujian->nama_dosen?></td>
                     </tr>
                     <tr>

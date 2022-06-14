@@ -32,8 +32,8 @@ class Matkul extends CI_Controller
 	{
 		$data = [
 			'user' => $this->ion_auth->user()->row(),
-			'judul'	=> 'Mata Kuliah',
-			'subjudul' => 'Data Mata Kuliah'
+			'judul'	=> 'Jenis Tes',
+			'subjudul' => 'Data Jenis Tes'
 		];
 		$this->load->view('_templates/dashboard/_header.php', $data);
 		$this->load->view('master/matkul/data');
@@ -49,8 +49,8 @@ class Matkul extends CI_Controller
 	{
 		$data = [
 			'user' 		=> $this->ion_auth->user()->row(),
-			'judul'		=> 'Tambah Mata Kuliah',
-			'subjudul'	=> 'Tambah Data Mata Kuliah',
+			'judul'		=> 'Tambah Jenis Tes',
+			'subjudul'	=> 'Tambah Data Jenis Tes',
 			'banyak'	=> $this->input->post('banyak', true)
 		];
 		$this->load->view('_templates/dashboard/_header.php', $data);
@@ -67,8 +67,8 @@ class Matkul extends CI_Controller
 			$matkul = $this->master->getMatkulById($chk);
 			$data = [
 				'user' 		=> $this->ion_auth->user()->row(),
-				'judul'		=> 'Edit Mata Kuliah',
-				'subjudul'	=> 'Edit Data Mata Kuliah',
+				'judul'		=> 'Edit Jenis Tes',
+				'subjudul'	=> 'Edit Data Jenis Tes',
 				'matkul'	=> $matkul
 			];
 			$this->load->view('_templates/dashboard/_header.php', $data);
@@ -83,7 +83,7 @@ class Matkul extends CI_Controller
 		$mode = $this->input->post('mode', true);
 		for ($i = 1; $i <= $rows; $i++) {
 			$nama_matkul = 'nama_matkul[' . $i . ']';
-			$this->form_validation->set_rules($nama_matkul, 'Mata Kuliah', 'required');
+			$this->form_validation->set_rules($nama_matkul, 'Jenis Tes', 'required');
 			$this->form_validation->set_message('required', '{field} Wajib diisi');
 
 			if ($this->form_validation->run() === FALSE) {
@@ -138,8 +138,8 @@ class Matkul extends CI_Controller
 	{
 		$data = [
 			'user' => $this->ion_auth->user()->row(),
-			'judul'	=> 'Mata Kuliah',
-			'subjudul' => 'Import Mata Kuliah'
+			'judul'	=> 'Jenis Tes',
+			'subjudul' => 'Import Jenis Tes'
 		];
 		if ($import_data != null) $data['import'] = $import_data;
 

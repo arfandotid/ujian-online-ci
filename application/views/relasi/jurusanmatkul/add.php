@@ -12,18 +12,18 @@
             <div class="col-sm-4">
                 <div class="alert bg-purple">
                     <h4><i class="fa fa-info-circle"></i> Informasi</h4>
-                    Jika kolom Mata Kuliah kosong, berikut ini kemungkinan penyebabnya :
+                    Jika kolom Jenis Tes kosong, berikut ini kemungkinan penyebabnya :
                     <br><br>
                     <ol class="pl-4">
-                        <li>Anda belum menambahkan master data Mata Kuliah (Master Mata Kuliah kosong/belum ada data sama sekali).</li>
-                        <li>Mata Kuliah sudah ditambahkan, jadi anda tidak perlu tambah lagi. Anda hanya perlu mengedit data Jurusan Mata Kuliah nya saja.</li>
+                        <li>Anda belum menambahkan master data Jenis Tes (Master Jenis Tes kosong/belum ada data sama sekali).</li>
+                        <li>Jenis Tes sudah ditambahkan, jadi anda tidak perlu tambah lagi. Anda hanya perlu mengedit data Jurusan Jenis Tes nya saja.</li>
                     </ol>
                 </div>
             </div>
             <div class="col-sm-4">
                 <?=form_open('jurusanmatkul/save', array('id'=>'jurusanmatkul'), array('method'=>'add'))?>
                 <div class="form-group">
-                    <label>Mata Kuliah</label>
+                    <label>Jenis Tes</label>
                     <select name="matkul_id" class="form-control select2" style="width: 100%!important">
                         <option value="" disabled selected></option>
                         <?php foreach ($matkul as $m) : ?>

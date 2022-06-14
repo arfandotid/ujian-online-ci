@@ -66,14 +66,13 @@ $selesai = strftime('%A, %d %B %Y', strtotime($ujian->terlambat));
 // create some HTML content
 $html = <<<EOD
 <p>
-Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque facere sint veniam.
-Dolore distinctio, at consequuntur magnam cupiditate voluptate hic ratione ea illo nulla quis cum optio, nisi eius dignissimos!
+Berikut adalah tampilan Laporan hasil tes
 </p>
 <table>
     <tr>
         <th>Nama Ujian</th>
         <td>{$ujian->nama_ujian}</td>
-        <th>Mata Kuliah</th>
+        <th>Jenis Tes</th>
         <td>{$ujian->nama_matkul}</td> 
     </tr>
     <tr>

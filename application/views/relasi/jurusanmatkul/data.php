@@ -21,7 +21,7 @@
 		<thead>
 			<tr>
 				<th>No.</th>
-				<th>Mata Kuliah</th>
+				<th>Jenis Tes</th>
 				<th>Jurusan</th>
 				<th class="text-center">Edit</th>
 				<th class="text-center">
@@ -32,7 +32,7 @@
 		<tfoot>
 			<tr>
 				<th>No.</th>
-				<th>Mata Kuliah</th>
+				<th>Jenis Tes</th>
 				<th>Jurusan</th>
 				<th class="text-center">Edit</th>
 				<th class="text-center">

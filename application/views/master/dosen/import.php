@@ -10,7 +10,7 @@
         <ul class="alert alert-info" style="padding-left: 40px">
             <li>Silahkan import data dari excel, menggunakan format yang sudah disediakan</li>
             <li>Data tidak boleh ada yang kosong, harus terisi semua.</li>
-            <li>Untuk data Mata Kuliah, hanya bisa diisi menggunakan ID Mata Kuliah. <a data-toggle="modal" href="#matkulId" style="text-decoration:none" class="btn btn-xs btn-primary">Lihat ID</a>.</li>
+            <li>Untuk data Jenis Tes, hanya bisa diisi menggunakan ID Jenis Tes. <a data-toggle="modal" href="#matkulId" style="text-decoration:none" class="btn btn-xs btn-primary">Lihat ID</a>.</li>
         </ul>
         <div class="text-center">
             <a href="<?= base_url('uploads/import/format/dosen.xlsx') ?>" class="btn-default btn">Download Format</a>
@@ -39,7 +39,7 @@
                                 <td>NIP</td>
                                 <td>Nama</td>
                                 <td>Email</td>
-                                <td>ID Mata Kuliah</td>
+                                <td>ID Jenis Tes</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -95,13 +95,13 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span></button>
-                <h4 class="modal-title">Data Mata Kuliah</h4>
+                <h4 class="modal-title">Data Jenis Tes</h4>
             </div>
             <div class="modal-body">
                 <table id="matkul" class="table table-condensed table-striped">
                     <thead>
                         <th>ID</th>
-                        <th>Mata Kuliah</th>
+                        <th>Jenis Tes</th>
                     </thead>
                     <tbody>
                         <?php foreach ($matkul as $m) : ?>

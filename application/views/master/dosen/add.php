@@ -27,9 +27,9 @@
                     <small class="help-block"></small>
                 </div>
                 <div class="form-group">
-                    <label for="matkul">Mata Kuliah</label>
+                    <label for="matkul">Jenis Tes</label>
                     <select name="matkul" id="matkul" class="form-control select2" style="width: 100%!important">
-                        <option value="" disabled selected>Pilih Mata Kuliah</option>
+                        <option value="" disabled selected>Pilih Jenis Tes</option>
                         <?php foreach ($matkul as $row) : ?>
                             <option value="<?=$row->id_matkul?>"><?=$row->nama_matkul?></option>
                         <?php endforeach; ?>
