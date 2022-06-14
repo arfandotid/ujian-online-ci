@@ -1,5 +1,5 @@
 <a href="<?=base_url('dashboard')?>" class="logo">
-    <span class="logo-mini"><b>CBT</b></span>
+    <span class="logo-mini"><b>TPS</b></span>
     <span class="logo-lg"><b>T</b>es <b>P</b>sikologi</span>
 </a>
 
