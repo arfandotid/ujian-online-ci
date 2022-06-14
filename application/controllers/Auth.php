@@ -35,6 +35,7 @@ class Auth extends CI_Controller
 			'autofocus'	=> 'autofocus',
 			'class' => 'form-control',
 			'autocomplete'=>'off'
+			
 		];
 		$this->data['password'] = [
 			'name' => 'password',
