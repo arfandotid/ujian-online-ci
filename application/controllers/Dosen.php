@@ -57,8 +57,8 @@ class Dosen extends CI_Controller
 	{
 		$data = [
 			'user' 		=> $this->ion_auth->user()->row(),
-			'judul'		=> 'Edit Dosen',
-			'subjudul'	=> 'Edit Data Dosen',
+			'judul'		=> 'Edit Petugas',
+			'subjudul'	=> 'Edit Data Petugas',
 			'matkul'	=> $this->master->getAllMatkul(),
 			'data' 		=> $this->master->getDosenById($id)
 		];
@@ -173,8 +173,8 @@ class Dosen extends CI_Controller
 	{
 		$data = [
 			'user' => $this->ion_auth->user()->row(),
-			'judul'	=> 'Dosen',
-			'subjudul' => 'Import Data Dosen',
+			'judul'	=> 'Petugas',
+			'subjudul' => 'Import Data Petugas',
 			'matkul' => $this->master->getAllMatkul()
 		];
 		if ($import_data != null) $data['import'] = $import_data;
