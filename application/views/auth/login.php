@@ -2,7 +2,7 @@
 	<!-- /.login-logo -->
 	<div class="login-box-body">
 	<h3 class="text-center mt-0 mb-4">
-		<b>C</b>omputer <b>B</b>ased <b>T</b>est
+		<b>T</b>es <b>P</b>sikologi <b>C</b>omputer <b>B</b>ased
 	</h3> 
 	<p class="login-box-msg">Login to start session</p>
 

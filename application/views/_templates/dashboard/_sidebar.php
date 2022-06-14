@@ -36,7 +36,7 @@
 					<li class="<?=$page==='jurusan'?"active":""?>">
 						<a href="<?=base_url('jurusan')?>">
 							<i class="fa fa-circle-o"></i> 
-							Master Jurusan
+							Master Kategori Ujian
 						</a>
 					</li>
 					<li class="<?=$page==='kelas'?"active":""?>">

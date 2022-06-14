@@ -32,8 +32,8 @@ class Jurusan extends CI_Controller
 	{
 		$data = [
 			'user' => $this->ion_auth->user()->row(),
-			'judul'	=> 'Jurusan',
-			'subjudul' => 'Data Jurusan'
+			'judul'	=> 'Kategori Ujian',
+			'subjudul' => 'Data Kategori Ujian'
 		];
 		$this->load->view('_templates/dashboard/_header', $data);
 		$this->load->view('master/jurusan/data');
@@ -44,8 +44,8 @@ class Jurusan extends CI_Controller
 	{
 		$data = [
 			'user' 		=> $this->ion_auth->user()->row(),
-			'judul'		=> 'Tambah Jurusan',
-			'subjudul'	=> 'Tambah Data Jurusan',
+			'judul'		=> 'Tambah Kategori Ujian',
+			'subjudul'	=> 'Tambah Data Kategori Ujian',
 			'banyak'	=> $this->input->post('banyak', true)
 		];
 		$this->load->view('_templates/dashboard/_header', $data);
@@ -67,8 +67,8 @@ class Jurusan extends CI_Controller
 			$jurusan = $this->master->getJurusanById($chk);
 			$data = [
 				'user' 		=> $this->ion_auth->user()->row(),
-				'judul'		=> 'Edit Jurusan',
-				'subjudul'	=> 'Edit Data Jurusan',
+				'judul'		=> 'Edit Kategori Ujian',
+				'subjudul'	=> 'Edit Data Kategori Ujian',
 				'jurusan'	=> $jurusan
 			];
 			$this->load->view('_templates/dashboard/_header', $data);
@@ -83,7 +83,7 @@ class Jurusan extends CI_Controller
 		$mode = $this->input->post('mode', true);
 		for ($i = 1; $i <= $rows; $i++) {
 			$nama_jurusan = 'nama_jurusan[' . $i . ']';
-			$this->form_validation->set_rules($nama_jurusan, 'Jurusan', 'required');
+			$this->form_validation->set_rules($nama_jurusan, 'Nama Kategori Ujian', 'required');
 			$this->form_validation->set_message('required', '{field} Wajib diisi');
 
 			if ($this->form_validation->run() === FALSE) {

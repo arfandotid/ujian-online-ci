@@ -24,7 +24,7 @@
                     <thead>
                         <tr>
                             <th># No</th>
-                            <th>Jurusan</th>
+                            <th>Kategori Ujian</th>
                         </tr>
                     </thead>
                     <tbody id="inputs">

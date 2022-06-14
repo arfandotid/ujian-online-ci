@@ -21,7 +21,7 @@
             <thead>
                 <tr>
                     <th>No.</th>
-                    <th>Jurusan</th>
+                    <th>Kategori Ujian</th>
 					<th class="text-center">
 						<input type="checkbox" id="select_all">
 					</th>
@@ -38,12 +38,12 @@
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">×</span></button>
-				<h4 class="modal-title">Tambah Data</h4>
+				<h4 class="modal-title">Tambah Kategori Ujian</h4>
             </div>
             <?=form_open('jurusan/add', array('id', 'tambah'));?>
 				<div class="modal-body">
 					<div class="form-group">
-						<label for="banyak">Banyaknya data</label>
+						<label for="banyak">Jumlah yang akan ditambahkan</label>
 						<input value="1" minlength="1" maxlength="50" min="1" max="50" id="banyakinput" type="number" autocomplete="off" required="required" name="banyak" class="form-control">
 						<small class="help-block">Max. 50</small>
 					</div>
