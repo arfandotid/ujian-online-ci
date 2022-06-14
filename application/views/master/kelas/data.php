@@ -21,8 +21,8 @@
 			<thead>
 				<tr>
 					<th>No.</th>
-					<th>Kelas</th>
-					<th>Jurusan</th>
+					<th>Ruang</th>
+					<th>Kategori Ujian</th>
 					<th class="text-center">
 						<input type="checkbox" id="select_all">
 					</th>

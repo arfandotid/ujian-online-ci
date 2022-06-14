@@ -1,8 +1,8 @@
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title">Form <?=$judul?></h3>
+        <h3 class="box-title">Form <?= $judul ?></h3>
         <div class="box-tools pull-right">
-            <a href="<?=base_url()?>kelasdosen" class="btn btn-warning btn-flat btn-sm">
+            <a href="<?= base_url() ?>kelasdosen" class="btn btn-warning btn-flat btn-sm">
                 <i class="fa fa-arrow-left"></i> Batal
             </a>
         </div>
@@ -16,18 +16,18 @@
                     <br><br>
                     <ol class="pl-4">
                         <li>Anda belum menambahkan master data pembuat soal (Master pembuat soal kosong/belum ada data sama sekali).</li>
-                        <li>pembuat soal sudah ditambahkan, jadi anda tidak perlu tambah lagi. Anda hanya perlu mengedit data kelas dosen nya saja.</li>
+                        <li>pembuat soal sudah ditambahkan, jadi anda tidak perlu tambah lagi. Anda hanya perlu mengedit data ruang petugas nya saja.</li>
                     </ol>
                 </div>
             </div>
             <div class="col-sm-4">
-                <?=form_open('kelasdosen/save', array('id'=>'kelasdosen'), array('method'=>'add'))?>
+                <?= form_open('kelasdosen/save', array('id' => 'kelasdosen'), array('method' => 'add')) ?>
                 <div class="form-group">
                     <label>pembuat soal</label>
                     <select name="dosen_id" class="form-control select2" style="width: 100%!important">
                         <option value="" disabled selected></option>
                         <?php foreach ($dosen as $d) : ?>
-                            <option value="<?=$d->id_dosen?>"><?=$d->nama_dosen?></option>
+                            <option value="<?= $d->id_dosen ?>"><?= $d->nama_dosen ?></option>
                         <?php endforeach; ?>
                     </select>
                     <small class="help-block text-right"></small>
@@ -36,7 +36,7 @@
                     <label>Kelas</label>
                     <select id="kelas" multiple="multiple" name="kelas_id[]" class="form-control select2" style="width: 100%!important">
                         <?php foreach ($kelas as $k) : ?>
-                            <option value="<?=$k->id_kelas?>"><?=$k->nama_kelas?> - <?=$k->nama_jurusan?></option>
+                            <option value="<?= $k->id_kelas ?>"><?= $k->nama_kelas ?> - <?= $k->nama_jurusan ?></option>
                         <?php endforeach; ?>
                     </select>
                     <small class="help-block text-right"></small>
@@ -49,10 +49,10 @@
                         <i class="fa fa-save"></i> Simpan
                     </button>
                 </div>
-                <?=form_close()?>
+                <?= form_close() ?>
             </div>
         </div>
     </div>
 </div>
 
-<script src="<?=base_url()?>assets/dist/js/app/relasi/kelasdosen/add.js"></script>
+<script src="<?= base_url() ?>assets/dist/js/app/relasi/kelasdosen/add.js"></script>

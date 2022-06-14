@@ -7,10 +7,10 @@
 			<footer class="main-footer">
 				<!-- To the right -->
 				<div class="pull-right hidden-xs">
-					Computer Based Test v2
+					Computer Based Beta Test
 				</div>
 				<!-- Default to the left -->
-				<strong>Copyright &copy; 2019. By <a href="https://instagram.com/mghifariarfan">Muhammad Ghifari Arfananda</a>. </strong> All rights reserved
+				<strong>Copyright &copy; 2022. By Psikologi. </strong> All rights reserved
 			</footer>
 
 			</div>

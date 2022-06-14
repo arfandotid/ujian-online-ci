@@ -24,8 +24,8 @@
                         <th>NIM</th>
                         <th>Nama</th>
                         <th>Email</th>
-                        <th>Kelas</th>
-                        <th>Jurusan</th>
+                        <th>Ruang</th>
+                        <th>Kategori Ujian</th>
                         <th width="100" class="text-center">Aksi</th>
                         <th width="100" class="text-center">
                             <input class="select_all" type="checkbox">
@@ -38,8 +38,8 @@
                         <th>NIM</th>
                         <th>Nama</th>
                         <th>Email</th>
-                        <th>Kelas</th>
-                        <th>Jurusan</th>
+                        <th>Ruang</th>
+                        <th>Kategori Ujian</th>
                         <th width="100" class="text-center">Aksi</th>
                         <th width="100" class="text-center">
                             <input class="select_all" type="checkbox">
