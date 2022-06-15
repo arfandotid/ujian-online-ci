@@ -291,7 +291,7 @@ class Soal extends CI_Controller {
             for ($j = 0; $j < count($angkas[$i]); $j++){
                 if (($j+1) < (count($angkas[$i]))){
                     $jawaban[] = ($angkas[$i][$j] + $angkas[$i][$j+1]) % 10;
-                }
+                }git commit
             }
             $jawabans[] = $jawaban;
         }
