@@ -8,7 +8,7 @@ class Soal extends CI_Controller {
 		if (!$this->ion_auth->logged_in()){
 			redirect('auth');
 		}else if ( !$this->ion_auth->is_admin() && !$this->ion_auth->in_group('dosen') ){
-			show_error('Hanya Administrator dan dosen yang diberi hak untuk mengakses halaman ini, <a href="'.base_url('dashboard').'">Kembali ke menu awal</a>', 403, 'Akses Terlarang');
+			show_error('Hanya Administrator dan Pembuat Soal yang diberi hak untuk mengakses halaman ini, <a href="'.base_url('dashboard').'">Kembali ke menu awal</a>', 403, 'Akses Terlarang');
 		}
 		$this->load->library(['datatables', 'form_validation']);// Load Library Ignited-Datatables
 		$this->load->helper('my');// Load Library Ignited-Datatables
@@ -269,5 +269,33 @@ class Soal extends CI_Controller {
                 $this->output_json(['status'=>true, 'total'=>count($chk)]);
             }
         }
+    }
+    public function generatesoalkraepelin($rows, $columns)
+    {
+        // generate angka
+        $angkas = [];
+        for ($i=0; $i < intval($columns); $i++) { 
+            $angka = [];
+            for ($j=0; $j < intval($rows); $j++){
+                $angka[] = rand(1,9);
+            }
+            $angkas[] = $angka;
+        }
+
+        echo json_encode($angkas);
+
+        // generate jawaban
+        $jawabans = [];
+        for ($i=0; $i < count($angkas); $i++) { 
+            $jawaban = [];
+            for ($j = 0; $j < count($angkas[$i]); $j++){
+                if (($j+1) < (count($angkas[$i]))){
+                    $jawaban[] = ($angkas[$i][$j] + $angkas[$i][$j+1]) % 10;
+                }
+            }
+            $jawabans[] = $jawaban;
+        }
+        echo json_encode(['angkas' => $angkas, 'jawabans' => $jawabans]);
+        return ['angkas' => $angkas, 'jawabans' => $jawabans];
     }
 }
