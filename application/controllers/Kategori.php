@@ -6,7 +6,7 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\Writer\Xls;
 use PhpOffice\PhpSpreadsheet\Writer\Csv;
 
-class Jurusan extends CI_Controller
+class Kategori extends CI_Controller
 {
 
 	public function __construct()
@@ -36,7 +36,7 @@ class Jurusan extends CI_Controller
 			'subjudul' => 'Data Kategori Ujian'
 		];
 		$this->load->view('_templates/dashboard/_header', $data);
-		$this->load->view('master/jurusan/data');
+		$this->load->view('master/kategori/data');
 		$this->load->view('_templates/dashboard/_footer');
 	}
 
@@ -49,7 +49,7 @@ class Jurusan extends CI_Controller
 			'banyak'	=> $this->input->post('banyak', true)
 		];
 		$this->load->view('_templates/dashboard/_header', $data);
-		$this->load->view('master/jurusan/add');
+		$this->load->view('master/kategori/add');
 		$this->load->view('_templates/dashboard/_footer');
 	}
 
@@ -72,7 +72,7 @@ class Jurusan extends CI_Controller
 				'jurusan'	=> $jurusan
 			];
 			$this->load->view('_templates/dashboard/_header', $data);
-			$this->load->view('master/jurusan/edit');
+			$this->load->view('master/kategori/edit');
 			$this->load->view('_templates/dashboard/_footer');
 		}
 	}
@@ -150,7 +150,7 @@ class Jurusan extends CI_Controller
 		if ($import_data != null) $data['import'] = $import_data;
 
 		$this->load->view('_templates/dashboard/_header', $data);
-		$this->load->view('master/jurusan/import');
+		$this->load->view('master/kategori/import');
 		$this->load->view('_templates/dashboard/_footer');
 	}
 
@@ -212,7 +212,7 @@ class Jurusan extends CI_Controller
 		if ($save) {
 			redirect('jurusan');
 		} else {
-			redirect('jurusan/import');
+			redirect('kategori/import');
 		}
 	}
 }

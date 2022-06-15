@@ -1,7 +1,7 @@
 function load_jurusan() {
     $('#jurusan').find('option').not(':first').remove();
 
-    $.getJSON(base_url+'jurusan/load_jurusan', function (data) {
+    $.getJSON(base_url+'kategori/load_jurusan', function (data) {
         var option = [];
         for (let i = 0; i < data.length; i++) {
             option.push({
@@ -18,7 +18,7 @@ function load_jurusan() {
 function load_kelas(id) {
     $('#kelas').find('option').not(':first').remove();
 
-    $.getJSON(base_url+'ruang/kelas_by_jurusan/' + id, function (data) {
+    $.getJSON(base_url+'ruang/kelas_by_kategori/' + id, function (data) {
         var option = [];
         for (let i = 0; i < data.length; i++) {
             option.push({

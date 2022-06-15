@@ -2,7 +2,7 @@ function load_kelas(id) {
     $('#kelas').find('option').not(':first').remove();
 
     $.ajax({
-        url: base_url+'ruang/kelas_by_jurusan/' + id,
+        url: base_url+'ruang/kelas_by_kategori/' + id,
         type: 'GET',
         success: function (data) {
             var option = [];

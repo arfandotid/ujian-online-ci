@@ -19,7 +19,7 @@
         </div>
         <br>
         <div class="row">
-            <?= form_open_multipart('jurusan/preview'); ?>
+            <?= form_open_multipart('kategori/preview'); ?>
             <label for="file" class="col-sm-offset-1 col-sm-3 text-right">Pilih File</label>
             <div class="col-sm-4">
                 <div class="form-group">
@@ -43,25 +43,25 @@
                         </thead>
                         <tbody>
                             <?php
-                                if (empty($import)) {
-                                    echo '<tr><td colspan="2" class="text-center">Data kosong! pastikan anda menggunakan format yang telah disediakan.</td></tr>';
-                                } else {
-                                    $no = 1;
-                                    foreach ($import as $jurusan) :
-                                        ?>
+                            if (empty($import)) {
+                                echo '<tr><td colspan="2" class="text-center">Data kosong! pastikan anda menggunakan format yang telah disediakan.</td></tr>';
+                            } else {
+                                $no = 1;
+                                foreach ($import as $jurusan) :
+                            ?>
                                     <tr>
                                         <td><?= $no++; ?></td>
                                         <td><?= $jurusan; ?></td>
                                     </tr>
                             <?php
-                                    endforeach;
-                                }
-                                ?>
+                                endforeach;
+                            }
+                            ?>
                         </tbody>
                     </table>
                     <?php if (!empty($import)) : ?>
 
-                        <?= form_open('jurusan/do_import', null, ['jurusan' => json_encode($import)]); ?>
+                        <?= form_open('kategori/do_import', null, ['jurusan' => json_encode($import)]); ?>
                         <button type='submit' class='btn btn-block btn-flat bg-purple'>Import</button>
                         <?= form_close(); ?>
 

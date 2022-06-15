@@ -146,7 +146,7 @@ function load_jurusan() {
 
   ajaxcsrf(); // get csrf token
   $.ajax({
-    url: base_url + "jurusan/load_jurusan",
+    url: base_url + "kategori/load_jurusan",
     type: "GET",
     success: function(data) {
       //console.log(data);
