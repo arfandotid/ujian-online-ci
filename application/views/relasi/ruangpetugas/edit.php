@@ -2,7 +2,7 @@
     <div class="box-header with-border">
         <h3 class="box-title">Form <?= $judul ?></h3>
         <div class="box-tools pull-right">
-            <a href="<?= base_url() ?>kelasdosen" class="btn btn-warning btn-flat btn-sm">
+            <a href="<?= base_url() ?>ruangpetugas" class="btn btn-warning btn-flat btn-sm">
                 <i class="fa fa-arrow-left"></i> Batal
             </a>
         </div>
@@ -12,12 +12,12 @@
             <div class="col-sm-4 col-sm-offset-4">
                 <?= form_open('ruangpetugas/save', array('id' => 'kelasdosen'), array('method' => 'edit', 'dosen_id' => $id_dosen)) ?>
                 <div class="form-group">
-                    <label>Dosen</label>
+                    <label>Petugas</label>
                     <input type="text" readonly="readonly" value="<?= $dosen->nama_dosen ?>" class="form-control">
                     <small class="help-block text-right"></small>
                 </div>
                 <div class="form-group">
-                    <label>Kelas</label>
+                    <label>Ruang</label>
                     <select id="kelas" multiple="multiple" name="kelas_id[]" class="form-control select2" style="width: 100%!important">
                         <?php
                         $sk = [];
