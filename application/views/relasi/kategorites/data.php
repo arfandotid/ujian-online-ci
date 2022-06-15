@@ -22,7 +22,7 @@
 				<tr>
 					<th>No.</th>
 					<th>Jenis Tes</th>
-					<th>Jurusan</th>
+					<th>Kategori</th>
 					<th class="text-center">Edit</th>
 					<th class="text-center">
 						<input type="checkbox" class="select_all">
@@ -33,7 +33,7 @@
 				<tr>
 					<th>No.</th>
 					<th>Jenis Tes</th>
-					<th>Jurusan</th>
+					<th>Kategori</th>
 					<th class="text-center">Edit</th>
 					<th class="text-center">
 						<input type="checkbox" class="select_all">

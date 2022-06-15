@@ -21,7 +21,7 @@
                     <th>No.</th>
                     <th>NIP</th>
                     <th>Pembuat Soal</th>
-                    <th>Kelas</th>
+                    <th>Ruang</th>
                     <th class="text-center">Edit</th>
                     <th class="text-center">
                         <input type="checkbox" class="select_all">
@@ -33,7 +33,7 @@
                     <th>No.</th>
                     <th>NIP</th>
                     <th>Pembuat Soal</th>
-                    <th>Kelas</th>
+                    <th>Ruang</th>
                     <th class="text-center">Edit</th>
                     <th class="text-center">
                         <input type="checkbox" class="select_all">
