@@ -21,7 +21,7 @@
 			<?php
 			$page = $this->uri->segment(1);
 			$master = ["kategori", "ruang", "tes", "petugas", "peserta"];
-			$relasi = ["kelasdosen", "jurusanmatkul"];
+			$relasi = ["ruangpetugas", "kategorites"];
 			$users = ["users"];
 			?>
 			<li class="<?= $page === 'dashboard' ? "active" : "" ?>"><a href="<?= base_url('dashboard') ?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
@@ -72,14 +72,14 @@
 						</span>
 					</a>
 					<ul class="treeview-menu">
-						<li class="<?= $page === 'kelasdosen' ? "active" : "" ?>">
-							<a href="<?= base_url('kelasdosen') ?>">
+						<li class="<?= $page === 'ruangpetugas' ? "active" : "" ?>">
+							<a href="<?= base_url('ruangpetugas') ?>">
 								<i class="fa fa-circle-o"></i>
 								Ruang - Petugas
 							</a>
 						</li>
-						<li class="<?= $page === 'jurusanmatkul' ? "active" : "" ?>">
-							<a href="<?= base_url('jurusanmatkul') ?>">
+						<li class="<?= $page === 'kategorites' ? "active" : "" ?>">
+							<a href="<?= base_url('kategorites') ?>">
 								<i class="fa fa-circle-o"></i>
 								Kategori - Jenis Tes
 							</a>

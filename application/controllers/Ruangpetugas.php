@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class KelasDosen extends CI_Controller
+class RuangPetugas extends CI_Controller
 {
 
 	public function __construct()
@@ -31,7 +31,7 @@ class KelasDosen extends CI_Controller
 			'subjudul' => 'Data Ruang Petugas'
 		];
 		$this->load->view('_templates/dashboard/_header.php', $data);
-		$this->load->view('relasi/kelasdosen/data');
+		$this->load->view('relasi/ruangpetugas/data');
 		$this->load->view('_templates/dashboard/_footer.php');
 	}
 
@@ -50,7 +50,7 @@ class KelasDosen extends CI_Controller
 			'kelas'	    => $this->master->getAllKelas()
 		];
 		$this->load->view('_templates/dashboard/_header.php', $data);
-		$this->load->view('relasi/kelasdosen/add');
+		$this->load->view('relasi/ruangpetugas/add');
 		$this->load->view('_templates/dashboard/_footer.php');
 	}
 
@@ -66,7 +66,7 @@ class KelasDosen extends CI_Controller
 			'kelas'		    => $this->master->getKelasByDosen($id)
 		];
 		$this->load->view('_templates/dashboard/_header.php', $data);
-		$this->load->view('relasi/kelasdosen/edit');
+		$this->load->view('relasi/ruangpetugas/edit');
 		$this->load->view('_templates/dashboard/_footer.php');
 	}
 

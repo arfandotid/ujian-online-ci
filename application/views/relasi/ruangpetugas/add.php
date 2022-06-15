@@ -2,7 +2,7 @@
     <div class="box-header with-border">
         <h3 class="box-title">Form <?= $judul ?></h3>
         <div class="box-tools pull-right">
-            <a href="<?= base_url() ?>jurusanmatkul" class="btn btn-warning btn-flat btn-sm">
+            <a href="<?= base_url() ?>kelasdosen" class="btn btn-warning btn-flat btn-sm">
                 <i class="fa fa-arrow-left"></i> Batal
             </a>
         </div>
@@ -12,29 +12,32 @@
             <div class="col-sm-4">
                 <div class="alert bg-purple">
                     <h4><i class="fa fa-info-circle"></i> Informasi</h4>
-                    Jika kolom Jenis Tes kosong, berikut ini kemungkinan penyebabnya :
+                    Jika kolom pembuat soal kosong, berikut ini kemungkinan penyebabnya :
                     <br><br>
                     <ol class="pl-4">
-                        <li>Anda belum menambahkan master data Jenis Tes (Master Jenis Tes kosong/belum ada data sama sekali).</li>
-                        <li>Jenis Tes sudah ditambahkan, jadi anda tidak perlu tambah lagi. Anda hanya perlu mengedit data Jurusan Jenis Tes nya saja.</li>
+                        <li>Anda belum menambahkan master data pembuat soal (Master pembuat soal kosong/belum ada data sama sekali).</li>
+                        <li>pembuat soal sudah ditambahkan, jadi anda tidak perlu tambah lagi. Anda hanya perlu mengedit data ruang petugas nya saja.</li>
                     </ol>
                 </div>
             </div>
             <div class="col-sm-4">
-                <?= form_open('jurusantes/save', array('id' => 'jurusanmatkul'), array('method' => 'add')) ?>
+                <?= form_open('ruangpetugas/save', array('id' => 'kelasdosen'), array('method' => 'add')) ?>
                 <div class="form-group">
-                    <label>Jenis Tes</label>
-                    <select name="matkul_id" class="form-control select2" style="width: 100%!important">
+                    <label>pembuat soal</label>
+                    <select name="dosen_id" class="form-control select2" style="width: 100%!important">
                         <option value="" disabled selected></option>
-                        <?php foreach ($matkul as $m) : ?>
-                            <option value="<?= $m->id_matkul ?>"><?= $m->nama_matkul ?></option>
+                        <?php foreach ($dosen as $d) : ?>
+                            <option value="<?= $d->id_dosen ?>"><?= $d->nama_dosen ?></option>
                         <?php endforeach; ?>
                     </select>
                     <small class="help-block text-right"></small>
                 </div>
                 <div class="form-group">
-                    <label>Jurusan</label>
-                    <select id="jurusan" multiple="multiple" name="jurusan_id[]" class="form-control select2" style="width: 100%!important">
+                    <label>Kelas</label>
+                    <select id="kelas" multiple="multiple" name="kelas_id[]" class="form-control select2" style="width: 100%!important">
+                        <?php foreach ($kelas as $k) : ?>
+                            <option value="<?= $k->id_kelas ?>"><?= $k->nama_kelas ?> - <?= $k->nama_jurusan ?></option>
+                        <?php endforeach; ?>
                     </select>
                     <small class="help-block text-right"></small>
                 </div>
@@ -52,4 +55,4 @@
     </div>
 </div>
 
-<script src="<?= base_url() ?>assets/dist/js/app/relasi/jurusantes/add.js"></script>
+<script src="<?= base_url() ?>assets/dist/js/app/relasi/ruangpetugas/add.js"></script>

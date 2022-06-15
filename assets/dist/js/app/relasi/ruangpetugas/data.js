@@ -4,10 +4,10 @@ var table;
 $(document).ready(function() {
   ajaxcsrf();
 
-  table = $("#jurusanmatkul").DataTable({
+  table = $("#kelasdosen").DataTable({
     initComplete: function() {
       var api = this.api();
-      $("#jurusanmatkul_filter input")
+      $("#kelasdosen_filter input")
         .off(".DT")
         .on("keyup.DT", function(e) {
           api.search(this.value).draw();
@@ -20,19 +20,19 @@ $(document).ready(function() {
     buttons: [
       {
         extend: "copy",
-        exportOptions: { columns: [1, 2] }
+        exportOptions: { columns: [1, 2, 3] }
       },
       {
         extend: "print",
-        exportOptions: { columns: [1, 2] }
+        exportOptions: { columns: [1, 2, 3] }
       },
       {
         extend: "excel",
-        exportOptions: { columns: [1, 2] }
+        exportOptions: { columns: [1, 2, 3] }
       },
       {
         extend: "pdf",
-        exportOptions: { columns: [1, 2] }
+        exportOptions: { columns: [1, 2, 3] }
       }
     ],
     oLanguage: {
@@ -41,7 +41,7 @@ $(document).ready(function() {
     processing: true,
     serverSide: true,
     ajax: {
-      url: base_url + "jurusantes/data",
+      url: base_url + "ruangpetugas/data",
       type: "POST"
     },
     columns: [
@@ -50,41 +50,44 @@ $(document).ready(function() {
         orderable: false,
         searchable: false
       },
-      { data: "nama_matkul" }
+      { data: "nip" },
+      { data: "nama_dosen" }
     ],
     columnDefs: [
       {
-        targets: 2,
+        targets: 3,
         searchable: false,
         orderable: false,
-        title: "Jurusan",
-        data: "nama_jurusan",
+        title: "Kelas",
+        data: "kelas",
         render: function(data, type, row, meta) {
-          let matkul = data.split(",");
+          let kelas = data.split(",");
           let badge = [];
-          $.each(matkul, function(i, val) {
-            var newmatkul = `<span class="badge bg-maroon">${val}</span>`;
-            badge.push(newmatkul);
+          $.each(kelas, function(i, val) {
+            var newkelas = `<span class="badge bg-maroon">${val}</span>`;
+            badge.push(newkelas);
           });
           return badge.join(" ");
         }
       },
       {
-        targets: 3,
+        targets: 4,
         searchable: false,
         orderable: false,
-        data: "id_matkul",
+        data: "id_dosen",
         render: function(data, type, row, meta) {
           return `<div class="text-center">
-									<a href="${base_url}jurusantes/edit/${data}" class="btn btn-warning btn-xs">
+									<a href="${base_url}ruangpetugas/edit/${data}" class="btn btn-warning btn-xs">
 										<i class="fa fa-pencil"></i>
 									</a>
 								</div>`;
         }
       },
       {
-        targets: 4,
-        data: "id_matkul",
+        targets: 5,
+        searchable: false,
+        orderable: false,
+        data: "id_dosen",
         render: function(data, type, row, meta) {
           return `<div class="text-center">
 									<input name="checked[]" class="check" value="${data}" type="checkbox">
@@ -108,11 +111,7 @@ $(document).ready(function() {
   table
     .buttons()
     .container()
-    .appendTo("#jurusanmatkul_wrapper .col-md-6:eq(0)");
-
-  $("#myModal").on("shown.modal.bs", function() {
-    $(':input[name="banyak"]').select();
-  });
+    .appendTo("#kelasdosen_wrapper .col-md-6:eq(0)");
 
   $(".select_all").on("click", function() {
     if (this.checked) {
@@ -128,9 +127,9 @@ $(document).ready(function() {
     }
   });
 
-  $("#jurusanmatkul tbody").on("click", "tr .check", function() {
-    var check = $("#jurusanmatkul tbody tr .check").length;
-    var checked = $("#jurusanmatkul tbody tr .check:checked").length;
+  $("#kelasdosen tbody").on("click", "tr .check", function() {
+    var check = $("#kelasdosen tbody tr .check").length;
+    var checked = $("#kelasdosen tbody tr .check:checked").length;
     if (check === checked) {
       $(".select_all").prop("checked", true);
     } else {
@@ -139,7 +138,7 @@ $(document).ready(function() {
   });
 
   $("#bulk").on("submit", function(e) {
-    if ($(this).attr("action") == base_url + "jurusantes/delete") {
+    if ($(this).attr("action") == base_url + "ruangpetugas/delete") {
       e.preventDefault();
       e.stopImmediatePropagation();
 
@@ -176,14 +175,14 @@ $(document).ready(function() {
 });
 
 function bulk_delete() {
-  if ($("#jurusanmatkul tbody tr .check:checked").length == 0) {
+  if ($("#kelasdosen tbody tr .check:checked").length == 0) {
     Swal({
       title: "Gagal",
       text: "Tidak ada data yang dipilih",
       type: "error"
     });
   } else {
-    $("#bulk").attr("action", base_url + "jurusantes/delete");
+    $("#bulk").attr("action", base_url + "ruangpetugas/delete");
     Swal({
       title: "Anda yakin?",
       text: "Data akan dihapus!",

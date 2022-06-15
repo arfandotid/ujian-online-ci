@@ -1,8 +1,8 @@
-<div class="box box-primary">
+<div class="box">
     <div class="box-header with-border">
         <h3 class="box-title">Form <?= $judul ?></h3>
         <div class="box-tools pull-right">
-            <a href="<?= base_url() ?>jurusanmatkul" class="btn btn-warning btn-flat btn-sm">
+            <a href="<?= base_url() ?>kelasdosen" class="btn btn-warning btn-flat btn-sm">
                 <i class="fa fa-arrow-left"></i> Batal
             </a>
         </div>
@@ -10,22 +10,22 @@
     <div class="box-body">
         <div class="row">
             <div class="col-sm-4 col-sm-offset-4">
-                <?= form_open('jurusantes/save', array('id' => 'jurusanmatkul'), array('method' => 'edit', 'matkul_id' => $id_matkul)) ?>
+                <?= form_open('ruangpetugas/save', array('id' => 'kelasdosen'), array('method' => 'edit', 'dosen_id' => $id_dosen)) ?>
                 <div class="form-group">
-                    <label>Jenis Tes</label>
-                    <input type="text" readonly="readonly" value="<?= $matkul->nama_matkul ?>" class="form-control">
+                    <label>Dosen</label>
+                    <input type="text" readonly="readonly" value="<?= $dosen->nama_dosen ?>" class="form-control">
                     <small class="help-block text-right"></small>
                 </div>
                 <div class="form-group">
-                    <label>Jurusan</label>
-                    <select id="jurusan" multiple="multiple" name="jurusan_id[]" class="form-control select2" style="width: 100%!important">
+                    <label>Kelas</label>
+                    <select id="kelas" multiple="multiple" name="kelas_id[]" class="form-control select2" style="width: 100%!important">
                         <?php
-                        $sj = [];
-                        foreach ($jurusan as $key => $val) {
-                            $sj[] = $val->id_jurusan;
+                        $sk = [];
+                        foreach ($kelas as $key => $val) {
+                            $sk[] = $val->id_kelas;
                         }
-                        foreach ($all_jurusan as $m) : ?>
-                            <option <?= in_array($m->id_jurusan, $sj) ? "selected" : "" ?> value="<?= $m->id_jurusan ?>"><?= $m->nama_jurusan ?></option>
+                        foreach ($all_kelas as $m) : ?>
+                            <option <?= in_array($m->id_kelas, $sk) ? "selected" : "" ?> value="<?= $m->id_kelas ?>"><?= $m->nama_kelas ?> - <?= $m->nama_jurusan ?></option>
                         <?php endforeach; ?>
                     </select>
                     <small class="help-block text-right"></small>
@@ -44,4 +44,4 @@
     </div>
 </div>
 
-<script src="<?= base_url() ?>assets/dist/js/app/relasi/jurusantes/edit.js"></script>
+<script src="<?= base_url() ?>assets/dist/js/app/relasi/ruangpetugas/edit.js"></script>

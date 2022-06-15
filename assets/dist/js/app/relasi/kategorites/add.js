@@ -1,6 +1,6 @@
 function loadJurusan(id) {
     $('#jurusan option').remove();
-    $.getJSON(base_url+'jurusantes/getJurusanId/' + id, function (data) {
+    $.getJSON(base_url+'kategorites/getJurusanId/' + id, function (data) {
         console.log(data);
         let opsi;
         $.each(data, function (key, val) {
