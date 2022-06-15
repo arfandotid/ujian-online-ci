@@ -144,8 +144,8 @@ class Jurusan extends CI_Controller
 	{
 		$data = [
 			'user' => $this->ion_auth->user()->row(),
-			'judul'	=> 'Jurusan',
-			'subjudul' => 'Import Jurusan'
+			'judul'	=> 'Kategori Ujian',
+			'subjudul' => 'Import Kategori Ujian'
 		];
 		if ($import_data != null) $data['import'] = $import_data;
 

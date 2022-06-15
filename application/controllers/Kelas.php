@@ -27,8 +27,8 @@ class Kelas extends CI_Controller
 	{
 		$data = [
 			'user' => $this->ion_auth->user()->row(),
-			'judul'	=> 'Kelas',
-			'subjudul' => 'Data Kelas'
+			'judul'	=> 'Ruang',
+			'subjudul' => 'Data Ruang'
 		];
 		$this->load->view('_templates/dashboard/_header.php', $data);
 		$this->load->view('master/kelas/data');
@@ -44,8 +44,8 @@ class Kelas extends CI_Controller
 	{
 		$data = [
 			'user' 		=> $this->ion_auth->user()->row(),
-			'judul'		=> 'Tambah Kelas',
-			'subjudul'	=> 'Tambah Data Kelas',
+			'judul'		=> 'Tambah Ruang',
+			'subjudul'	=> 'Tambah Data Ruang',
 			'banyak'	=> $this->input->post('banyak', true),
 			'jurusan'	=> $this->master->getAllJurusan()
 		];
@@ -146,8 +146,8 @@ class Kelas extends CI_Controller
 	{
 		$data = [
 			'user' => $this->ion_auth->user()->row(),
-			'judul'	=> 'Kelas',
-			'subjudul' => 'Import Kelas',
+			'judul'	=> 'Ruang',
+			'subjudul' => 'Import Ruang',
 			'jurusan' => $this->master->getAllJurusan()
 		];
 		if ($import_data != null) $data['import'] = $import_data;
