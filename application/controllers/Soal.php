@@ -164,7 +164,7 @@ public function save()
 
     
     if($this->form_validation->run() === FALSE){
-        $method==='add'? $this->add() : $this->edit();
+        $method==='add'? $this->add() : $this->edit($this->input->post('id_soal', true));
     }else{
         $data = [
             'soal'      => $this->input->post('soal', true),
