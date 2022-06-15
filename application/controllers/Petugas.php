@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Dosen extends CI_Controller
+class Petugas extends CI_Controller
 {
 
 	public function __construct()
@@ -31,7 +31,7 @@ class Dosen extends CI_Controller
 			'subjudul' => 'Data Pembuat Soal'
 		];
 		$this->load->view('_templates/dashboard/_header.php', $data);
-		$this->load->view('master/dosen/data');
+		$this->load->view('master/petugas/data');
 		$this->load->view('_templates/dashboard/_footer.php');
 	}
 
@@ -49,7 +49,7 @@ class Dosen extends CI_Controller
 			'matkul'	=> $this->master->getAllMatkul()
 		];
 		$this->load->view('_templates/dashboard/_header.php', $data);
-		$this->load->view('master/dosen/add');
+		$this->load->view('master/petugas/add');
 		$this->load->view('_templates/dashboard/_footer.php');
 	}
 
@@ -63,7 +63,7 @@ class Dosen extends CI_Controller
 			'data' 		=> $this->master->getDosenById($id)
 		];
 		$this->load->view('_templates/dashboard/_header.php', $data);
-		$this->load->view('master/dosen/edit');
+		$this->load->view('master/petugas/edit');
 		$this->load->view('_templates/dashboard/_footer.php');
 	}
 
@@ -180,7 +180,7 @@ class Dosen extends CI_Controller
 		if ($import_data != null) $data['import'] = $import_data;
 
 		$this->load->view('_templates/dashboard/_header', $data);
-		$this->load->view('master/dosen/import');
+		$this->load->view('master/petugas/import');
 		$this->load->view('_templates/dashboard/_footer');
 	}
 	public function preview()
@@ -248,9 +248,9 @@ class Dosen extends CI_Controller
 
 		$save = $this->master->create('dosen', $data, true);
 		if ($save) {
-			redirect('dosen');
+			redirect('petugas');
 		} else {
-			redirect('dosen/import');
+			redirect('petugas/import');
 		}
 	}
 }

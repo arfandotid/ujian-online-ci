@@ -20,25 +20,29 @@ class Dashboard extends CI_Controller
 			[
 				'box' 		=> 'light-blue',
 				'total' 	=> $this->dashboard->total('jurusan'),
-				'title'		=> 'Jurusan',
+				'title'		=> 'Kategori Ujian',
+				'link'		=> 'Jurusan',
 				'icon'		=> 'graduation-cap'
 			],
 			[
 				'box' 		=> 'olive',
 				'total' 	=> $this->dashboard->total('kelas'),
-				'title'		=> 'Kelas',
+				'title'		=> 'Ruang',
+				'link'		=> 'Kelas',
 				'icon'		=> 'building-o'
 			],
 			[
 				'box' 		=> 'yellow-active',
 				'total' 	=> $this->dashboard->total('dosen'),
-				'title'		=> 'Dosen',
+				'title'		=> 'Pembuat Soal',
+				'link'		=> 'petugas',
 				'icon'		=> 'user-secret'
 			],
 			[
 				'box' 		=> 'red',
 				'total' 	=> $this->dashboard->total('mahasiswa'),
-				'title'		=> 'Mahasiswa',
+				'title'		=> 'Peserta',
+				'link'		=> 'Mahasiswa',
 				'icon'		=> 'user'
 			],
 		];

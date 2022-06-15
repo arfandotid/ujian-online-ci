@@ -17,7 +17,7 @@
         </div>
         <br>
         <div class="row">
-            <?= form_open_multipart('dosen/preview'); ?>
+            <?= form_open_multipart('petugas/preview'); ?>
             <label for="file" class="col-sm-offset-1 col-sm-3 text-right">Pilih File</label>
             <div class="col-sm-4">
                 <div class="form-group">
@@ -77,7 +77,7 @@
                     </table>
                     <?php if ($status) : ?>
 
-                        <?= form_open('dosen/do_import', null, ['data' => json_encode($import)]); ?>
+                        <?= form_open('petugas/do_import', null, ['data' => json_encode($import)]); ?>
                         <button type='submit' class='btn btn-block btn-flat bg-purple'>Import</button>
                         <?= form_close(); ?>
 

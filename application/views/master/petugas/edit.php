@@ -1,4 +1,4 @@
-<?=form_open('dosen/save', array('id'=>'formdosen'), array('method'=>'edit', 'id_dosen'=>$data->id_dosen));?>
+<?=form_open('petugas/save', array('id'=>'formdosen'), array('method'=>'edit', 'id_dosen'=>$data->id_dosen));?>
 <div class="box">
     <div class="box-header with-border">
         <h3 class="box-title">Form <?=$subjudul?></h3>
@@ -50,4 +50,4 @@
 </div>
 <?=form_close();?>
 
-<script src="<?=base_url()?>assets/dist/js/app/master/dosen/edit.js"></script>
+<script src="<?=base_url()?>assets/dist/js/app/master/petugas/edit.js"></script>

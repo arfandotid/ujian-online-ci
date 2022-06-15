@@ -40,7 +40,7 @@ $(document).ready(function() {
     processing: true,
     serverSide: true,
     ajax: {
-      url: base_url + "dosen/data",
+      url: base_url + "petugas/data",
       type: "POST"
     },
     columns: [
@@ -72,7 +72,7 @@ $(document).ready(function() {
 							</button>`;
           }
           return `<div class="text-center">
-							<a href="${base_url}dosen/edit/${data.id_dosen}" class="btn btn-xs btn-warning">
+							<a href="${base_url}petugas/edit/${data.id_dosen}" class="btn btn-xs btn-warning">
 								<i class="fa fa-pencil"></i> Edit
 							</a>
 							${btn}
@@ -169,7 +169,7 @@ $(document).ready(function() {
     let id = $(this).data("id");
 
     $.ajax({
-      url: base_url + "dosen/create_user",
+      url: base_url + "petugas/create_user",
       data: "id=" + id,
       type: "GET",
       success: function(response) {
