@@ -2,7 +2,7 @@
     <div class="box-header with-border">
         <h3 class="box-title">Form <?= $judul ?></h3>
         <div class="box-tools pull-right">
-            <a href="<?= base_url() ?>kelasdosen" class="btn btn-warning btn-flat btn-sm">
+            <a href="<?= base_url() ?>ruangpetugas" class="btn btn-warning btn-flat btn-sm">
                 <i class="fa fa-arrow-left"></i> Batal
             </a>
         </div>
@@ -23,7 +23,7 @@
             <div class="col-sm-4">
                 <?= form_open('ruangpetugas/save', array('id' => 'kelasdosen'), array('method' => 'add')) ?>
                 <div class="form-group">
-                    <label>pembuat soal</label>
+                    <label>Pembuat Soal</label>
                     <select name="dosen_id" class="form-control select2" style="width: 100%!important">
                         <option value="" disabled selected></option>
                         <?php foreach ($dosen as $d) : ?>
@@ -33,7 +33,7 @@
                     <small class="help-block text-right"></small>
                 </div>
                 <div class="form-group">
-                    <label>Kelas</label>
+                    <label>Ruang</label>
                     <select id="kelas" multiple="multiple" name="kelas_id[]" class="form-control select2" style="width: 100%!important">
                         <?php foreach ($kelas as $k) : ?>
                             <option value="<?= $k->id_kelas ?>"><?= $k->nama_kelas ?> - <?= $k->nama_jurusan ?></option>

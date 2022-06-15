@@ -2,7 +2,7 @@
     <div class="box-header with-border">
         <h3 class="box-title">Form <?= $judul ?></h3>
         <div class="box-tools pull-right">
-            <a href="<?= base_url() ?>jurusanmatkul" class="btn btn-warning btn-flat btn-sm">
+            <a href="<?= base_url() ?>kategorites" class="btn btn-warning btn-flat btn-sm">
                 <i class="fa fa-arrow-left"></i> Batal
             </a>
         </div>
@@ -33,7 +33,7 @@
                     <small class="help-block text-right"></small>
                 </div>
                 <div class="form-group">
-                    <label>Jurusan</label>
+                    <label>Kategori</label>
                     <select id="jurusan" multiple="multiple" name="jurusan_id[]" class="form-control select2" style="width: 100%!important">
                     </select>
                     <small class="help-block text-right"></small>
