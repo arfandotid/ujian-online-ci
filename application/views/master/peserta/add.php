@@ -10,7 +10,7 @@
     <div class="box-body">
         <div class="row">
             <div class="col-sm-4 col-sm-offset-4">
-                <?= form_open('mahasiswa/save', array('id' => 'mahasiswa'), array('method' => 'add')) ?>
+                <?= form_open('peserta/save', array('id' => 'mahasiswa'), array('method' => 'add')) ?>
                 <div class="form-group">
                     <label for="nim">NIM</label>
                     <input autofocus="autofocus" onfocus="this.select()" placeholder="NIM" type="text" name="nim" class="form-control">
@@ -59,4 +59,4 @@
     </div>
 </div>
 
-<script src="<?= base_url() ?>assets/dist/js/app/master/mahasiswa/add.js"></script>
+<script src="<?= base_url() ?>assets/dist/js/app/master/peserta/add.js"></script>

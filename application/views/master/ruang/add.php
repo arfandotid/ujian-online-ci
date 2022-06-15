@@ -19,7 +19,7 @@
                         </div>
                     </div>
                 </div>
-                <?= form_open('kelas/save', array('id' => 'kelas'), array('mode' => 'add')) ?>
+                <?= form_open('ruang/save', array('id' => 'kelas'), array('mode' => 'add')) ?>
                 <table id="form-table" class="table text-center table-condensed">
                     <thead>
                         <tr>
@@ -68,4 +68,4 @@
     var banyak = '<?= $banyak; ?>';
 </script>
 
-<script src="<?= base_url() ?>assets/dist/js/app/master/kelas/add.js"></script>
+<script src="<?= base_url() ?>assets/dist/js/app/master/ruang/add.js"></script>

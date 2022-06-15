@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Kelas extends CI_Controller
+class Ruang extends CI_Controller
 {
 
 	public function __construct()
@@ -31,7 +31,7 @@ class Kelas extends CI_Controller
 			'subjudul' => 'Data Ruang'
 		];
 		$this->load->view('_templates/dashboard/_header.php', $data);
-		$this->load->view('master/kelas/data');
+		$this->load->view('master/ruang/data');
 		$this->load->view('_templates/dashboard/_footer.php');
 	}
 
@@ -50,7 +50,7 @@ class Kelas extends CI_Controller
 			'jurusan'	=> $this->master->getAllJurusan()
 		];
 		$this->load->view('_templates/dashboard/_header.php', $data);
-		$this->load->view('master/kelas/add');
+		$this->load->view('master/ruang/add');
 		$this->load->view('_templates/dashboard/_footer.php');
 	}
 
@@ -69,7 +69,7 @@ class Kelas extends CI_Controller
 				'kelas'		=> $kelas
 			];
 			$this->load->view('_templates/dashboard/_header.php', $data);
-			$this->load->view('master/kelas/edit');
+			$this->load->view('master/ruang/edit');
 			$this->load->view('_templates/dashboard/_footer.php');
 		}
 	}
@@ -153,7 +153,7 @@ class Kelas extends CI_Controller
 		if ($import_data != null) $data['import'] = $import_data;
 
 		$this->load->view('_templates/dashboard/_header', $data);
-		$this->load->view('master/kelas/import');
+		$this->load->view('master/ruang/import');
 		$this->load->view('_templates/dashboard/_footer');
 	}
 
@@ -216,7 +216,7 @@ class Kelas extends CI_Controller
 		if ($save) {
 			redirect('kelas');
 		} else {
-			redirect('kelas/import');
+			redirect('ruang/import');
 		}
 	}
 }

@@ -17,7 +17,7 @@
         </div>
         <br>
         <div class="row">
-            <?= form_open_multipart('kelas/preview'); ?>
+            <?= form_open_multipart('ruang/preview'); ?>
             <label for="file" class="col-sm-offset-1 col-sm-3 text-right">Pilih File</label>
             <div class="col-sm-4">
                 <div class="form-group">
@@ -42,13 +42,13 @@
                         </thead>
                         <tbody>
                             <?php
-                                $status = true;
-                                if (empty($import)) {
-                                    echo '<tr><td colspan="2" class="text-center">Data kosong! pastikan anda menggunakan format yang telah disediakan.</td></tr>';
-                                } else {
-                                    $no = 1;
-                                    foreach ($import as $data) :
-                                        ?>
+                            $status = true;
+                            if (empty($import)) {
+                                echo '<tr><td colspan="2" class="text-center">Data kosong! pastikan anda menggunakan format yang telah disediakan.</td></tr>';
+                            } else {
+                                $no = 1;
+                                foreach ($import as $data) :
+                            ?>
                                     <tr>
                                         <td><?= $no++; ?></td>
                                         <td class="<?= $data['kelas'] == null ? 'bg-danger' : ''; ?>">
@@ -59,17 +59,17 @@
                                         </td>
                                     </tr>
                             <?php
-                                        if ($data['kelas'] == null || $data['jurusan'] == null) {
-                                            $status = false;
-                                        }
-                                    endforeach;
-                                }
-                                ?>
+                                    if ($data['kelas'] == null || $data['jurusan'] == null) {
+                                        $status = false;
+                                    }
+                                endforeach;
+                            }
+                            ?>
                         </tbody>
                     </table>
                     <?php if ($status) : ?>
 
-                        <?= form_open('kelas/do_import', null, ['data' => json_encode($import)]); ?>
+                        <?= form_open('ruang/do_import', null, ['data' => json_encode($import)]); ?>
                         <button type='submit' class='btn btn-block btn-flat bg-purple'>Import</button>
                         <?= form_close(); ?>
 

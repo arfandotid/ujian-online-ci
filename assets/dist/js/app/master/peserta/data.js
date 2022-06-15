@@ -40,7 +40,7 @@ $(document).ready(function() {
     processing: true,
     serverSide: true,
     ajax: {
-      url: base_url + "mahasiswa/data",
+      url: base_url + "peserta/data",
       type: "POST"
       //data: csrf
     },
@@ -74,7 +74,7 @@ $(document).ready(function() {
 							</button>`;
           }
           return `<div class="text-center">
-									<a class="btn btn-xs btn-warning" href="${base_url}mahasiswa/edit/${data.id_mahasiswa}">
+									<a class="btn btn-xs btn-warning" href="${base_url}peserta/edit/${data.id_mahasiswa}">
 										<i class="fa fa-pencil"></i>
 									</a>
 									${btn}
@@ -171,7 +171,7 @@ $(document).ready(function() {
     let id = $(this).data("id");
 
     $.ajax({
-      url: base_url + "mahasiswa/create_user",
+      url: base_url + "peserta/create_user",
       data: "id=" + id,
       type: "GET",
       success: function(response) {

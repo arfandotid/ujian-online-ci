@@ -19,7 +19,7 @@
                         </div>
                     </div>
                 </div>
-                <?= form_open('kelas/save', array('id' => 'kelas'), array('mode' => 'edit')) ?>
+                <?= form_open('ruang/save', array('id' => 'kelas'), array('mode' => 'edit')) ?>
                 <table id="form-table" class="table text-center table-condensed">
                     <thead>
                         <tr>
@@ -67,4 +67,4 @@
     </div>
 </div>
 
-<script src="<?= base_url() ?>assets/dist/js/app/master/kelas/edit.js"></script>
+<script src="<?= base_url() ?>assets/dist/js/app/master/ruang/edit.js"></script>

@@ -8,14 +8,14 @@
     </div>
     <div class="box-body">
         <div class="mt-2 mb-3">
-            <a href="<?= base_url('mahasiswa/add') ?>" class="btn btn-sm btn-flat bg-purple"><i class="fa fa-plus"></i> Tambah</a>
-            <a href="<?= base_url('mahasiswa/import') ?>" class="btn btn-sm btn-flat btn-success"><i class="fa fa-upload"></i> Import</a>
+            <a href="<?= base_url('peserta/add') ?>" class="btn btn-sm btn-flat bg-purple"><i class="fa fa-plus"></i> Tambah</a>
+            <a href="<?= base_url('peserta/import') ?>" class="btn btn-sm btn-flat btn-success"><i class="fa fa-upload"></i> Import</a>
             <button type="button" onclick="reload_ajax()" class="btn btn-sm btn-flat btn-default"><i class="fa fa-refresh"></i> Reload</button>
             <div class="pull-right">
                 <button onclick="bulk_delete()" class="btn btn-sm btn-flat btn-danger" type="button"><i class="fa fa-trash"></i> Delete</button>
             </div>
         </div>
-        <?= form_open('mahasiswa/delete', array('id' => 'bulk')); ?>
+        <?= form_open('peserta/delete', array('id' => 'bulk')); ?>
         <div class="table-responsive">
             <table id="mahasiswa" class="table table-striped table-bordered table-hover">
                 <thead>
@@ -52,4 +52,4 @@
     </div>
 </div>
 
-<script src="<?= base_url() ?>assets/dist/js/app/master/mahasiswa/data.js"></script>
+<script src="<?= base_url() ?>assets/dist/js/app/master/peserta/data.js"></script>

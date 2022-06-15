@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Mahasiswa extends CI_Controller
+class Peserta extends CI_Controller
 {
 
 	public function __construct()
@@ -31,7 +31,7 @@ class Mahasiswa extends CI_Controller
 			'subjudul' => 'Data Peserta'
 		];
 		$this->load->view('_templates/dashboard/_header.php', $data);
-		$this->load->view('master/mahasiswa/data');
+		$this->load->view('master/peserta/data');
 		$this->load->view('_templates/dashboard/_footer.php');
 	}
 
@@ -48,7 +48,7 @@ class Mahasiswa extends CI_Controller
 			'subjudul' => 'Tambah Data Peserta'
 		];
 		$this->load->view('_templates/dashboard/_header.php', $data);
-		$this->load->view('master/mahasiswa/add');
+		$this->load->view('master/peserta/add');
 		$this->load->view('_templates/dashboard/_footer.php');
 	}
 
@@ -64,7 +64,7 @@ class Mahasiswa extends CI_Controller
 			'mahasiswa' => $mhs
 		];
 		$this->load->view('_templates/dashboard/_header.php', $data);
-		$this->load->view('master/mahasiswa/edit');
+		$this->load->view('master/peserta/edit');
 		$this->load->view('_templates/dashboard/_footer.php');
 	}
 
@@ -192,7 +192,7 @@ class Mahasiswa extends CI_Controller
 		if ($import_data != null) $data['import'] = $import_data;
 
 		$this->load->view('_templates/dashboard/_header', $data);
-		$this->load->view('master/mahasiswa/import');
+		$this->load->view('master/peserta/import');
 		$this->load->view('_templates/dashboard/_footer');
 	}
 	public function preview()
@@ -264,7 +264,7 @@ class Mahasiswa extends CI_Controller
 		if ($save) {
 			redirect('mahasiswa');
 		} else {
-			redirect('mahasiswa/import');
+			redirect('peserta/import');
 		}
 	}
 }
