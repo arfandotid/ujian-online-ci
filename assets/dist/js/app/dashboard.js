@@ -53,11 +53,18 @@ $(document).ready(function(){
 			}
 		});
 	});
-
+	// arah kemana menu
 	$('#dosen_id').on('change', function(e){
 		opt = this.options[this.selectedIndex].text;
 		if (opt.toLowerCase().includes('kraepelin')){
-			window.location.href = window.location.href + '?kr=';
+			if (!window.location.href.includes('kraepelin')){
+				window.location.href =  '/soal/addkraepelin';
+			}
+		}
+		else{
+			if (window.location.href.includes('kraepelin')){
+				window.location.href =  '/soal/add';
+			}
 		}
 	});
 	

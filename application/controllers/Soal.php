@@ -31,7 +31,7 @@ class Soal extends CI_Controller {
          'judul'	=> 'Soal',
          'subjudul'=> 'Bank Soal'
      ];
-     
+
      if($this->ion_auth->is_admin()){
             //Jika admin maka tampilkan semua matkul
         $data['matkul'] = $this->master->getAllMatkul();
@@ -74,7 +74,7 @@ public function add()
     $data['dosen'] = $this->soal->getAllDosen();
 }else{
             //Jika bukan maka matkul dipilih otomatis sesuai matkul dosen
-    $data['dosen'] = $this->soal->getMatkulDosen($user->username);
+    $data['dosen'] = $this->soal->getDosenWhereMatkul($user->username);
 }
 
 $this->load->view('_templates/dashboard/_header.php', $data);
@@ -82,26 +82,21 @@ $this->load->view('soal/add');
 $this->load->view('_templates/dashboard/_footer.php');
 }
 
-public function addKraepelin()
+public function addkraepelin()
 {
     $user = $this->ion_auth->user()->row();
     $data = [
      'user'      => $user,
      'judul'        => 'Soal',
-     'subjudul'  => 'Buat Soal'
+     'subjudul'  => 'Buat Soal Kraepelin'
  ];
 
- if($this->ion_auth->is_admin()){
-            //Jika admin maka tampilkan semua matkul
-    $data['dosen'] = $this->soal->getAllDosen();
-}else{
-            //Jika bukan maka matkul dipilih otomatis sesuai matkul dosen
-    $data['dosen'] = $this->soal->getMatkulDosen($user->username);
-}
+ $data['dosen'] = $this->soal->getDosenWhereMatkul('kraepelin');
+ $data['soal'] = $this->soal->getKraepelin();
 
-$this->load->view('_templates/dashboard/_header.php', $data);
-$this->load->view('soal/add-kraepelin');
-$this->load->view('_templates/dashboard/_footer.php');
+ $this->load->view('_templates/dashboard/_header.php', $data);
+ $this->load->view('soal/add-kraepelin');
+ $this->load->view('_templates/dashboard/_footer.php');
 }
 
 public function edit($id)
@@ -113,7 +108,7 @@ public function edit($id)
      'subjudul'  => 'Edit Soal',
      'soal'      => $this->soal->getSoalById($id),
  ];
- 
+
  if($this->ion_auth->is_admin()){
             //Jika admin maka tampilkan semua matkul
     $data['dosen'] = $this->soal->getAllDosen();

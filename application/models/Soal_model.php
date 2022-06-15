@@ -37,4 +37,17 @@ class Soal_model extends CI_Model {
         $this->db->join('matkul b', 'a.matkul_id=b.id_matkul');
         return $this->db->get()->result();
     }
+
+    public function getDosenWhereMatkul($matkul)
+    {
+     $this->db->select('matkul_id, nama_matkul, id_dosen, nama_dosen');
+    $this->db->join('matkul', 'matkul_id=id_matkul');
+    $this->db->from('dosen')->where('nama_matkul like ', '%'.$matkul.'%');
+    return $this->db->get()->row();   
+    }
+
+    public function getKraepelin()
+    {
+        return $this->db->get('tb_soal_kraepelin')->result();
+    }
 }

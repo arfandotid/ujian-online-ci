@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-sm-12">    
-        <?=form_open_multipart('soal/save', array('id'=>'formsoal'), array('method'=>'add'));?>
+        <?=form_open_multipart('soal/savekraepelin', array('id'=>'formsoal'), array('method'=>'add'));?>
         <div class="box">
             <div class="box-header with-border">
                 <h3 class="box-title"><?=$subjudul?></h3>
@@ -11,25 +11,16 @@
             </div>
             <div class="box-body">
                 <div class="row">
+                    <div class="col-sm-12">
+                        <a href="<?= base_url('soal/add') ?>" class="btn btn-warning"><i class="fa fa-arrow-left"></i> Kembali</a>
+                    </div>
                     <div class="col-sm-8 col-sm-offset-2">
                         <div class="form-group col-sm-12">
-                            <label>Pembuat Soal (Jenis Tes)</label>
-                            <?php if ($this->ion_auth->is_admin()) : ?>
-                            <select name="dosen_id" required="required" id="dosen_id" class="select2 form-group" style="width:100% !important">
-                                <option value="" disabled selected>Pilih Pembuat Soal</option>
-                                <?php foreach ($dosen as $d) : ?>
-                                    <option value="<?=$d->id_dosen?>:<?=$d->matkul_id?>"><?=$d->nama_dosen?> (<?=$d->nama_matkul?>)</option>
-                                <?php endforeach; ?>
-                            </select>
-                            <small class="help-block" style="color: #dc3545"><?=form_error('dosen_id')?></small>
-                            <?php else : ?>
                             <input type="hidden" name="dosen_id" value="<?=$dosen->id_dosen;?>">
                             <input type="hidden" name="matkul_id" value="<?=$dosen->matkul_id;?>">
-                            <input type="text" readonly="readonly" class="form-control" value="<?=$dosen->nama_dosen; ?> (<?=$dosen->nama_matkul; ?>)">
-                            <?php endif; ?>
                         </div>
                         
-                        <div class="col-sm-12">
+                        <!-- <div class="col-sm-12">
                             <label for="soal" class="control-label">Soal</label>
                             <div class="form-group">
                                 <input type="file" name="file_soal" class="form-control">
@@ -39,12 +30,12 @@
                                 <textarea name="soal" id="soal" class="form-control summernote"><?=set_value('soal')?></textarea>
                                 <small class="help-block" style="color: #dc3545"><?=form_error('soal')?></small>
                             </div>
-                        </div>
+                        </div> -->
                         
                         <!-- 
                             Membuat perulangan A-E 
                         -->
-                        <?php
+                        <!-- <?php
                         $abjad = ['a', 'b', 'c', 'd', 'e'];
                         foreach ($abjad as $abj) :
                             $ABJ = strtoupper($abj); // Abjad Kapital
@@ -62,9 +53,9 @@
                             </div>
                         </div>
 
-                        <?php endforeach; ?>
+                        <?php endforeach; ?> -->
 
-                        <div class="form-group col-sm-12">
+                        <!-- <div class="form-group col-sm-12">
                             <label for="jawaban" class="control-label">Kunci Jawaban</label>
                             <select required="required" name="jawaban" id="jawaban" class="form-control select2" style="width:100%!important">
                                 <option value="" disabled selected>Pilih Kunci Jawaban</option>
@@ -80,7 +71,7 @@
                             <label for="bobot" class="control-label">Bobot Soal</label>
                             <input required="required" value="1" type="number" name="bobot" placeholder="Bobot Soal" id="bobot" class="form-control">
                             <small class="help-block" style="color: #dc3545"><?=form_error('bobot')?></small>
-                        </div>
+                        </div> -->
                         <div class="form-group pull-right">
                             <a href="<?=base_url('soal')?>" class="btn btn-flat btn-default"><i class="fa fa-arrow-left"></i> Batal</a>
                             <button type="submit" id="submit" class="btn btn-flat bg-purple"><i class="fa fa-save"></i> Simpan</button>
