@@ -9,7 +9,7 @@
 	<div class="box-body">
 		<div class="mt-2 mb-3">
 			<button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-sm btn-flat bg-purple"><i class="fa fa-plus"></i> Tambah Data</button>
-			<a href="<?= base_url('matkul/import') ?>" class="btn btn-sm btn-flat btn-success"><i class="fa fa-upload"></i> Import</a>
+			<a href="<?= base_url('tes/import') ?>" class="btn btn-sm btn-flat btn-success"><i class="fa fa-upload"></i> Import</a>
 			<button type="button" onclick="reload_ajax()" class="btn btn-sm btn-flat btn-default"><i class="fa fa-refresh"></i> Reload</button>
 			<div class="pull-right">
 				<button onclick="bulk_edit()" class="btn btn-sm btn-flat btn-warning" type="button"><i class="fa fa-edit"></i> Edit</button>
@@ -49,7 +49,7 @@
 					<span aria-hidden="true">×</span></button>
 				<h4 class="modal-title">Tambah Data</h4>
 			</div>
-			<?= form_open('matkul/add', array('id', 'tambah')); ?>
+			<?= form_open('tes/add', array('id', 'tambah')); ?>
 			<div class="modal-body">
 				<div class="form-group">
 					<label for="banyak">Banyaknya data</label>
@@ -67,4 +67,4 @@
 	<!-- /.modal-dialog -->
 </div>
 
-<script src="<?= base_url() ?>assets/dist/js/app/master/matkul/data.js"></script>
+<script src="<?= base_url() ?>assets/dist/js/app/master/tes/data.js"></script>

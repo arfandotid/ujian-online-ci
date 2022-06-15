@@ -6,7 +6,7 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\Writer\Xls;
 use PhpOffice\PhpSpreadsheet\Writer\Csv;
 
-class Matkul extends CI_Controller
+class Tes extends CI_Controller
 {
 
 	public function __construct()
@@ -36,7 +36,7 @@ class Matkul extends CI_Controller
 			'subjudul' => 'Data Jenis Tes'
 		];
 		$this->load->view('_templates/dashboard/_header.php', $data);
-		$this->load->view('master/matkul/data');
+		$this->load->view('master/tes/data');
 		$this->load->view('_templates/dashboard/_footer.php');
 	}
 
@@ -54,7 +54,7 @@ class Matkul extends CI_Controller
 			'banyak'	=> $this->input->post('banyak', true)
 		];
 		$this->load->view('_templates/dashboard/_header.php', $data);
-		$this->load->view('master/matkul/add');
+		$this->load->view('master/tes/add');
 		$this->load->view('_templates/dashboard/_footer.php');
 	}
 
@@ -72,7 +72,7 @@ class Matkul extends CI_Controller
 				'matkul'	=> $matkul
 			];
 			$this->load->view('_templates/dashboard/_header.php', $data);
-			$this->load->view('master/matkul/edit');
+			$this->load->view('master/tes/edit');
 			$this->load->view('_templates/dashboard/_footer.php');
 		}
 	}
@@ -144,7 +144,7 @@ class Matkul extends CI_Controller
 		if ($import_data != null) $data['import'] = $import_data;
 
 		$this->load->view('_templates/dashboard/_header', $data);
-		$this->load->view('master/matkul/import');
+		$this->load->view('master/tes/import');
 		$this->load->view('_templates/dashboard/_footer');
 	}
 
@@ -206,7 +206,7 @@ class Matkul extends CI_Controller
 		if ($save) {
 			redirect('matkul');
 		} else {
-			redirect('matkul/import');
+			redirect('tes/import');
 		}
 	}
 }

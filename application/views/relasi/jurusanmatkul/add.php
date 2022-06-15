@@ -1,8 +1,8 @@
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title">Form <?=$judul?></h3>
+        <h3 class="box-title">Form <?= $judul ?></h3>
         <div class="box-tools pull-right">
-            <a href="<?=base_url()?>jurusanmatkul" class="btn btn-warning btn-flat btn-sm">
+            <a href="<?= base_url() ?>jurusanmatkul" class="btn btn-warning btn-flat btn-sm">
                 <i class="fa fa-arrow-left"></i> Batal
             </a>
         </div>
@@ -21,13 +21,13 @@
                 </div>
             </div>
             <div class="col-sm-4">
-                <?=form_open('jurusanmatkul/save', array('id'=>'jurusanmatkul'), array('method'=>'add'))?>
+                <?= form_open('jurusantes/save', array('id' => 'jurusanmatkul'), array('method' => 'add')) ?>
                 <div class="form-group">
                     <label>Jenis Tes</label>
                     <select name="matkul_id" class="form-control select2" style="width: 100%!important">
                         <option value="" disabled selected></option>
                         <?php foreach ($matkul as $m) : ?>
-                            <option value="<?=$m->id_matkul?>"><?=$m->nama_matkul?></option>
+                            <option value="<?= $m->id_matkul ?>"><?= $m->nama_matkul ?></option>
                         <?php endforeach; ?>
                     </select>
                     <small class="help-block text-right"></small>
@@ -46,10 +46,10 @@
                         <i class="fa fa-save"></i> Simpan
                     </button>
                 </div>
-                <?=form_close()?>
+                <?= form_close() ?>
             </div>
         </div>
     </div>
 </div>
 
-<script src="<?=base_url()?>assets/dist/js/app/relasi/jurusanmatkul/add.js"></script>
+<script src="<?= base_url() ?>assets/dist/js/app/relasi/jurusantes/add.js"></script>

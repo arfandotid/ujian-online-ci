@@ -20,7 +20,7 @@
 			<!-- Optionally, you can add icons to the links -->
 			<?php
 			$page = $this->uri->segment(1);
-			$master = ["jurusan", "kelas", "matkul", "dosen", "mahasiswa"];
+			$master = ["kategori", "ruang", "tes", "petugas", "peserta"];
 			$relasi = ["kelasdosen", "jurusanmatkul"];
 			$users = ["users"];
 			?>
@@ -33,32 +33,32 @@
 						</span>
 					</a>
 					<ul class="treeview-menu">
-						<li class="<?= $page === 'jurusan' ? "active" : "" ?>">
-							<a href="<?= base_url('jurusan') ?>">
+						<li class="<?= $page === 'kategori' ? "active" : "" ?>">
+							<a href="<?= base_url('kategori') ?>">
 								<i class="fa fa-circle-o"></i>
 								Master Kategori Ujian
 							</a>
 						</li>
-						<li class="<?= $page === 'kelas' ? "active" : "" ?>">
-							<a href="<?= base_url('kelas') ?>">
+						<li class="<?= $page === 'ruang' ? "active" : "" ?>">
+							<a href="<?= base_url('ruang') ?>">
 								<i class="fa fa-circle-o"></i>
 								Master Ruang
 							</a>
 						</li>
-						<li class="<?= $page === 'matkul' ? "active" : "" ?>">
-							<a href="<?= base_url('matkul') ?>">
+						<li class="<?= $page === 'tes' ? "active" : "" ?>">
+							<a href="<?= base_url('tes') ?>">
 								<i class="fa fa-circle-o"></i>
 								Master Jenis Tes
 							</a>
 						</li>
-						<li class="<?= $page === 'dosen' ? "active" : "" ?>">
-							<a href="<?= base_url('dosen') ?>">
+						<li class="<?= $page === 'petugas' ? "active" : "" ?>">
+							<a href="<?= base_url('petugas') ?>">
 								<i class="fa fa-circle-o"></i>
 								Master Pembuat soal
 							</a>
 						</li>
-						<li class="<?= $page === 'mahasiswa' ? "active" : "" ?>">
-							<a href="<?= base_url('mahasiswa') ?>">
+						<li class="<?= $page === 'peserta' ? "active" : "" ?>">
+							<a href="<?= base_url('peserta') ?>">
 								<i class="fa fa-circle-o"></i>
 								Master Peserta
 							</a>

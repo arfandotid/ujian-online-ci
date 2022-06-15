@@ -41,7 +41,7 @@ $(document).ready(function() {
     processing: true,
     serverSide: true,
     ajax: {
-      url: base_url + "jurusanmatkul/data",
+      url: base_url + "jurusantes/data",
       type: "POST"
     },
     columns: [
@@ -76,7 +76,7 @@ $(document).ready(function() {
         data: "id_matkul",
         render: function(data, type, row, meta) {
           return `<div class="text-center">
-									<a href="${base_url}jurusanmatkul/edit/${data}" class="btn btn-warning btn-xs">
+									<a href="${base_url}jurusantes/edit/${data}" class="btn btn-warning btn-xs">
 										<i class="fa fa-pencil"></i>
 									</a>
 								</div>`;
@@ -139,7 +139,7 @@ $(document).ready(function() {
   });
 
   $("#bulk").on("submit", function(e) {
-    if ($(this).attr("action") == base_url + "jurusanmatkul/delete") {
+    if ($(this).attr("action") == base_url + "jurusantes/delete") {
       e.preventDefault();
       e.stopImmediatePropagation();
 
@@ -183,7 +183,7 @@ function bulk_delete() {
       type: "error"
     });
   } else {
-    $("#bulk").attr("action", base_url + "jurusanmatkul/delete");
+    $("#bulk").attr("action", base_url + "jurusantes/delete");
     Swal({
       title: "Anda yakin?",
       text: "Data akan dihapus!",

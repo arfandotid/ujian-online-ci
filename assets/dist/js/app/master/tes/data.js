@@ -41,7 +41,7 @@ $(document).ready(function() {
     processing: true,
     serverSide: true,
     ajax: {
-      url: base_url + "matkul/data",
+      url: base_url + "tes/data",
       type: "POST"
       //data: csrf
     },
@@ -111,7 +111,7 @@ $(document).ready(function() {
   });
 
   $("#bulk").on("submit", function(e) {
-    if ($(this).attr("action") == base_url + "matkul/delete") {
+    if ($(this).attr("action") == base_url + "tes/delete") {
       e.preventDefault();
       e.stopImmediatePropagation();
 
@@ -155,7 +155,7 @@ function bulk_delete() {
       type: "error"
     });
   } else {
-    $("#bulk").attr("action", base_url + "matkul/delete");
+    $("#bulk").attr("action", base_url + "tes/delete");
     Swal({
       title: "Anda yakin?",
       text: "Data akan dihapus!",
@@ -180,7 +180,7 @@ function bulk_edit() {
       type: "error"
     });
   } else {
-    $("#bulk").attr("action", base_url + "matkul/edit");
+    $("#bulk").attr("action", base_url + "tes/edit");
     $("#bulk").submit();
   }
 }
