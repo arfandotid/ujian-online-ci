@@ -82,6 +82,28 @@ $this->load->view('soal/add');
 $this->load->view('_templates/dashboard/_footer.php');
 }
 
+public function addKraepelin()
+{
+    $user = $this->ion_auth->user()->row();
+    $data = [
+     'user'      => $user,
+     'judul'        => 'Soal',
+     'subjudul'  => 'Buat Soal'
+ ];
+
+ if($this->ion_auth->is_admin()){
+            //Jika admin maka tampilkan semua matkul
+    $data['dosen'] = $this->soal->getAllDosen();
+}else{
+            //Jika bukan maka matkul dipilih otomatis sesuai matkul dosen
+    $data['dosen'] = $this->soal->getMatkulDosen($user->username);
+}
+
+$this->load->view('_templates/dashboard/_header.php', $data);
+$this->load->view('soal/add-kraepelin');
+$this->load->view('_templates/dashboard/_footer.php');
+}
+
 public function edit($id)
 {
   $user = $this->ion_auth->user()->row();
