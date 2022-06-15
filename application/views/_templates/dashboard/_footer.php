@@ -84,9 +84,9 @@
 							]
 						});
 		});
-		$('#dosen_id').on('select2:select', function (e) {
-			alert(this.value);
-		});
+		// $('#dosen_id').on('select2:select', function (e) {
+		// 	alert(this.value);
+		// });
 	</script>
 
 </body>
