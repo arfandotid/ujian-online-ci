@@ -53,4 +53,16 @@ $(document).ready(function(){
 			}
 		});
 	});
+
+	$('#dosen_id').on('change', function(e){
+		opt = this.options[this.selectedIndex].text;
+		if (opt.toLowerCase().includes('kraepelin')){
+			window.location.href = window.location.href + '?kr=';
+		}
+	});
+	
+	$('#generate').on('click', function(e){
+		alert('kraepelin generated');
+	});
+
 });

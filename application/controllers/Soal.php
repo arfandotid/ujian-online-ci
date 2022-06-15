@@ -295,5 +295,10 @@ public function delete()
             }
             $jawabans[] = $jawaban;
         }
+
+        return [
+            'angkas' => $angkas,
+            'jawabans' => $jawabans
+        ];
     }
 }
