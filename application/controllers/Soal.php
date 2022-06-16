@@ -70,13 +70,17 @@ class Soal extends CI_Controller
             'judul'        => 'Soal',
             'subjudul'  => 'Buat Soal'
         ];
-
         if ($this->ion_auth->is_admin()) {
             //Jika admin maka tampilkan semua matkul
             $data['dosen'] = $this->soal->getAllDosen();
         } else {
             //Jika bukan maka matkul dipilih otomatis sesuai matkul dosen
-            $data['dosen'] = $this->soal->getMatkulDosen($user->username);
+            if (!$this->iskraepelin($user->username)){
+                $data['dosen'] = $this->soal->getMatkulDosen($user->username);
+            }
+            else{
+                redirect('soal/addkraepelin');
+            }
         }
 
         $this->load->view('_templates/dashboard/_header.php', $data);
@@ -126,7 +130,8 @@ class Soal extends CI_Controller
 
     public function data($id = null, $dosen = null)
     {
-        $this->output_json($this->soal->getDataSoal($id, $dosen), false);
+        $user = $this->ion_auth->user()->row();
+        $this->output_json($this->soal->getDataSoal($id, $dosen, $this->iskraepelin($user->username)), false);
     }
 
     public function validasi()
@@ -289,6 +294,12 @@ class Soal extends CI_Controller
             }
         }
     }
+
+    private function iskraepelin($username)
+    {
+        return $this->soal->getMatkulDosen($username, true);
+    }
+
     public function generatesoalkraepelin($rows, $columns)
     {
         // generate angka

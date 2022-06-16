@@ -94,7 +94,6 @@
 			let id_dosen = '<?= $matkul->id_dosen ?>';
 			let src = '<?= base_url() ?>soal/data';
 			let url = src + '/' + id_matkul + '/' + id_dosen;
-
 			table.ajax.url(url).load();
 		});
 	</script>
