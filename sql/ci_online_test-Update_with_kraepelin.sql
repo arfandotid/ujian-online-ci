@@ -12,7 +12,14 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+
+-- Dumping database structure for ci_online_test
+DROP DATABASE IF EXISTS `ci_online_test`;
+CREATE DATABASE IF NOT EXISTS `ci_online_test` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `ci_online_test`;
+
 -- Dumping structure for table ci_online_test.dosen
+DROP TABLE IF EXISTS `dosen`;
 CREATE TABLE IF NOT EXISTS `dosen` (
   `id_dosen` int(11) NOT NULL AUTO_INCREMENT,
   `nip` char(12) NOT NULL,
@@ -35,6 +42,7 @@ INSERT INTO `dosen` (`id_dosen`, `nip`, `nama_dosen`, `email`, `matkul_id`) VALU
 /*!40000 ALTER TABLE `dosen` ENABLE KEYS */;
 
 -- Dumping structure for table ci_online_test.groups
+DROP TABLE IF EXISTS `groups`;
 CREATE TABLE IF NOT EXISTS `groups` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
@@ -51,6 +59,7 @@ INSERT INTO `groups` (`id`, `name`, `description`) VALUES
 /*!40000 ALTER TABLE `groups` ENABLE KEYS */;
 
 -- Dumping structure for table ci_online_test.h_ujian
+DROP TABLE IF EXISTS `h_ujian`;
 CREATE TABLE IF NOT EXISTS `h_ujian` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `ujian_id` int(11) NOT NULL,
@@ -75,6 +84,7 @@ CREATE TABLE IF NOT EXISTS `h_ujian` (
 /*!40000 ALTER TABLE `h_ujian` ENABLE KEYS */;
 
 -- Dumping structure for table ci_online_test.jurusan
+DROP TABLE IF EXISTS `jurusan`;
 CREATE TABLE IF NOT EXISTS `jurusan` (
   `id_jurusan` int(11) NOT NULL AUTO_INCREMENT,
   `nama_jurusan` varchar(30) NOT NULL,
@@ -90,6 +100,7 @@ INSERT INTO `jurusan` (`id_jurusan`, `nama_jurusan`) VALUES
 /*!40000 ALTER TABLE `jurusan` ENABLE KEYS */;
 
 -- Dumping structure for table ci_online_test.jurusan_matkul
+DROP TABLE IF EXISTS `jurusan_matkul`;
 CREATE TABLE IF NOT EXISTS `jurusan_matkul` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `matkul_id` int(11) NOT NULL,
@@ -108,6 +119,7 @@ INSERT INTO `jurusan_matkul` (`id`, `matkul_id`, `jurusan_id`) VALUES
 /*!40000 ALTER TABLE `jurusan_matkul` ENABLE KEYS */;
 
 -- Dumping structure for table ci_online_test.kelas
+DROP TABLE IF EXISTS `kelas`;
 CREATE TABLE IF NOT EXISTS `kelas` (
   `id_kelas` int(11) NOT NULL AUTO_INCREMENT,
   `nama_kelas` varchar(30) NOT NULL,
@@ -127,6 +139,7 @@ INSERT INTO `kelas` (`id_kelas`, `nama_kelas`, `jurusan_id`) VALUES
 /*!40000 ALTER TABLE `kelas` ENABLE KEYS */;
 
 -- Dumping structure for table ci_online_test.kelas_dosen
+DROP TABLE IF EXISTS `kelas_dosen`;
 CREATE TABLE IF NOT EXISTS `kelas_dosen` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `kelas_id` int(11) NOT NULL,
@@ -138,7 +151,7 @@ CREATE TABLE IF NOT EXISTS `kelas_dosen` (
   CONSTRAINT `kelas_dosen_ibfk_2` FOREIGN KEY (`kelas_id`) REFERENCES `kelas` (`id_kelas`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ci_online_test.kelas_dosen: ~1 rows (approximately)
+-- Dumping data for table ci_online_test.kelas_dosen: ~5 rows (approximately)
 /*!40000 ALTER TABLE `kelas_dosen` DISABLE KEYS */;
 INSERT INTO `kelas_dosen` (`id`, `kelas_id`, `dosen_id`) VALUES
 	(6, 1, 1),
@@ -149,6 +162,7 @@ INSERT INTO `kelas_dosen` (`id`, `kelas_id`, `dosen_id`) VALUES
 /*!40000 ALTER TABLE `kelas_dosen` ENABLE KEYS */;
 
 -- Dumping structure for table ci_online_test.login_attempts
+DROP TABLE IF EXISTS `login_attempts`;
 CREATE TABLE IF NOT EXISTS `login_attempts` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `ip_address` varchar(45) NOT NULL,
@@ -157,11 +171,12 @@ CREATE TABLE IF NOT EXISTS `login_attempts` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ci_online_test.login_attempts: ~1 rows (approximately)
+-- Dumping data for table ci_online_test.login_attempts: ~0 rows (approximately)
 /*!40000 ALTER TABLE `login_attempts` DISABLE KEYS */;
 /*!40000 ALTER TABLE `login_attempts` ENABLE KEYS */;
 
 -- Dumping structure for table ci_online_test.mahasiswa
+DROP TABLE IF EXISTS `mahasiswa`;
 CREATE TABLE IF NOT EXISTS `mahasiswa` (
   `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT,
   `nama` varchar(50) NOT NULL,
@@ -176,13 +191,14 @@ CREATE TABLE IF NOT EXISTS `mahasiswa` (
   CONSTRAINT `mahasiswa_ibfk_2` FOREIGN KEY (`kelas_id`) REFERENCES `kelas` (`id_kelas`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table ci_online_test.mahasiswa: ~0 rows (approximately)
+-- Dumping data for table ci_online_test.mahasiswa: ~1 rows (approximately)
 /*!40000 ALTER TABLE `mahasiswa` DISABLE KEYS */;
 INSERT INTO `mahasiswa` (`id_mahasiswa`, `nama`, `nim`, `email`, `jenis_kelamin`, `kelas_id`) VALUES
 	(1, 'Sembilan Sembilan', '999999999', 'peserta@gmail.com', 'L', 2);
 /*!40000 ALTER TABLE `mahasiswa` ENABLE KEYS */;
 
 -- Dumping structure for table ci_online_test.matkul
+DROP TABLE IF EXISTS `matkul`;
 CREATE TABLE IF NOT EXISTS `matkul` (
   `id_matkul` int(11) NOT NULL AUTO_INCREMENT,
   `nama_matkul` varchar(50) NOT NULL,
@@ -198,6 +214,7 @@ INSERT INTO `matkul` (`id_matkul`, `nama_matkul`) VALUES
 /*!40000 ALTER TABLE `matkul` ENABLE KEYS */;
 
 -- Dumping structure for table ci_online_test.m_ujian
+DROP TABLE IF EXISTS `m_ujian`;
 CREATE TABLE IF NOT EXISTS `m_ujian` (
   `id_ujian` int(11) NOT NULL AUTO_INCREMENT,
   `dosen_id` int(11) NOT NULL,
@@ -216,13 +233,14 @@ CREATE TABLE IF NOT EXISTS `m_ujian` (
   CONSTRAINT `m_ujian_ibfk_2` FOREIGN KEY (`matkul_id`) REFERENCES `matkul` (`id_matkul`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ci_online_test.m_ujian: ~0 rows (approximately)
+-- Dumping data for table ci_online_test.m_ujian: ~1 rows (approximately)
 /*!40000 ALTER TABLE `m_ujian` DISABLE KEYS */;
 INSERT INTO `m_ujian` (`id_ujian`, `dosen_id`, `matkul_id`, `nama_ujian`, `jumlah_soal`, `waktu`, `jenis`, `tgl_mulai`, `terlambat`, `token`) VALUES
 	(1, 2, 1, 'Test IQ', 1, 20, 'acak', '2022-06-15 20:49:15', '2022-06-16 20:49:22', 'RRVJZ');
 /*!40000 ALTER TABLE `m_ujian` ENABLE KEYS */;
 
 -- Dumping structure for table ci_online_test.tb_soal
+DROP TABLE IF EXISTS `tb_soal`;
 CREATE TABLE IF NOT EXISTS `tb_soal` (
   `id_soal` int(11) NOT NULL AUTO_INCREMENT,
   `dosen_id` int(11) NOT NULL,
@@ -251,13 +269,14 @@ CREATE TABLE IF NOT EXISTS `tb_soal` (
   CONSTRAINT `tb_soal_ibfk_2` FOREIGN KEY (`dosen_id`) REFERENCES `dosen` (`id_dosen`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ci_online_test.tb_soal: ~0 rows (approximately)
+-- Dumping data for table ci_online_test.tb_soal: ~1 rows (approximately)
 /*!40000 ALTER TABLE `tb_soal` DISABLE KEYS */;
 INSERT INTO `tb_soal` (`id_soal`, `dosen_id`, `matkul_id`, `bobot`, `file`, `tipe_file`, `soal`, `opsi_a`, `opsi_b`, `opsi_c`, `opsi_d`, `opsi_e`, `file_a`, `file_b`, `file_c`, `file_d`, `file_e`, `jawaban`, `created_on`, `updated_on`) VALUES
 	(1, 2, 1, 1, '', '', '<p>ajkhgshjagskhgk</p>', '<p>ini jawabanya</p>', '<p>hhh</p>', '<p>hhh</p>', '', '', '', '', '', '', '', 'A', 1655300897, 1655300897);
 /*!40000 ALTER TABLE `tb_soal` ENABLE KEYS */;
 
 -- Dumping structure for table ci_online_test.tb_soal_kraepelin
+DROP TABLE IF EXISTS `tb_soal_kraepelin`;
 CREATE TABLE IF NOT EXISTS `tb_soal_kraepelin` (
   `id_soal` int(11) NOT NULL AUTO_INCREMENT,
   `dosen_id` int(11) NOT NULL,
@@ -273,13 +292,14 @@ CREATE TABLE IF NOT EXISTS `tb_soal_kraepelin` (
   CONSTRAINT `tb_soal_kraepelin_ibfk_2` FOREIGN KEY (`dosen_id`) REFERENCES `dosen` (`id_dosen`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ci_online_test.tb_soal_kraepelin: ~0 rows (approximately)
+-- Dumping data for table ci_online_test.tb_soal_kraepelin: ~1 rows (approximately)
 /*!40000 ALTER TABLE `tb_soal_kraepelin` DISABLE KEYS */;
 INSERT INTO `tb_soal_kraepelin` (`id_soal`, `dosen_id`, `matkul_id`, `soal`, `jawaban`, `created_on`, `updated_on`) VALUES
 	(1, 1, 2, '1', '1', 1655384401, 1655384412);
 /*!40000 ALTER TABLE `tb_soal_kraepelin` ENABLE KEYS */;
 
 -- Dumping structure for table ci_online_test.users
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `ip_address` varchar(45) NOT NULL,
@@ -307,7 +327,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `uc_email` (`email`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ci_online_test.users: ~4 rows (approximately)
+-- Dumping data for table ci_online_test.users: ~5 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
 	(1, '127.0.0.1', 'Administrator', '$2y$12$tGY.AtcyXrh7WmccdbT1rOuKEcTsKH6sIUmDr0ore1yN4LnKTTtuu', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1655385287, 1, 'Admin', 'Istrator', 'ADMIN', '0'),
@@ -318,6 +338,7 @@ INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activ
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 -- Dumping structure for table ci_online_test.users_groups
+DROP TABLE IF EXISTS `users_groups`;
 CREATE TABLE IF NOT EXISTS `users_groups` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) unsigned NOT NULL,
@@ -330,7 +351,7 @@ CREATE TABLE IF NOT EXISTS `users_groups` (
   CONSTRAINT `fk_users_groups_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ci_online_test.users_groups: ~4 rows (approximately)
+-- Dumping data for table ci_online_test.users_groups: ~5 rows (approximately)
 /*!40000 ALTER TABLE `users_groups` DISABLE KEYS */;
 INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 	(3, 1, 1),
@@ -341,6 +362,7 @@ INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 /*!40000 ALTER TABLE `users_groups` ENABLE KEYS */;
 
 -- Dumping structure for trigger ci_online_test.edit_user_dosen
+DROP TRIGGER IF EXISTS `edit_user_dosen`;
 SET @OLDTMP_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO';
 DELIMITER //
 CREATE TRIGGER `edit_user_dosen` BEFORE UPDATE ON `dosen` FOR EACH ROW UPDATE `users` SET `email` = NEW.email, `username` = NEW.nip WHERE `users`.`username` = OLD.nip//
@@ -348,6 +370,7 @@ DELIMITER ;
 SET SQL_MODE=@OLDTMP_SQL_MODE;
 
 -- Dumping structure for trigger ci_online_test.hapus_user_dosen
+DROP TRIGGER IF EXISTS `hapus_user_dosen`;
 SET @OLDTMP_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO';
 DELIMITER //
 CREATE TRIGGER `hapus_user_dosen` BEFORE DELETE ON `dosen` FOR EACH ROW DELETE FROM `users` WHERE `users`.`username` = OLD.nip//
