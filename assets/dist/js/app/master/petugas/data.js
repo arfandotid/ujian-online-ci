@@ -16,24 +16,7 @@ $(document).ready(function() {
       "<'row'<'col-sm-3'l><'col-sm-6 text-center'B><'col-sm-3'f>>" +
       "<'row'<'col-sm-12'tr>>" +
       "<'row'<'col-sm-5'i><'col-sm-7'p>>",
-    buttons: [
-      {
-        extend: "copy",
-        exportOptions: { columns: [1, 2, 3, 4] }
-      },
-      {
-        extend: "print",
-        exportOptions: { columns: [1, 2, 3, 4] }
-      },
-      {
-        extend: "excel",
-        exportOptions: { columns: [1, 2, 3, 4] }
-      },
-      {
-        extend: "pdf",
-        exportOptions: { columns: [1, 2, 3, 4] }
-      }
-    ],
+    buttons: [],
     oLanguage: {
       sProcessing: "loading..."
     },
