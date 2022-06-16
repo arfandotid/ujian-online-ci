@@ -1,9 +1,9 @@
-<?= form_open('dosen/save', array('id' => 'formdosen'), array('method' => 'add')); ?>
+<?= form_open('petugas/save', array('id' => 'formdosen'), array('method' => 'add')); ?>
 <div class="box">
     <div class="box-header with-border">
         <h3 class="box-title">Form <?= $subjudul ?></h3>
         <div class="box-tools pull-right">
-            <a href="<?= base_url() ?>dosen" class="btn btn-sm btn-flat btn-warning">
+            <a href="<?= base_url() ?>petugas" class="btn btn-sm btn-flat btn-warning">
                 <i class="fa fa-arrow-left"></i> Batal
             </a>
         </div>
