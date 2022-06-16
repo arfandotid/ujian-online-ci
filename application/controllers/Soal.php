@@ -94,9 +94,11 @@ class Soal extends CI_Controller
         $data = [
             'user'      => $user,
             'judul'        => 'Soal',
-            'subjudul'  => 'Buat Soal Kraepelin'
+            'subjudul'  => 'Buat Soal Kraepelin',
         ];
-
+        $baris = $this->input->post('baris', true);
+        $kolom = $this->input->post('kolom', true);
+        $data['kraepelin'] = $this->generatesoalkraepelin($baris, $kolom);
         $data['dosen'] = $this->soal->getDosenWhereMatkul('kraepelin');
         $data['soal'] = $this->soal->getKraepelin();
 
@@ -304,10 +306,10 @@ class Soal extends CI_Controller
     {
         // generate angka
         $angkas = [];
-        for ($i = 0; $i < intval($columns); $i++) {
+        for ($i=0; $i < intval($columns); $i++) { 
             $angka = [];
-            for ($j = 0; $j < intval($rows); $j++) {
-                $angka[] = rand(1, 9);
+            for ($j=0; $j < intval($rows); $j++){
+                $angka[] = rand(1,9);
             }
             $angkas[] = $angka;
         }
@@ -316,19 +318,16 @@ class Soal extends CI_Controller
 
         // generate jawaban
         $jawabans = [];
-        for ($i = 0; $i < count($angkas); $i++) {
+        for ($i=0; $i < count($angkas); $i++) { 
             $jawaban = [];
-            for ($j = 0; $j < count($angkas[$i]); $j++) {
-                if (($j + 1) < (count($angkas[$i]))) {
-                    $jawaban[] = ($angkas[$i][$j] + $angkas[$i][$j + 1]) % 10;
+            for ($j = 0; $j < count($angkas[$i]); $j++){
+                if (($j+1) < (count($angkas[$i]))){
+                    $jawaban[] = ($angkas[$i][$j] + $angkas[$i][$j+1]) % 10;
                 }
             }
             $jawabans[] = $jawaban;
         }
-
-        return [
-            'angkas' => $angkas,
-            'jawabans' => $jawabans
-        ];
+        echo json_encode(['angkas' => $angkas, 'jawabans' => $jawabans]);
+        return ['angkas' => $angkas, 'jawabans' => $jawabans];
     }
 }
