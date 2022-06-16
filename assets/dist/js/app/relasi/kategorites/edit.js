@@ -26,7 +26,7 @@ $(document).ready(function () {
                         "type": "success"
                     }).then((result) => {
                         if (result.value) {
-                            window.location.href = base_url+'jurusanmatkul';
+                            window.location.href = base_url+'kategorites';
                         }
                     });
                 } else {
