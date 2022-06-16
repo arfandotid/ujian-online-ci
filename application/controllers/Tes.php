@@ -62,7 +62,7 @@ class Tes extends CI_Controller
 	{
 		$chk = $this->input->post('checked', true);
 		if (!$chk) {
-			redirect('matkul');
+			redirect('tes');
 		} else {
 			$matkul = $this->master->getMatkulById($chk);
 			$data = [
@@ -204,7 +204,7 @@ class Tes extends CI_Controller
 
 		$save = $this->master->create('matkul', $jurusan, true);
 		if ($save) {
-			redirect('matkul');
+			redirect('tes');
 		} else {
 			redirect('tes/import');
 		}

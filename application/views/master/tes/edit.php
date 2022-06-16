@@ -11,7 +11,7 @@
             <div class="col-sm-offset-4 col-sm-4">
                 <div class="my-2">
                     <div class="form-horizontal form-inline">
-                        <a href="<?= base_url('matkul') ?>" class="btn btn-default btn-xs">
+                        <a href="<?= base_url('tes') ?>" class="btn btn-default btn-xs">
                             <i class="fa fa-arrow-left"></i> Batal
                         </a>
                         <div class="pull-right">
@@ -24,7 +24,7 @@
                     <thead>
                         <tr>
                             <th># No</th>
-                            <th>Matkul</th>
+                            <th>Tes</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -2,7 +2,7 @@ banyak = Number(banyak);
 $(document).ready(function () {
     if (banyak < 1 || banyak > 50) {
         alert('Maksimum input 50');
-        window.location.href = base_url+"matkul";
+        window.location.href = base_url+"tes";
     }
 
     $('form#matkul input').on('change', function () {
