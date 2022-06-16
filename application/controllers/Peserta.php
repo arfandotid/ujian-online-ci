@@ -262,7 +262,7 @@ class Peserta extends CI_Controller
 
 		$save = $this->master->create('mahasiswa', $data, true);
 		if ($save) {
-			redirect('mahasiswa');
+			redirect('peserta');
 		} else {
 			redirect('peserta/import');
 		}

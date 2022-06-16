@@ -58,7 +58,7 @@ $(document).ready(function () {
                         "type": "success"
                     }).then((result) => {
                         if (result.value) {
-                            window.location.href = base_url+'mahasiswa';
+                            window.location.href = base_url+'peserta';
                         }
                     });
                 } else {

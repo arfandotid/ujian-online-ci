@@ -2,7 +2,7 @@
     <div class="box-header with-border">
         <h3 class="box-title">Form <?= $judul ?></h3>
         <div class="box-tools pull-right">
-            <a href="<?= base_url('mahasiswa') ?>" class="btn btn-sm btn-flat btn-warning">
+            <a href="<?= base_url('peserta') ?>" class="btn btn-sm btn-flat btn-warning">
                 <i class="fa fa-arrow-left"></i> Batal
             </a>
         </div>
