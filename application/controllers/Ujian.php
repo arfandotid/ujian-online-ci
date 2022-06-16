@@ -26,14 +26,14 @@ class Ujian extends CI_Controller
 	public function akses_dosen()
 	{
 		if (!$this->ion_auth->in_group('petugas')) {
-			show_error('Halaman ini khusus untuk dosen untuk membuat Test Online, <a href="' . base_url('dashboard') . '">Kembali ke menu awal</a>', 403, 'Akses Terlarang');
+			show_error('Halaman ini khusus untuk petugas untuk membuat Test Online, <a href="' . base_url('dashboard') . '">Kembali ke menu awal</a>', 403, 'Akses Terlarang');
 		}
 	}
 
 	public function akses_mahasiswa()
 	{
 		if (!$this->ion_auth->in_group('peserta')) {
-			show_error('Halaman ini khusus untuk mahasiswa mengikuti ujian, <a href="' . base_url('dashboard') . '">Kembali ke menu awal</a>', 403, 'Akses Terlarang');
+			show_error('Halaman ini khusus untuk peserta mengikuti ujian, <a href="' . base_url('dashboard') . '">Kembali ke menu awal</a>', 403, 'Akses Terlarang');
 		}
 	}
 
