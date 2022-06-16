@@ -136,7 +136,7 @@ class Ruang extends CI_Controller
 		}
 	}
 
-	public function kelas_by_jurusan($id)
+	public function kelas_by_kategori($id)
 	{
 		$data = $this->master->getKelasByJurusan($id);
 		$this->output_json($data);
