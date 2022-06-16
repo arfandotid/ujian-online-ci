@@ -23,7 +23,7 @@ $(document).ready(function () {
 
     ajaxcsrf();
 
-    // Load Kelas By kategori
+    // Load ruang By kategori
     $('#jurusan').on('change', function () {
         load_kelas($(this).val());
     });

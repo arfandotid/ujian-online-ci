@@ -77,7 +77,7 @@ Dolore distinctio, at consequuntur magnam cupiditate voluptate hic ratione ea il
         <td>{$mhs->nama}</td>
     </tr>
     <tr>
-        <th>Kelas</th>
+        <th>Ruang</th>
         <td>{$mhs->nama_kelas}</td>
     </tr>
     <tr>

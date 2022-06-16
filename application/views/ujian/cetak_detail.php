@@ -78,7 +78,7 @@ Berikut adalah tampilan Laporan hasil tes
     <tr>
         <th>Jumlah Soal</th>
         <td>{$ujian->jumlah_soal}</td>
-        <th>Dosen</th>
+        <th>petugas</th>
         <td>{$ujian->nama_dosen}</td>
     </tr>
     <tr>
@@ -109,7 +109,7 @@ $html .= <<<EOD
         <tr align="center">
             <th width="5%">No.</th>
             <th width="35%">Nama</th>
-            <th width="15%">Kelas</th>
+            <th width="15%">Ruang</th>
             <th width="25%">kategori</th>
             <th width="10%">Jumlah Benar</th>
             <th width="10%">Nilai</th>

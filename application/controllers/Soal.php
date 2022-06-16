@@ -113,7 +113,7 @@ public function edit($id)
             //Jika admin maka tampilkan semua matkul
     $data['dosen'] = $this->soal->getAllDosen();
 }else{
-            //Jika bukan maka matkul dipilih otomatis sesuai matkul dosen
+            //Jika bukan maka matkul dipilih otomatis sesuai matkul petugas
     $data['dosen'] = $this->soal->getMatkulDosen($user->username);
 }
 

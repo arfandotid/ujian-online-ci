@@ -3,7 +3,7 @@
     <div class="box-header with-border">
         <h3 class="box-title">Form <?=$subjudul?></h3>
         <div class="box-tools pull-right">
-            <a href="<?=base_url()?>dosen" class="btn btn-sm btn-flat btn-warning">
+            <a href="<?=base_url()?>petugas" class="btn btn-sm btn-flat btn-warning">
                 <i class="fa fa-arrow-left"></i> Batal
             </a>
         </div>
@@ -18,12 +18,12 @@
                 </div>
                 <div class="form-group">
                     <label for="nama_dosen">Nama Petugas</label>
-                    <input value="<?=$data->nama_dosen?>" type="text" class="form-control" name="nama_dosen" placeholder="Nama Dosen">
+                    <input value="<?=$data->nama_dosen?>" type="text" class="form-control" name="nama_dosen" placeholder="Nama petugas">
                     <small class="help-block"></small>
                 </div>
                 <div class="form-group">
                     <label for="email">Email Petugas</label>
-                    <input value="<?=$data->email?>" type="text" class="form-control" name="email" placeholder="Email Dosen">
+                    <input value="<?=$data->email?>" type="text" class="form-control" name="email" placeholder="Email petugas">
                     <small class="help-block"></small>
                 </div>
                 <div class="form-group">

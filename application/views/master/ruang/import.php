@@ -36,7 +36,7 @@
                         <thead>
                             <tr>
                                 <td>No</td>
-                                <td>Kelas</td>
+                                <td>Ruang</td>
                                 <td>kategori</td>
                             </tr>
                         </thead>

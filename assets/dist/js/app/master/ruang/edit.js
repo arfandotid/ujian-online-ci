@@ -25,7 +25,7 @@ $(document).ready(function () {
                         "type": "success"
                     }).then((result) => {
                         if (result.value) {
-                            window.location.href = base_url+'kelas';
+                            window.location.href = base_url+'ruang';
                         }
                     });
                 } else {

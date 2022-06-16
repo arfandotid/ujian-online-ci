@@ -35,7 +35,7 @@ class Master_model extends CI_Model
     }
 
     /**
-     * Data Kelas
+     * Data ruang
      */
 
     public function getDataKelas()
@@ -189,7 +189,7 @@ class Master_model extends CI_Model
     }
 
     /**
-     * Data Kelas petugas
+     * Data ruang petugas
      */
 
     public function getKelasDosen()

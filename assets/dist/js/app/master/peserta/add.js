@@ -39,7 +39,7 @@ $(document).ready(function () {
     // Load Jurusan
     load_jurusan();
 
-    // Load Kelas By Jurusan
+    // Load ruang By Jurusan
     $('#jurusan').on('change', function () {
         load_kelas($(this).val());
     });

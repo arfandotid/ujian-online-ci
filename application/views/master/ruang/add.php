@@ -11,7 +11,7 @@
             <div class="col-sm-offset-3 col-sm-6">
                 <div class="my-2">
                     <div class="form-horizontal form-inline">
-                        <a href="<?= base_url('kelas') ?>" class="btn btn-default btn-xs">
+                        <a href="<?= base_url('ruang') ?>" class="btn btn-default btn-xs">
                             <i class="fa fa-arrow-left"></i> Batal
                         </a>
                         <div class="pull-right">

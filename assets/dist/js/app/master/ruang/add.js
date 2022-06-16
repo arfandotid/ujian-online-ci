@@ -2,7 +2,7 @@ banyak = Number(banyak);
 $(document).ready(function () {
     if (banyak < 1 || banyak > 50) {
         alert('Maksimum input 50');
-        window.location = base_url+"kelas";
+        window.location = base_url+"ruang";
     }
 
     $('form#kelas input, form#kelas select').on('change', function () {
@@ -31,7 +31,7 @@ $(document).ready(function () {
                         "type": "success"
                     }).then((result) => {
                         if (result.value) {
-                            window.location.href = base_url+'kelas';
+                            window.location.href = base_url+'ruang';
                         }
                     });
                 } else {

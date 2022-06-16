@@ -58,7 +58,7 @@ class Ruang extends CI_Controller
 	{
 		$chk = $this->input->post('checked', true);
 		if (!$chk) {
-			redirect('admin/kelas');
+			redirect('admin/ruang');
 		} else {
 			$kelas = $this->master->getKelasById($chk);
 			$data = [
@@ -214,7 +214,7 @@ class Ruang extends CI_Controller
 
 		$save = $this->master->create('kelas', $data, true);
 		if ($save) {
-			redirect('kelas');
+			redirect('ruang');
 		} else {
 			redirect('ruang/import');
 		}
