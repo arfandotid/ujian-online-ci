@@ -11,9 +11,6 @@
             </div>
             <div class="box-body">
                 <div class="row">
-                    <div class="col-sm-12">
-                        <a href="<?= base_url('soal/add') ?>" class="btn btn-warning"><i class="fa fa-arrow-left"></i> Kembali</a>
-                    </div>
                     <div class="col-sm-8 col-sm-offset-2">
                         <div class="form-group col-sm-12">
                             <input type="hidden" name="dosen_id" value="<?=$dosen->id_dosen;?>">
