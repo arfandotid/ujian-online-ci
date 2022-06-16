@@ -17,12 +17,12 @@
                     <small class="help-block"></small>
                 </div>
                 <div class="form-group">
-                    <label for="nama_dosen">Nama Pembuat Soal</label>
+                    <label for="nama_dosen">Nama Petugas</label>
                     <input value="<?=$data->nama_dosen?>" type="text" class="form-control" name="nama_dosen" placeholder="Nama Dosen">
                     <small class="help-block"></small>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email Pembuat Soal</label>
+                    <label for="email">Email Petugas</label>
                     <input value="<?=$data->email?>" type="text" class="form-control" name="email" placeholder="Email Dosen">
                     <small class="help-block"></small>
                 </div>

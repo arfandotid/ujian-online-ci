@@ -54,7 +54,7 @@
 						<li class="<?= $page === 'petugas' ? "active" : "" ?>">
 							<a href="<?= base_url('petugas') ?>">
 								<i class="fa fa-circle-o"></i>
-								Master Pembuat soal
+								Master Petugas
 							</a>
 						</li>
 						<li class="<?= $page === 'peserta' ? "active" : "" ?>">

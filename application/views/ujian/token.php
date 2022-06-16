@@ -16,7 +16,7 @@
                         <td><?= $mhs->nama ?></td>
                     </tr>
                     <tr>
-                        <th>Pembuat Soal</th>
+                        <th>Petugas</th>
                         <td><?= $ujian->nama_dosen ?></td>
                     </tr>
                     <tr>

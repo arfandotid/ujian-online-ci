@@ -15,7 +15,7 @@
                     <p><?=$matkul->nama_matkul?></p>
                 </div>
                 <div class="alert bg-purple">
-                    <h4>Pembuat Soal <i class="fa fa-address-book-o pull-right"></i></h4>
+                    <h4>Petugas <i class="fa fa-address-book-o pull-right"></i></h4>
                     <p><?=$dosen->nama_dosen?></p>
                 </div>
             </div>

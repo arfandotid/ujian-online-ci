@@ -14,10 +14,10 @@
                     <div class="col-sm-8 col-sm-offset-2">
                         <div class="row">
                             <div class="form-group col-sm-12">
-                                <label for="dosen_id" class="control-label">Pembuat Soal (Jenis Tes)</label>
+                                <label for="dosen_id" class="control-label">Petugas (Jenis Tes)</label>
                                 <?php if ($this->ion_auth->is_admin()) : ?>
                                 <select required="required" name="dosen_id" id="dosen_id" class="select2 form-group" style="width:100% !important">
-                                    <option value="" disabled selected>Pilih Pembuat Soal</option>
+                                    <option value="" disabled selected>Pilih Petugas</option>
                                     <?php
                                     $sdm = $soal->dosen_id.':'.$soal->matkul_id;
                                     foreach ($dosen as $d) :

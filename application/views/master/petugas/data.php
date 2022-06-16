@@ -21,7 +21,7 @@
                 <tr>
                     <th>No.</th>
                     <th>NIP</th>
-                    <th>Nama Pembuat Soal</th>
+                    <th>Nama Petugas</th>
                     <th>Email</th>
                     <th>Jenis Tes</th>
                     <th class="text-center">Action</th>
@@ -35,7 +35,7 @@
                 <tr>
                     <th>No.</th>
                     <th>NIP</th>
-                    <th>Nama Pembuat Soal</th>
+                    <th>Nama Petugas</th>
                     <th>Email</th>
                     <th>Jenis Tes</th>
                     <th class="text-center">Action</th>

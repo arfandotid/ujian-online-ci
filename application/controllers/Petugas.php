@@ -27,8 +27,8 @@ class Petugas extends CI_Controller
 	{
 		$data = [
 			'user' => $this->ion_auth->user()->row(),
-			'judul'	=> 'Pembuat Soal',
-			'subjudul' => 'Data Pembuat Soal'
+			'judul'	=> 'Petugas',
+			'subjudul' => 'Data Petugas'
 		];
 		$this->load->view('_templates/dashboard/_header.php', $data);
 		$this->load->view('master/petugas/data');
@@ -44,8 +44,8 @@ class Petugas extends CI_Controller
 	{
 		$data = [
 			'user' => $this->ion_auth->user()->row(),
-			'judul'	=> 'Tambah Pembuat Soal',
-			'subjudul' => 'Tambah Data Pembuat Soal',
+			'judul'	=> 'Tambah Petugas',
+			'subjudul' => 'Tambah Data Petugas',
 			'matkul'	=> $this->master->getAllMatkul()
 		];
 		$this->load->view('_templates/dashboard/_header.php', $data);

@@ -8,7 +8,7 @@ class Soal extends CI_Controller {
 		if (!$this->ion_auth->logged_in()){
 			redirect('auth');
 		}else if ( !$this->ion_auth->is_admin() && !$this->ion_auth->in_group('dosen') ){
-			show_error('Hanya Administrator dan Pembuat Soal yang diberi hak untuk mengakses halaman ini, <a href="'.base_url('dashboard').'">Kembali ke menu awal</a>', 403, 'Akses Terlarang');
+			show_error('Hanya Administrator dan Petugas yang diberi hak untuk mengakses halaman ini, <a href="'.base_url('dashboard').'">Kembali ke menu awal</a>', 403, 'Akses Terlarang');
 		}
 		$this->load->library(['datatables', 'form_validation']);// Load Library Ignited-Datatables
 		$this->load->helper('my');// Load Library Ignited-Datatables

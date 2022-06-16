@@ -20,7 +20,7 @@
                 <th>No.</th>
                 <th>Nama Ujian</th>
                 <th>Jenis Tes</th>
-                <th>Pembuat Soal</th>
+                <th>Petugas</th>
                 <th>Jumlah Soal</th>
                 <th>Waktu</th>
                 <th>Tanggal</th>
@@ -34,7 +34,7 @@
                 <th>No.</th>
                 <th>Nama Ujian</th>
                 <th>Jenis Tes</th>
-                <th>Pembuat Soal</th>
+                <th>Petugas</th>
                 <th>Jumlah Soal</th>
                 <th>Waktu</th>
                 <th>Tanggal</th>

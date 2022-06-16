@@ -20,7 +20,7 @@
                 <tr>
                     <th>No.</th>
                     <th>NIP</th>
-                    <th>Pembuat Soal</th>
+                    <th>Petugas</th>
                     <th>Ruang</th>
                     <th class="text-center">Edit</th>
                     <th class="text-center">
@@ -32,7 +32,7 @@
                 <tr>
                     <th>No.</th>
                     <th>NIP</th>
-                    <th>Pembuat Soal</th>
+                    <th>Petugas</th>
                     <th>Ruang</th>
                     <th class="text-center">Edit</th>
                     <th class="text-center">
