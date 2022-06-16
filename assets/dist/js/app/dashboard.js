@@ -58,7 +58,7 @@ $(document).ready(function(){
 		opt = this.options[this.selectedIndex].text;
 		if (opt.toLowerCase().includes('kraepelin')){
 			if (!window.location.href.includes('kraepelin')){
-				window.location.href =  '/soal/addkraepelin';
+				window.location.href =  'addkraepelin';
 			}
 		}
 		else{
