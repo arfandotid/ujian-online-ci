@@ -1,82 +1,61 @@
 <div class="row">
-    <div class="col-sm-12">    
-        <?=form_open_multipart('soal/savekraepelin', array('id'=>'formsoal'), array('method'=>'add'));?>
-        <div class="box">
-            <div class="box-header with-border">
-                <h3 class="box-title"><?=$subjudul?></h3>
-                <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="box-body">
-                <div class="row">
-                    <div class="col-sm-8 col-sm-offset-2">
-                        <div class="form-group col-sm-12">
-                            <input type="hidden" name="dosen_id" value="<?=$dosen->id_dosen;?>">
-                            <input type="hidden" name="matkul_id" value="<?=$dosen->matkul_id;?>">
-                        </div>
-                        
-                        <!-- <div class="col-sm-12">
-                            <label for="soal" class="control-label">Soal</label>
-                            <div class="form-group">
-                                <input type="file" name="file_soal" class="form-control">
-                                <small class="help-block" style="color: #dc3545"><?=form_error('file_soal')?></small>
-                            </div>
-                            <div class="form-group">
-                                <textarea name="soal" id="soal" class="form-control summernote"><?=set_value('soal')?></textarea>
-                                <small class="help-block" style="color: #dc3545"><?=form_error('soal')?></small>
-                            </div>
-                        </div> -->
-                        
-                        <!-- 
-                            Membuat perulangan A-E 
-                        -->
-                        <!-- <?php
-                        $abjad = ['a', 'b', 'c', 'd', 'e'];
-                        foreach ($abjad as $abj) :
-                            $ABJ = strtoupper($abj); // Abjad Kapital
-                        ?>
-
-                        <div class="col-sm-12">
-                            <label for="file">Jawaban <?= $ABJ; ?></label>
-                            <div class="form-group">
-                                <input type="file" name="file_<?= $abj; ?>" class="form-control">
-                                <small class="help-block" style="color: #dc3545"><?=form_error('file_'.$abj)?></small>
-                            </div>
-                            <div class="form-group">
-                                <textarea name="jawaban_<?= $abj; ?>" id="jawaban_<?= $abj; ?>" class="form-control summernote"><?=set_value('jawaban_a')?></textarea>
-                                <small class="help-block" style="color: #dc3545"><?=form_error('jawaban_'.$abj)?></small>
-                            </div>
-                        </div>
-
-                        <?php endforeach; ?> -->
-
-                        <!-- <div class="form-group col-sm-12">
-                            <label for="jawaban" class="control-label">Kunci Jawaban</label>
-                            <select required="required" name="jawaban" id="jawaban" class="form-control select2" style="width:100%!important">
-                                <option value="" disabled selected>Pilih Kunci Jawaban</option>
-                                <option value="A">A</option>
-                                <option value="B">B</option>
-                                <option value="C">C</option>
-                                <option value="D">D</option>
-                                <option value="E">E</option>
-                            </select>                
-                            <small class="help-block" style="color: #dc3545"><?=form_error('jawaban')?></small>
-                        </div>
-                        <div class="form-group col-sm-12">
-                            <label for="bobot" class="control-label">Bobot Soal</label>
-                            <input required="required" value="1" type="number" name="bobot" placeholder="Bobot Soal" id="bobot" class="form-control">
-                            <small class="help-block" style="color: #dc3545"><?=form_error('bobot')?></small>
-                        </div> -->
-                        <div class="form-group pull-right">
-                            <a href="<?=base_url('soal')?>" class="btn btn-flat btn-default"><i class="fa fa-arrow-left"></i> Batal</a>
-                            <button type="submit" id="submit" class="btn btn-flat bg-purple"><i class="fa fa-save"></i> Simpan</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <?=form_close();?>
-    </div>
+	<div class="col-sm-12">    
+		<?=form_open_multipart('soal/savekraepelin', array('id'=>'formsoal'), array('method'=>'add'));?>
+		<div class="box">
+			<div class="box-header with-border">
+				<h3 class="box-title"><?=$subjudul?></h3>
+				<div class="box-tools pull-right">
+					<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+				</div>
+			</div>
+			<div class="box-body">
+			<div class="mt-2 mb-3">
+			<button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-sm btn-flat bg-purple"><i class="fa fa-plus"></i> Tambah Data</button>                <div class="row">
+					<div class="col-sm-12">
+					</div>
+					<div class="col-sm-8 col-sm-offset-2">
+						<div class="form-group col-sm-12">
+							<input type="hidden" name="dosen_id" value="<?=$dosen->id_dosen;?>">
+							<input type="hidden" name="matkul_id" value="<?=$dosen->matkul_id;?>">
+						</div>						
+						<div class="form-group pull-right">
+							<a href="<?=base_url('soal')?>" class="btn btn-flat btn-default"><i class="fa fa-arrow-left"></i> Batal</a>
+							<button type="submit" id="submit" class="btn btn-flat bg-success"><i class="fa fa-save"></i> Generate</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<?=form_close();?>
+	</div>
+</div>
+<div class="modal fade" id="myModal">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span></button>
+				<h4 class="modal-title">Tambah Kategori</h4>
+			</div>
+			<?= form_open('soal/add', array('id', 'tambah')); ?>
+			<div class="modal-body">
+				<div class="form-group">
+					<label for="banyak">Jumlah baris</label>
+					<input value="1" minlength="1" maxlength="50" min="1" max="50" id="banyakinput" type="number" autocomplete="off" required="required" name="baris" class="form-control">
+					<small class="help-block">Max. 50</small>
+				</div>
+				<div class="form-group">
+					<label for="banyak">Jumlah Kolom</label>
+					<input value="1" minlength="1" maxlength="50" min="1" max="50" id="banyakinput" type="number" autocomplete="off" required="required" name="kolom" class="form-control">
+					<small class="help-block">Max. 50</small>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-primary" name="input">Generate</button>
+			</div>
+			<?= form_close(); ?>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
 </div>
