@@ -84,7 +84,7 @@ class Petugas extends CI_Controller
 			$u_email	= $dbdata->email === $email ? "" : "|is_unique[dosen.email]";
 		}
 		$this->form_validation->set_rules('nip', 'NIP', 'required|numeric|trim|min_length[8]|max_length[12]' . $u_nip);
-		$this->form_validation->set_rules('nama_dosen', 'Nama Dosen', 'required|trim|min_length[3]|max_length[50]');
+		$this->form_validation->set_rules('nama_dosen', 'Nama petugas', 'required|trim|min_length[3]|max_length[50]');
 		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email' . $u_email);
 		$this->form_validation->set_rules('matkul', 'Jenis Tes', 'required');
 

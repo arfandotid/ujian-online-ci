@@ -159,7 +159,7 @@ class Peserta extends CI_Controller
 			'first_name'	=> $first_name,
 			'last_name'		=> $last_name
 		];
-		$group = array('3'); // Sets user to dosen.
+		$group = array('3'); // Sets user to petugas.
 
 		if ($this->ion_auth->username_check($username)) {
 			$data = [

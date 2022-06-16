@@ -16,7 +16,7 @@ $(document).ready(function () {
                     Swal('Sukses', 'Data Berhasil diupdate', 'success')
                         .then((result) => {
                             if (result.value) {
-                                window.location.href = base_url+'dosen';
+                                window.location.href = base_url+'petugas';
                             }
                         });
                 } else {

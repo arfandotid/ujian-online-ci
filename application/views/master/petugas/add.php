@@ -50,4 +50,4 @@
 </div>
 <?= form_close(); ?>
 
-<script src="<?= base_url() ?>assets/dist/js/app/master/dosen/add.js"></script>
+<script src="<?= base_url() ?>assets/dist/js/app/master/petugas/add.js"></script>

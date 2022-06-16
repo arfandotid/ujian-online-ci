@@ -36,7 +36,7 @@ class Soal extends CI_Controller {
             //Jika admin maka tampilkan semua matkul
         $data['matkul'] = $this->master->getAllMatkul();
     }else{
-            //Jika bukan maka matkul dipilih otomatis sesuai matkul dosen
+            //Jika bukan maka matkul dipilih otomatis sesuai matkul 
         $data['matkul'] = $this->soal->getMatkulDosen($user->username);
     }
 
