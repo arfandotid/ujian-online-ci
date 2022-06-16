@@ -58,12 +58,12 @@ $(document).ready(function(){
 		opt = this.options[this.selectedIndex].text;
 		if (opt.toLowerCase().includes('kraepelin')){
 			if (!window.location.href.includes('kraepelin')){
-				window.location.href =  '/soal/addkraepelin';
+				window.location.href =  base_url+'/soal/addkraepelin';
 			}
 		}
 		else{
 			if (window.location.href.includes('kraepelin')){
-				window.location.href =  '/soal/add';
+				window.location.href =  base_url+'/soal/add';
 			}
 		}
 	});
