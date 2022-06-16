@@ -20,7 +20,7 @@
                         <td><?= $ujian->nama_dosen ?></td>
                     </tr>
                     <tr>
-                        <th>ruang/Jurusan</th>
+                        <th>ruang/kategori</th>
                         <td><?= $mhs->nama_kelas ?> / <?= $mhs->nama_jurusan ?></td>
                     </tr>
                     <tr>

@@ -106,7 +106,7 @@
                     <thead>
                         <th>ID</th>
                         <th>Kelas</th>
-                        <th>Jurusan</th>
+                        <th>kategori</th>
                     </thead>
                     <tbody>
                         <?php foreach ($kelas as $k) : ?>

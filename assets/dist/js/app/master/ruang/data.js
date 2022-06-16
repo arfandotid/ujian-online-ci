@@ -151,10 +151,10 @@ function load_jurusan() {
     success: function(data) {
       //console.log(data);
       if (data.length) {
-        var dataJurusan;
+        var datakategori;
         $.each(data, function(key, val) {
-          dataJurusan = `<option value="${val.id_jurusan}">${val.nama_jurusan}</option>`;
-          jurusan.append(dataJurusan);
+          datakategori = `<option value="${val.id_jurusan}">${val.nama_jurusan}</option>`;
+          jurusan.append(datakategori);
         });
       }
     }

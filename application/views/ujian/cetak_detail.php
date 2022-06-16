@@ -110,7 +110,7 @@ $html .= <<<EOD
             <th width="5%">No.</th>
             <th width="35%">Nama</th>
             <th width="15%">Kelas</th>
-            <th width="25%">Jurusan</th>
+            <th width="25%">kategori</th>
             <th width="10%">Jumlah Benar</th>
             <th width="10%">Nilai</th>
         </tr>        

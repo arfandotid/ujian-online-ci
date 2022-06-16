@@ -16,7 +16,7 @@
                     <br><br>
                     <ol class="pl-4">
                         <li>Anda belum menambahkan master data Jenis Tes (Master Jenis Tes kosong/belum ada data sama sekali).</li>
-                        <li>Jenis Tes sudah ditambahkan, jadi anda tidak perlu tambah lagi. Anda hanya perlu mengedit data Jurusan Jenis Tes nya saja.</li>
+                        <li>Jenis Tes sudah ditambahkan, jadi anda tidak perlu tambah lagi. Anda hanya perlu mengedit data kategori Jenis Tes nya saja.</li>
                     </ol>
                 </div>
             </div>

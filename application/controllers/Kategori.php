@@ -62,7 +62,7 @@ class Kategori extends CI_Controller
 	{
 		$chk = $this->input->post('checked', true);
 		if (!$chk) {
-			redirect('jurusan');
+			redirect('kategori');
 		} else {
 			$jurusan = $this->master->getJurusanById($chk);
 			$data = [
@@ -210,7 +210,7 @@ class Kategori extends CI_Controller
 
 		$save = $this->master->create('jurusan', $jurusan, true);
 		if ($save) {
-			redirect('jurusan');
+			redirect('kategori');
 		} else {
 			redirect('kategori/import');
 		}

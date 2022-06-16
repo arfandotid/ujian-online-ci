@@ -57,7 +57,7 @@ $(document).ready(function() {
         targets: 2,
         searchable: false,
         orderable: false,
-        title: "Jurusan",
+        title: "kategori",
         data: "nama_jurusan",
         render: function(data, type, row, meta) {
           let matkul = data.split(",");

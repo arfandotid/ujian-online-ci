@@ -10,7 +10,7 @@
         <ul class="alert alert-info" style="padding-left: 40px">
             <li>Silahkan import data dari excel, menggunakan format yang sudah disediakan</li>
             <li>Data tidak boleh ada yang kosong, harus terisi semua.</li>
-            <li>Untuk data jurusan, hanya bisa diisi menggunakan ID Jurusan. <a data-toggle="modal" href="#jurusanId" style="text-decoration:none" class="btn btn-xs btn-primary">Lihat ID</a>.</li>
+            <li>Untuk data kategori, hanya bisa diisi menggunakan ID kategori. <a data-toggle="modal" href="#jurusanId" style="text-decoration:none" class="btn btn-xs btn-primary">Lihat ID</a>.</li>
         </ul>
         <div class="text-center">
             <a href="<?= base_url('uploads/import/format/kelas.xlsx') ?>" class="btn-default btn">Download Format</a>
@@ -37,7 +37,7 @@
                             <tr>
                                 <td>No</td>
                                 <td>Kelas</td>
-                                <td>Jurusan</td>
+                                <td>kategori</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -93,7 +93,7 @@
                 <table id="jurusan" class="table table-condensed table-striped">
                     <thead>
                         <th>ID</th>
-                        <th>Jurusan</th>
+                        <th>kategori</th>
                     </thead>
                     <tbody>
                         <?php foreach ($jurusan as $j) : ?>

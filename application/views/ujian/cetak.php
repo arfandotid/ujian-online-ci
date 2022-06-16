@@ -81,7 +81,7 @@ Dolore distinctio, at consequuntur magnam cupiditate voluptate hic ratione ea il
         <td>{$mhs->nama_kelas}</td>
     </tr>
     <tr>
-        <th>Jurusan</th>
+        <th>kategori</th>
         <td>{$mhs->nama_jurusan}</td>
     </tr>
 </table>

@@ -38,7 +38,7 @@
                         <thead>
                             <tr>
                                 <td>No</td>
-                                <td>Jurusan</td>
+                                <td>kategori</td>
                             </tr>
                         </thead>
                         <tbody>

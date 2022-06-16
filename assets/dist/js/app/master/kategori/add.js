@@ -2,7 +2,7 @@ banyak = Number(banyak);
 $(document).ready(function () {
     if (banyak < 1 || banyak > 50) {
         alert('Maksimum input 50');
-        window.location.href = base_url+"jurusan";
+        window.location.href = base_url+"kategori";
     } else {
         generate(banyak);
     }
@@ -34,7 +34,7 @@ $(document).ready(function () {
                         "type": "success"
                     }).then((result) => {
                         if (result.value) {
-                            window.location.href = base_url+'jurusan';
+                            window.location.href = base_url+'kategori';
                         }
                     });
                 } else {
