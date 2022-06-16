@@ -19,7 +19,7 @@ $(document).ready(function () {
         processing: true,
         serverSide: true,
         ajax: {
-            "url": base_url+"ujian/list_json/1",
+            "url": base_url+"latihantes/list_jsons/1",
             "type": "POST",
         },
         columns: [

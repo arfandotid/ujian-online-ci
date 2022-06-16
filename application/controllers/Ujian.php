@@ -202,11 +202,11 @@ class Ujian extends CI_Controller
 	 * BAGIAN MAHASISWA
 	 */
 
-	public function list_json($latihan = '')
+	public function list_json($ujian = '')
 	{
 		$this->akses_mahasiswa();
-		$latihan = $latihan != '';
-		$list = $this->ujian->getListUjian($this->mhs->id_mahasiswa, $this->mhs->kelas_id, $latihan);
+		$ujian = $ujian != '';
+		$list = $this->ujian->getListUjian($this->mhs->id_mahasiswa, $this->mhs->kelas_id, $ujian);
 		$this->output_json($list, false);
 	}
 
