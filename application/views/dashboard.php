@@ -18,7 +18,7 @@
         <?php endforeach; ?>
     </div>
 
-<?php elseif ($this->ion_auth->in_group('dosen')) : ?>
+<?php elseif ($this->ion_auth->in_group('petugas')) : ?>
 
     <div class="row">
         <div class="col-sm-4">

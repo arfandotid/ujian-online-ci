@@ -87,28 +87,28 @@
 					</ul>
 				</li>
 			<?php endif; ?>
-			<?php if ($this->ion_auth->is_admin() || $this->ion_auth->in_group('dosen')) : ?>
+			<?php if ($this->ion_auth->is_admin() || $this->ion_auth->in_group('petugas')) : ?>
 				<li class="<?= $page === 'soal' ? "active" : "" ?>">
 					<a href="<?= base_url('soal') ?>" rel="noopener noreferrer">
 						<i class="fa fa-file-text-o"></i> <span>Bank Soal</span>
 					</a>
 				</li>
 			<?php endif; ?>
-			<?php if ($this->ion_auth->in_group('dosen')) : ?>
+			<?php if ($this->ion_auth->in_group('petugas')) : ?>
 				<li class="<?= $page === 'ujian' ? "active" : "" ?>">
 					<a href="<?= base_url('ujian/master') ?>" rel="noopener noreferrer">
 						<i class="fa fa-chrome"></i> <span>Ujian</span>
 					</a>
 				</li>
 			<?php endif; ?>
-			<?php if ($this->ion_auth->in_group('mahasiswa')) : ?>
+			<?php if ($this->ion_auth->in_group('peserta')) : ?>
 				<li class="<?= $page === 'ujian' ? "active" : "" ?>">
 					<a href="<?= base_url('ujian/list') ?>" rel="noopener noreferrer">
 						<i class="fa fa-chrome"></i> <span>Ujian</span>
 					</a>
 				</li>
 			<?php endif; ?>
-			<?php if (!$this->ion_auth->in_group('mahasiswa')) : ?>
+			<?php if (!$this->ion_auth->in_group('peserta')) : ?>
 				<li class="header">REPORTS</li>
 				<li class="<?= $page === 'hasilujian' ? "active" : "" ?>">
 					<a href="<?= base_url('hasilujian') ?>" rel="noopener noreferrer">
