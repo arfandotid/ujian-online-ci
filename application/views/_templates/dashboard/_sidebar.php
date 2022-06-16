@@ -102,6 +102,13 @@
 				</li>
 			<?php endif; ?>
 			<?php if ($this->ion_auth->in_group('peserta')) : ?>
+				<li class="<?= $page === 'latihantes' ? "active" : "" ?>">
+					<a href="<?= base_url('latihantes/list') ?>" rel="noopener noreferrer">
+						<i class="fa fa-book"></i> <span>Latihan Tes</span>
+					</a>
+				</li>
+			<?php endif; ?>
+			<?php if ($this->ion_auth->in_group('peserta')) : ?>
 				<li class="<?= $page === 'ujian' ? "active" : "" ?>">
 					<a href="<?= base_url('ujian/list') ?>" rel="noopener noreferrer">
 						<i class="fa fa-chrome"></i> <span>Ujian</span>
