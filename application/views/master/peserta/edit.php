@@ -36,7 +36,7 @@
                     <small class="help-block"></small>
                 </div>
                 <div class="form-group">
-                    <label for="jurusan">Kategori Ujian</label>
+                    <label for="jurusan">Kategori</label>
                     <select id="jurusan" name="jurusan" class="form-control select2">
                         <option value="" disabled selected>-- Pilih --</option>
                         <?php foreach ($jurusan as $j) : ?>

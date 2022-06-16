@@ -25,7 +25,7 @@
                         <tr>
                             <th># No</th>
                             <th>Ruang</th>
-                            <th>Kategori Ujian</th>
+                            <th>Kategori</th>
                         </tr>
                     </thead>
                     <tbody>

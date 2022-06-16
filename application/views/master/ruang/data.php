@@ -22,7 +22,7 @@
 				<tr>
 					<th>No.</th>
 					<th>Ruang</th>
-					<th>Kategori Ujian</th>
+					<th>Kategori</th>
 					<th class="text-center">
 						<input type="checkbox" id="select_all">
 					</th>

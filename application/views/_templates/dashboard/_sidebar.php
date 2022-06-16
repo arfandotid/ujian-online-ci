@@ -36,7 +36,7 @@
 						<li class="<?= $page === 'kategori' ? "active" : "" ?>">
 							<a href="<?= base_url('kategori') ?>">
 								<i class="fa fa-circle-o"></i>
-								Master Kategori Ujian
+								Master Kategori
 							</a>
 						</li>
 						<li class="<?= $page === 'ruang' ? "active" : "" ?>">

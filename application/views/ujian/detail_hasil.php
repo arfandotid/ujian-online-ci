@@ -74,7 +74,7 @@
                     <th>No.</th>
                     <th>Nama</th>
                     <th>Ruang</th>
-                    <th>Kategori Ujian</th>
+                    <th>Kategori</th>
                     <th>Jumlah Benar</th>
                     <th>Nilai</th>
                 </tr>
@@ -84,7 +84,7 @@
                     <th>No.</th>
                     <th>Nama</th>
                     <th>Ruang</th>
-                    <th>Kategori Ujian</th>
+                    <th>Kategori</th>
                     <th>Jumlah Benar</th>
                     <th>Nilai</th>
                 </tr>

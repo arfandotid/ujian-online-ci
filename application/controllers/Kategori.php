@@ -32,8 +32,8 @@ class Kategori extends CI_Controller
 	{
 		$data = [
 			'user' => $this->ion_auth->user()->row(),
-			'judul'	=> 'Kategori Ujian',
-			'subjudul' => 'Data Kategori Ujian'
+			'judul'	=> 'Kategori',
+			'subjudul' => 'Data Kategori'
 		];
 		$this->load->view('_templates/dashboard/_header', $data);
 		$this->load->view('master/kategori/data');
@@ -44,8 +44,8 @@ class Kategori extends CI_Controller
 	{
 		$data = [
 			'user' 		=> $this->ion_auth->user()->row(),
-			'judul'		=> 'Tambah Kategori Ujian',
-			'subjudul'	=> 'Tambah Data Kategori Ujian',
+			'judul'		=> 'Tambah Kategori',
+			'subjudul'	=> 'Tambah Data Kategori',
 			'banyak'	=> $this->input->post('banyak', true)
 		];
 		$this->load->view('_templates/dashboard/_header', $data);
@@ -67,8 +67,8 @@ class Kategori extends CI_Controller
 			$jurusan = $this->master->getJurusanById($chk);
 			$data = [
 				'user' 		=> $this->ion_auth->user()->row(),
-				'judul'		=> 'Edit Kategori Ujian',
-				'subjudul'	=> 'Edit Data Kategori Ujian',
+				'judul'		=> 'Edit Kategori',
+				'subjudul'	=> 'Edit Data Kategori',
 				'jurusan'	=> $jurusan
 			];
 			$this->load->view('_templates/dashboard/_header', $data);
@@ -83,7 +83,7 @@ class Kategori extends CI_Controller
 		$mode = $this->input->post('mode', true);
 		for ($i = 1; $i <= $rows; $i++) {
 			$nama_jurusan = 'nama_jurusan[' . $i . ']';
-			$this->form_validation->set_rules($nama_jurusan, 'Nama Kategori Ujian', 'required');
+			$this->form_validation->set_rules($nama_jurusan, 'Nama Kategori', 'required');
 			$this->form_validation->set_message('required', '{field} Wajib diisi');
 
 			if ($this->form_validation->run() === FALSE) {
@@ -144,8 +144,8 @@ class Kategori extends CI_Controller
 	{
 		$data = [
 			'user' => $this->ion_auth->user()->row(),
-			'judul'	=> 'Kategori Ujian',
-			'subjudul' => 'Import Kategori Ujian'
+			'judul'	=> 'Kategori',
+			'subjudul' => 'Import Kategori'
 		];
 		if ($import_data != null) $data['import'] = $import_data;
 

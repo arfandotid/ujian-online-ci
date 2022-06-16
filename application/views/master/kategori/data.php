@@ -21,7 +21,7 @@
 			<thead>
 				<tr>
 					<th>No.</th>
-					<th>Kategori Ujian</th>
+					<th>Kategori</th>
 					<th class="text-center">
 						<input type="checkbox" id="select_all">
 					</th>
@@ -38,7 +38,7 @@
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">×</span></button>
-				<h4 class="modal-title">Tambah Kategori Ujian</h4>
+				<h4 class="modal-title">Tambah Kategori</h4>
 			</div>
 			<?= form_open('kategori/add', array('id', 'tambah')); ?>
 			<div class="modal-body">

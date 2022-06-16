@@ -24,7 +24,7 @@
                     <thead>
                         <tr>
                             <th># No</th>
-                            <th>Kategori Ujian</th>
+                            <th>Kategori</th>
                         </tr>
                     </thead>
                     <tbody>
