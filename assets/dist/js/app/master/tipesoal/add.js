@@ -2,15 +2,15 @@ banyak = Number(banyak);
 $(document).ready(function () {
     if (banyak < 1 || banyak > 50) {
         alert('Maksimum input 50');
-        window.location.href = base_url+"tes";
+        window.location.href = base_url+"tipesoal";
     }
 
-    $('form#matkul input').on('change', function () {
+    $('form#tipesoal input').on('change', function () {
         $(this).closest('.form-group').removeClass('has-error');
         $(this).next().text('');
     });
 
-    $('form#matkul').on('submit', function (e) {
+    $('form#tipesoal').on('submit', function (e) {
         e.preventDefault();
         e.stopImmediatePropagation();
 
@@ -31,7 +31,7 @@ $(document).ready(function () {
                         "type": "success"
                     }).then((result) => {
                         if (result.value) {
-                            window.location.href = base_url+'tes';
+                            window.location.href = base_url+'tipesoal';
                         }
                     });
                 } else {

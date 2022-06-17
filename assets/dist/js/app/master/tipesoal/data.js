@@ -4,10 +4,10 @@ var table;
 $(document).ready(function() {
   ajaxcsrf();
 
-  table = $("#matkul").DataTable({
+  table = $("#tipesoal").DataTable({
     initComplete: function() {
       var api = this.api();
-      $("#matkul_filter input")
+      $("#tipesoal_filter input")
         .off(".DT")
         .on("keyup.DT", function(e) {
           api.search(this.value).draw();
@@ -24,22 +24,22 @@ $(document).ready(function() {
     processing: true,
     serverSide: true,
     ajax: {
-      url: base_url + "tes/data",
+      url: base_url + "tipesoal/data",
       type: "POST"
       //data: csrf
     },
     columns: [
       {
-        data: "id_matkul",
+        data: "id_tipesoal",
         orderable: false,
         searchable: false
       },
-      { data: "nama_matkul" }
+      { data: "nama_tipesoal" }
     ],
     columnDefs: [
       {
         targets: 2,
-        data: "id_matkul",
+        data: "id_tipesoal",
         render: function(data, type, row, meta) {
           return `<div class="text-center">
 									<input name="checked[]" class="check" value="${data}" type="checkbox">
@@ -63,7 +63,7 @@ $(document).ready(function() {
   table
     .buttons()
     .container()
-    .appendTo("#matkul_wrapper .col-md-6:eq(0)");
+    .appendTo("#tipesoal_wrapper .col-md-6:eq(0)");
 
   $("#myModal").on("shown.modal.bs", function() {
     $(':input[name="banyak"]').select();
@@ -83,9 +83,9 @@ $(document).ready(function() {
     }
   });
 
-  $("#matkul tbody").on("click", "tr .check", function() {
-    var check = $("#matkul tbody tr .check").length;
-    var checked = $("#matkul tbody tr .check:checked").length;
+  $("#tipesoal tbody").on("click", "tr .check", function() {
+    var check = $("#tipesoal tbody tr .check").length;
+    var checked = $("#tipesoal tbody tr .check:checked").length;
     if (check === checked) {
       $(".select_all").prop("checked", true);
     } else {
@@ -94,7 +94,7 @@ $(document).ready(function() {
   });
 
   $("#bulk").on("submit", function(e) {
-    if ($(this).attr("action") == base_url + "tes/delete") {
+    if ($(this).attr("action") == base_url + "tipesoal/delete") {
       e.preventDefault();
       e.stopImmediatePropagation();
 
@@ -131,14 +131,14 @@ $(document).ready(function() {
 });
 
 function bulk_delete() {
-  if ($("#matkul tbody tr .check:checked").length == 0) {
+  if ($("#tipesoal tbody tr .check:checked").length == 0) {
     Swal({
       title: "Gagal",
       text: "Tidak ada data yang dipilih",
       type: "error"
     });
   } else {
-    $("#bulk").attr("action", base_url + "tes/delete");
+    $("#bulk").attr("action", base_url + "tipesoal/delete");
     Swal({
       title: "Anda yakin?",
       text: "Data akan dihapus!",
@@ -156,14 +156,14 @@ function bulk_delete() {
 }
 
 function bulk_edit() {
-  if ($("#matkul tbody tr .check:checked").length == 0) {
+  if ($("#tipesoal tbody tr .check:checked").length == 0) {
     Swal({
       title: "Gagal",
       text: "Tidak ada data yang dipilih",
       type: "error"
     });
   } else {
-    $("#bulk").attr("action", base_url + "tes/edit");
+    $("#bulk").attr("action", base_url + "tipesoal/edit");
     $("#bulk").submit();
   }
 }

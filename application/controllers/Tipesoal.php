@@ -42,15 +42,15 @@ class Tipesoal extends CI_Controller
 
 	public function data()
 	{
-		$this->output_json($this->master->getDataMatkul(), false);
+		$this->output_json($this->master->getDataTipesoal(), false);
 	}
 
 	public function add()
 	{
 		$data = [
 			'user' 		=> $this->ion_auth->user()->row(),
-			'judul'		=> 'Tambah Jenis Tes',
-			'subjudul'	=> 'Tambah Data Jenis Tes',
+			'judul'		=> 'Tambah Tipe Soal',
+			'subjudul'	=> 'Tambah Data Tipe Soal',
 			'banyak'	=> $this->input->post('banyak', true)
 		];
 		$this->load->view('_templates/dashboard/_header.php', $data);
@@ -62,14 +62,14 @@ class Tipesoal extends CI_Controller
 	{
 		$chk = $this->input->post('checked', true);
 		if (!$chk) {
-			redirect('tes');
+			redirect('tipesoal');
 		} else {
-			$matkul = $this->master->getMatkulById($chk);
+			$tipesoal = $this->master->getTipesoalById($chk);
 			$data = [
 				'user' 		=> $this->ion_auth->user()->row(),
-				'judul'		=> 'Edit Jenis Tes',
-				'subjudul'	=> 'Edit Data Jenis Tes',
-				'matkul'	=> $matkul
+				'judul'		=> 'Edit Tipe Soal',
+				'subjudul'	=> 'Edit Data Tipe Soal',
+				'tipesoal'	=> $tipesoal
 			];
 			$this->load->view('_templates/dashboard/_header.php', $data);
 			$this->load->view('master/tipesoal/edit');
@@ -79,27 +79,27 @@ class Tipesoal extends CI_Controller
 
 	public function save()
 	{
-		$rows = count($this->input->post('nama_matkul', true));
+		$rows = count($this->input->post('nama_tipesoal', true));
 		$mode = $this->input->post('mode', true);
 		for ($i = 1; $i <= $rows; $i++) {
-			$nama_matkul = 'nama_matkul[' . $i . ']';
-			$this->form_validation->set_rules($nama_matkul, 'Jenis Tes', 'required');
+			$nama_tipesoal = 'nama_tipesoal[' . $i . ']';
+			$this->form_validation->set_rules($nama_tipesoal, 'Tipe Soal', 'required');
 			$this->form_validation->set_message('required', '{field} Wajib diisi');
 
 			if ($this->form_validation->run() === FALSE) {
 				$error[] = [
-					$nama_matkul => form_error($nama_matkul)
+					$nama_tipesoal => form_error($nama_tipesoal)
 				];
 				$status = FALSE;
 			} else {
 				if ($mode == 'add') {
 					$insert[] = [
-						'nama_matkul' => $this->input->post($nama_matkul, true)
+						'nama_tipesoal' => $this->input->post($nama_tipesoal, true)
 					];
 				} else if ($mode == 'edit') {
 					$update[] = array(
-						'id_matkul'	=> $this->input->post('id_matkul[' . $i . ']', true),
-						'nama_matkul' 	=> $this->input->post($nama_matkul, true)
+						'id_tipesoal'	=> $this->input->post('id_tipesoal[' . $i . ']', true),
+						'nama_tipesoal' 	=> $this->input->post($nama_tipesoal, true)
 					);
 				}
 				$status = TRUE;
@@ -107,10 +107,10 @@ class Tipesoal extends CI_Controller
 		}
 		if ($status) {
 			if ($mode == 'add') {
-				$this->master->create('matkul', $insert, true);
+				$this->master->create('tipesoal', $insert, true);
 				$data['insert']	= $insert;
 			} else if ($mode == 'edit') {
-				$this->master->update('matkul', $update, 'id_matkul', null, true);
+				$this->master->update('tipesoal', $update, 'id_tipesoal', null, true);
 				$data['update'] = $update;
 			}
 		} else {
@@ -128,7 +128,7 @@ class Tipesoal extends CI_Controller
 		if (!$chk) {
 			$this->output_json(['status' => false]);
 		} else {
-			if ($this->master->delete('matkul', $chk, 'id_matkul')) {
+			if ($this->master->delete('tipesoal', $chk, 'id_tipesoal')) {
 				$this->output_json(['status' => true, 'total' => count($chk)]);
 			}
 		}
@@ -138,8 +138,8 @@ class Tipesoal extends CI_Controller
 	{
 		$data = [
 			'user' => $this->ion_auth->user()->row(),
-			'judul'	=> 'Jenis Tes',
-			'subjudul' => 'Import Jenis Tes'
+			'judul'	=> 'Tipe Soal',
+			'subjudul' => 'Import Tipe Soal'
 		];
 		if ($import_data != null) $data['import'] = $import_data;
 
@@ -196,17 +196,17 @@ class Tipesoal extends CI_Controller
 	}
 	public function do_import()
 	{
-		$data = json_decode($this->input->post('matkul', true));
+		$data = json_decode($this->input->post('tipesoal', true));
 		$jurusan = [];
 		foreach ($data as $j) {
-			$jurusan[] = ['nama_matkul' => $j];
+			$jurusan[] = ['nama_tipesoal' => $j];
 		}
 
-		$save = $this->master->create('matkul', $jurusan, true);
+		$save = $this->master->create('tipesoal', $jurusan, true);
 		if ($save) {
-			redirect('tes');
+			redirect('tipesoal');
 		} else {
-			redirect('tes/import');
+			redirect('tipesoal/import');
 		}
 	}
 }
