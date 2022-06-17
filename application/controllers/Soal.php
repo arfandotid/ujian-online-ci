@@ -37,6 +37,19 @@ class Soal extends CI_Controller
         if ($this->ion_auth->is_admin()) {
             //Jika admin maka tampilkan semua matkul
             $data['matkul'] = $this->master->getAllMatkul();
+
+            if ($this->input->get('pilih') == 1) {
+                redirect('soal/add');
+            }
+            if ($this->input->get('pilih') == 2) {
+                redirect('soal/addkraepelin');
+            }
+            if ($this->input->get('pilih') == 3) {
+                redirect('soal/addkraepelin');
+            }
+            if ($this->input->get('pilih') == 4) {
+                redirect('soal/addkraepelin');
+            }
         } else {
             //Jika bukan maka matkul dipilih otomatis sesuai matkul 
             $data['matkul'] = $this->soal->getMatkulDosen($user->username);
@@ -70,15 +83,15 @@ class Soal extends CI_Controller
             'judul'        => 'Soal',
             'subjudul'  => 'Buat Soal'
         ];
+
         if ($this->ion_auth->is_admin()) {
             //Jika admin maka tampilkan semua matkul
             $data['dosen'] = $this->soal->getAllDosen();
         } else {
             //Jika bukan maka matkul dipilih otomatis sesuai matkul dosen
-            if (!$this->iskraepelin($user->username)){
+            if (!$this->iskraepelin($user->username)) {
                 $data['dosen'] = $this->soal->getMatkulDosen($user->username);
-            }
-            else{
+            } else {
                 redirect('soal/addkraepelin');
             }
         }
@@ -307,25 +320,25 @@ class Soal extends CI_Controller
         return $this->soal->getMatkulDosen($username, true);
     }
 
-    public function generatesoalkraepelin($rows=28, $columns=50)
+    public function generatesoalkraepelin($rows = 28, $columns = 50)
     {
         // generate angka
         $angkas = [];
-        for ($i=0; $i < intval($columns); $i++) { 
+        for ($i = 0; $i < intval($columns); $i++) {
             $angka = [];
-            for ($j=0; $j < intval($rows); $j++){
-                $angka[] = rand(1,9);
+            for ($j = 0; $j < intval($rows); $j++) {
+                $angka[] = rand(1, 9);
             }
             $angkas[] = $angka;
         }
 
         // generate jawaban
         $jawabans = [];
-        for ($i=0; $i < count($angkas); $i++) { 
+        for ($i = 0; $i < count($angkas); $i++) {
             $jawaban = [];
-            for ($j = 0; $j < count($angkas[$i]); $j++){
-                if (($j+1) < (count($angkas[$i]))){
-                    $jawaban[] = ($angkas[$i][$j] + $angkas[$i][$j+1]) % 10;
+            for ($j = 0; $j < count($angkas[$i]); $j++) {
+                if (($j + 1) < (count($angkas[$i]))) {
+                    $jawaban[] = ($angkas[$i][$j] + $angkas[$i][$j + 1]) % 10;
                 }
             }
             $jawabans[] = $jawaban;

@@ -26,7 +26,11 @@
 			</div>
 			<div class="col-sm-4">
 				<div class="pull-right">
-					<a href="<?= base_url('soal/add') ?>" class="btn bg-purple btn-flat btn-sm"><i class="fa fa-plus"></i> Buat Soal</a>
+
+
+					<button type="button" data-toggle="modal" data-target="#myModal" class="btn bg-purple btn-flat btn-sm"><i class="fa fa-plus"></i> Buat Soal</button>
+
+
 					<button type="button" onclick="reload_ajax()" class="btn btn-flat btn-sm bg-maroon"><i class="fa fa-refresh"></i> Reload</button>
 				</div>
 			</div>
@@ -64,6 +68,38 @@
 		</table>
 	</div>
 	<?= form_close(); ?>
+</div>
+
+<div class="modal fade" id="myModal">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span></button>
+				<h4 class="modal-title">Buat Soal</h4>
+			</div>
+
+			<form action="<?= base_url('soal'); ?>">
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="banyak">Pilih tipe soal yang akan di buat</label>
+						<select id="" name="pilih" class="form-control select2" style="width:100% !important">
+							<option value="">-- Pilih Tipe Soal --</option>
+							<option value="1">Pilihan Ganda</option>
+							<option value="2">Esay</option>
+							<option value="3">Jawaban singkat</option>
+							<option value="4">Soal Kraepelin</option>
+						</select>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary">Generate</button>
+				</div>
+			</form>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
 </div>
 
 <script src="<?= base_url() ?>assets/dist/js/app/soal/data.js"></script>
