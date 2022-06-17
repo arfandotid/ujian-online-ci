@@ -19,7 +19,7 @@
             <thead>
                 <tr>
                     <th>No.</th>
-                    <th>NIP</th>
+                    <th>NIK</th>
                     <th>Petugas</th>
                     <th>Ruang</th>
                     <th class="text-center">Edit</th>
@@ -31,7 +31,7 @@
             <tfoot>
                 <tr>
                     <th>No.</th>
-                    <th>NIP</th>
+                    <th>NIK</th>
                     <th>Petugas</th>
                     <th>Ruang</th>
                     <th class="text-center">Edit</th>

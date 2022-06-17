@@ -12,8 +12,8 @@
             <div class="col-sm-4 col-sm-offset-4">
                 <?= form_open('peserta/save', array('id' => 'mahasiswa'), array('method' => 'add')) ?>
                 <div class="form-group">
-                    <label for="nim">NIM</label>
-                    <input autofocus="autofocus" onfocus="this.select()" placeholder="NIM" type="text" name="nim" class="form-control">
+                    <label for="nim">NIK</label>
+                    <input autofocus="autofocus" onfocus="this.select()" placeholder="NIK" type="text" name="nim" class="form-control">
                     <small class="help-block"></small>
                 </div>
                 <div class="form-group">
@@ -27,6 +27,16 @@
                     <small class="help-block"></small>
                 </div>
                 <div class="form-group">
+                    <label for="tanggal_lahir">Tanggal Lahir</label>
+                    <input type="text" name="tanggal_lahir" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask placeholder="dd/mm/yyyy">
+                    <small class="help-block"></small>
+                </div>
+                <div class="form-group">
+                    <label for="tempat_lahir">Tempat Lahir</label>
+                    <input placeholder="Tempat Lahir" type="text" name="tempat_lahir" class="form-control">
+                    <small class="help-block"></small>
+                </div>
+                <div class="form-group">
                     <label for="jenis_kelamin">Jenis Kelamin</label>
                     <select name="jenis_kelamin" class="form-control select2">
                         <option value="">-- Pilih --</option>
@@ -35,6 +45,22 @@
                     </select>
                     <small class="help-block"></small>
                 </div>
+                <div class="form-group">
+                    <label for="alamat">Alamat</label>
+                    <input placeholder="Alamat" type="text" name="alamat" class="form-control">
+                    <small class="help-block"></small>
+                </div>
+                <div class="form-group">
+                    <label for="pendidikan">Pendidikan</label>
+                    <input placeholder="Pendidikan" type="text" name="pendidikan" class="form-control">
+                    <small class="help-block"></small>
+                </div>
+                <div class="form-group">
+                    <label for="pekerjaan">Pekerjaan</label>
+                    <input placeholder="Pekerjaan" type="text" name="pekerjaan" class="form-control">
+                    <small class="help-block"></small>
+                </div>
+
                 <div class="form-group">
                     <label for="jurusan">Kategori</label>
                     <select id="jurusan" name="jurusan" class="form-control select2">

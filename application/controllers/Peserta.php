@@ -81,12 +81,17 @@ class Peserta extends CI_Controller
 			$u_nim		= $dbdata->nim === $nim ? "" : "|is_unique[mahasiswa.nim]";
 			$u_email	= $dbdata->email === $email ? "" : "|is_unique[mahasiswa.email]";
 		}
-		$this->form_validation->set_rules('nim', 'NIM', 'required|numeric|trim|min_length[8]|max_length[12]' . $u_nim);
+		$this->form_validation->set_rules('nim', 'NIK', 'required|numeric|trim|min_length[8]|max_length[12]' . $u_nim);
 		$this->form_validation->set_rules('nama', 'Nama', 'required|trim|min_length[3]|max_length[50]');
 		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email' . $u_email);
 		$this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required');
 		$this->form_validation->set_rules('jurusan', 'Jurusan', 'required');
 		$this->form_validation->set_rules('kelas', 'Kelas', 'required');
+		$this->form_validation->set_rules('tanggal_lahir', 'Tanggal_Lahir', 'required');
+		$this->form_validation->set_rules('tempat_lahir', 'Tempat_Lahir', 'required');
+		$this->form_validation->set_rules('alamat', 'alamat', 'required');
+		$this->form_validation->set_rules('pendidikan', 'pendidikan', 'required');
+		$this->form_validation->set_rules('pekerjaan', 'pekerjaan', 'required');
 
 		$this->form_validation->set_message('required', 'Kolom {field} wajib diisi');
 	}
@@ -103,6 +108,11 @@ class Peserta extends CI_Controller
 					'nim' => form_error('nim'),
 					'nama' => form_error('nama'),
 					'email' => form_error('email'),
+					'tanggal_lahir' => form_error('tanggal_lahir'),
+					'tempat_lahir' => form_error('tempat_lahir'),
+					'alamat' => form_error('alamat'),
+					'pendidikan' => form_error('pendidikan'),
+					'pekerjaan' => form_error('pekerjaan'),
 					'jenis_kelamin' => form_error('jenis_kelamin'),
 					'jurusan' => form_error('jurusan'),
 					'kelas' => form_error('kelas'),
@@ -115,6 +125,11 @@ class Peserta extends CI_Controller
 				'email' 		=> $this->input->post('email', true),
 				'nama' 			=> $this->input->post('nama', true),
 				'jenis_kelamin' => $this->input->post('jenis_kelamin', true),
+				'tanggal_lahir' => $this->input->post('tanggal_lahir', true),
+				'tempat_lahir'  => $this->input->post('tempat_lahir', true),
+				'alamat'  		=> $this->input->post('alamat', true),
+				'pendidikan' 	=> $this->input->post('pendidikan', true),
+				'pekerjaan'  	=> $this->input->post('pekerjaan', true),
 				'kelas_id' 		=> $this->input->post('kelas', true),
 			];
 			if ($method === 'add') {

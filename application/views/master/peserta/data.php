@@ -21,7 +21,7 @@
                 <thead>
                     <tr>
                         <th>No.</th>
-                        <th>NIM</th>
+                        <th>NIK</th>
                         <th>Nama</th>
                         <th>Email</th>
                         <th>Ruang</th>
@@ -35,7 +35,7 @@
                 <tfoot>
                     <tr>
                         <th>No.</th>
-                        <th>NIM</th>
+                        <th>NIK</th>
                         <th>Nama</th>
                         <th>Email</th>
                         <th>Ruang</th>
