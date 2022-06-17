@@ -16,11 +16,11 @@
 			</div>
 		</div>
 		<?= form_open('', array('id' => 'bulk')) ?>
-		<table id="matkul" class="w-100 table table-striped table-bordered table-hover">
+		<table id="tipesoal" class="w-100 table table-striped table-bordered table-hover">
 			<thead>
 				<tr>
 					<th>No.</th>
-					<th>Jenis Tes</th>
+					<th>Tipe Soal</th>
 					<th class="text-center">
 						<input type="checkbox" class="select_all">
 					</th>
@@ -29,7 +29,7 @@
 			<tfoot>
 				<tr>
 					<th>No.</th>
-					<th>Jenis Tes</th>
+					<th>Tipe Soal</th>
 					<th class="text-center">
 						<input type="checkbox" class="select_all">
 					</th>
