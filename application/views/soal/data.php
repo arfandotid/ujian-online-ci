@@ -82,9 +82,9 @@
 			<form action="<?= base_url('soal'); ?>">
 				<div class="modal-body">
 					<div class="form-group">
-						<label for="banyak">Pilih tipe soal yang akan di buat</label>
+						<label for="banyak">Pilih jenis tes yang akan di buat</label>
 						<select id="" name="pilih" class="form-control select2" style="width:100% !important">
-							<option value="">-- Pilih Tipe Soal --</option>
+							<option value="" disabled selected>-- Pilihan Jenis Tes --</option>
 							<option value="1">Pilihan Ganda</option>
 							<option value="2">Esay</option>
 							<option value="3">Jawaban singkat</option>
