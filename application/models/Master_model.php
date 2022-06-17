@@ -288,4 +288,25 @@ class Master_model extends CI_Model
         $query = $this->db->get()->result();
         return $query;
     }
+
+    // tipe soal
+
+    public function getDataTipesoal()
+    {
+        $this->datatables->select('id_tipesoal, nama_tipesoal');
+        $this->datatables->from('tipesoal');
+        return $this->datatables->generate();
+    }
+
+    public function getTipesoalById($id, $single = false)
+    {
+        if ($single === false) {
+            $this->db->where_in('id_tipesoal', $id);
+            $this->db->order_by('nama_tipesoal');
+            $query = $this->db->get('tipesoal')->result();
+        } else {
+            $query = $this->db->get_where('tipesoal', array('id_tipesoal'=>$id))->row();
+        }
+        return $query;
+    }
 }

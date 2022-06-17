@@ -1,16 +1,15 @@
 $(document).ready(function () {
-    $('form#matkul input').on('change', function () {
+    $('form#tipesoal input').on('change', function () {
         $(this).parent('.form-group').removeClass('has-error');
         $(this).next('.help-block').text('');
     });
 
-    $('form#matkul').on('submit', function (e) {
+    $('form#tipesoal').on('submit', function (e) {
         e.preventDefault();
         e.stopImmediatePropagation();
 
         var btn = $('#submit');
         btn.attr('disabled', 'disabled').text('Wait...');
-
         $.ajax({
             url: $(this).attr('action'),
             data: $(this).serialize(),
@@ -25,7 +24,7 @@ $(document).ready(function () {
                         "type": "success"
                     }).then((result) => {
                         if (result.value) {
-                            window.location.href = base_url+'tes';
+                            window.location.href = base_url+'tipesoal';
                         }
                     });
                 } else {

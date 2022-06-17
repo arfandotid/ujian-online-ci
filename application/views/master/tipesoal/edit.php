@@ -11,32 +11,32 @@
             <div class="col-sm-offset-4 col-sm-4">
                 <div class="my-2">
                     <div class="form-horizontal form-inline">
-                        <a href="<?= base_url('tes') ?>" class="btn btn-default btn-xs">
+                        <a href="<?= base_url('tipesoal') ?>" class="btn btn-default btn-xs">
                             <i class="fa fa-arrow-left"></i> Batal
                         </a>
                         <div class="pull-right">
-                            <span> Jumlah : </span><label for=""><?= count($matkul) ?></label>
+                            <span> Jumlah : </span><label for=""><?= count($tipesoal) ?></label>
                         </div>
                     </div>
                 </div>
-                <?= form_open('tes/save', array('id' => 'matkul'), array('mode' => 'edit')) ?>
+                <?= form_open('tipesoal/save', array('id' => 'tipesoal'), array('mode' => 'edit')) ?>
                 <table id="form-table" class="table text-center table-condensed">
                     <thead>
                         <tr>
                             <th># No</th>
-                            <th>Tes</th>
+                            <th>Tipe Soal</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         $no = 1;
-                        foreach ($matkul as $row) : ?>
+                        foreach ($tipesoal as $row) : ?>
                             <tr>
                                 <td><?= $no ?></td>
                                 <td>
                                     <div class="form-group">
-                                        <?= form_hidden('id_matkul[' . $no . ']', $row->id_matkul) ?>
-                                        <input autofocus="autofocus" onfocus="this.select()" autocomplete="off" value="<?= $row->nama_matkul ?>" type="text" name="nama_matkul[<?= $no ?>]" class="input-sm form-control">
+                                        <?= form_hidden('id_tipesoal[' . $no . ']', $row->id_tipesoal) ?>
+                                        <input autofocus="autofocus" onfocus="this.select()" autocomplete="off" value="<?= $row->nama_tipesoal ?>" type="text" name="nama_tipesoal[<?= $no ?>]" class="input-sm form-control">
                                         <small class="help-block text-right"></small>
                                     </div>
                                 </td>
@@ -56,4 +56,4 @@
     </div>
 </div>
 
-<script src="<?= base_url() ?>assets/dist/js/app/master/tes/edit.js"></script>
+<script src="<?= base_url() ?>assets/dist/js/app/master/tipesoal/edit.js"></script>

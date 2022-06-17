@@ -11,7 +11,7 @@
             <div class="col-sm-offset-4 col-sm-4">
                 <div class="my-2">
                     <div class="form-horizontal form-inline">
-                        <a href="<?= base_url('tes') ?>" class="btn btn-default btn-xs">
+                        <a href="<?= base_url('tipesoal') ?>" class="btn btn-default btn-xs">
                             <i class="fa fa-arrow-left"></i> Batal
                         </a>
                         <div class="pull-right">
@@ -19,12 +19,12 @@
                         </div>
                     </div>
                 </div>
-                <?= form_open('tes/save', array('id' => 'matkul'), array('mode' => 'add')) ?>
+                <?= form_open('tipesoal/save', array('id' => 'tipesoal'), array('mode' => 'add')) ?>
                 <table id="form-table" class="table text-center table-condensed">
                     <thead>
                         <tr>
                             <th># No</th>
-                            <th>Jenis Tes</th>
+                            <th>Tipe Soal</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,7 +33,7 @@
                                 <td><?= $i ?></td>
                                 <td>
                                     <div class="form-group">
-                                        <input autofocus="autofocus" onfocus="this.select()" autocomplete="off" type="text" name="nama_matkul[<?= $i ?>]" class="form-control">
+                                        <input autofocus="autofocus" onfocus="this.select()" autocomplete="off" type="text" name="nama_tipesoal[<?= $i ?>]" class="form-control">
                                         <small class="help-block text-right"></small>
                                     </div>
                                 </td>
@@ -54,4 +54,4 @@
     var banyak = '<?= $banyak; ?>';
 </script>
 
-<script src="<?= base_url() ?>assets/dist/js/app/master/tes/add.js"></script>
+<script src="<?= base_url() ?>assets/dist/js/app/master/tipesoal/add.js"></script>
