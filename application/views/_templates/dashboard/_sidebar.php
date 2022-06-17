@@ -20,7 +20,7 @@
 			<!-- Optionally, you can add icons to the links -->
 			<?php
 			$page = $this->uri->segment(1);
-			$master = ["kategori", "ruang", "tes", "petugas", "peserta"];
+			$master = ["kategori", "ruang", "tes", "petugas", "peserta", "tipesoal"];
 			$relasi = ["ruangpetugas", "kategorites"];
 			$users = ["users"];
 			?>
@@ -37,6 +37,12 @@
 							<a href="<?= base_url('kategori') ?>">
 								<i class="fa fa-circle-o"></i>
 								Master Kategori
+							</a>
+						</li>
+						<li class="<?= $page === 'tipesoal' ? "active" : "" ?>">
+							<a href="<?= base_url('tipesoal') ?>">
+								<i class="fa fa-circle-o"></i>
+								Master Tipe Soal
 							</a>
 						</li>
 						<li class="<?= $page === 'ruang' ? "active" : "" ?>">
@@ -88,56 +94,56 @@
 				</li>
 			<?php endif; ?>
 			<?php if ($this->ion_auth->is_admin() || $this->ion_auth->in_group('petugas')) : ?>
-				<li class="<?= $page === 'soal' ? "active" : "" ?>">
-					<a href="<?= base_url('soal') ?>" rel="noopener noreferrer">
-						<i class="fa fa-file-text-o"></i> <span>Bank Soal</span>
-					</a>
-				</li>
-			<?php endif; ?>
-			<?php if ($this->ion_auth->in_group('petugas')) : ?>
-				<li class="<?= $page === 'ujian' ? "active" : "" ?>">
-					<a href="<?= base_url('ujian/master') ?>" rel="noopener noreferrer">
-						<i class="fa fa-chrome"></i> <span>Ujian</span>
-					</a>
-				</li>
-			<?php endif; ?>
-			<?php if ($this->ion_auth->in_group('peserta')) : ?>
-				<li class="<?= $page === 'latihantes' ? "active" : "" ?>">
-					<a href="<?= base_url('latihantes/list') ?>" rel="noopener noreferrer">
-						<i class="fa fa-book"></i> <span>Latihan Tes</span>
-					</a>
-				</li>
-			<?php endif; ?>
-			<?php if ($this->ion_auth->in_group('peserta')) : ?>
-				<li class="<?= $page === 'ujian' ? "active" : "" ?>">
-					<a href="<?= base_url('ujian/list') ?>" rel="noopener noreferrer">
-						<i class="fa fa-chrome"></i> <span>Ujian</span>
-					</a>
-				</li>
-			<?php endif; ?>
-			<?php if (!$this->ion_auth->in_group('peserta')) : ?>
-				<li class="header">REPORTS</li>
-				<li class="<?= $page === 'hasilujian' ? "active" : "" ?>">
-					<a href="<?= base_url('hasilujian') ?>" rel="noopener noreferrer">
-						<i class="fa fa-file"></i> <span>Hasil Ujian</span>
-					</a>
-				</li>
-			<?php endif; ?>
-			<?php if ($this->ion_auth->is_admin()) : ?>
-				<li class="header">ADMINISTRATOR</li>
-				<li class="<?= $page === 'users' ? "active" : "" ?>">
-					<a href="<?= base_url('users') ?>" rel="noopener noreferrer">
-						<i class="fa fa-users"></i> <span>User Management</span>
-					</a>
-				</li>
-				<li class="<?= $page === 'settings' ? "active" : "" ?>">
-					<a href="<?= base_url('settings') ?>" rel="noopener noreferrer">
-						<i class="fa fa-cog"></i> <span>Settings</span>
-					</a>
-				</li>
-			<?php endif; ?>
-		</ul>
+			<li class="<?= $page === 'soal' ? "active" : "" ?>">
+				<a href="<?= base_url('soal') ?>" rel="noopener noreferrer">
+					<i class="fa fa-file-text-o"></i> <span>Bank Soal</span>
+				</a>
+			</li>
+		<?php endif; ?>
+		<?php if ($this->ion_auth->in_group('petugas')) : ?>
+			<li class="<?= $page === 'ujian' ? "active" : "" ?>">
+				<a href="<?= base_url('ujian/master') ?>" rel="noopener noreferrer">
+					<i class="fa fa-chrome"></i> <span>Ujian</span>
+				</a>
+			</li>
+		<?php endif; ?>
+		<?php if ($this->ion_auth->in_group('peserta')) : ?>
+			<li class="<?= $page === 'latihantes' ? "active" : "" ?>">
+				<a href="<?= base_url('latihantes/list') ?>" rel="noopener noreferrer">
+					<i class="fa fa-book"></i> <span>Latihan Tes</span>
+				</a>
+			</li>
+		<?php endif; ?>
+		<?php if ($this->ion_auth->in_group('peserta')) : ?>
+			<li class="<?= $page === 'ujian' ? "active" : "" ?>">
+				<a href="<?= base_url('ujian/list') ?>" rel="noopener noreferrer">
+					<i class="fa fa-chrome"></i> <span>Ujian</span>
+				</a>
+			</li>
+		<?php endif; ?>
+		<?php if (!$this->ion_auth->in_group('peserta')) : ?>
+			<li class="header">REPORTS</li>
+			<li class="<?= $page === 'hasilujian' ? "active" : "" ?>">
+				<a href="<?= base_url('hasilujian') ?>" rel="noopener noreferrer">
+					<i class="fa fa-file"></i> <span>Hasil Ujian</span>
+				</a>
+			</li>
+		<?php endif; ?>
+		<?php if ($this->ion_auth->is_admin()) : ?>
+			<li class="header">ADMINISTRATOR</li>
+			<li class="<?= $page === 'users' ? "active" : "" ?>">
+				<a href="<?= base_url('users') ?>" rel="noopener noreferrer">
+					<i class="fa fa-users"></i> <span>User Management</span>
+				</a>
+			</li>
+			<li class="<?= $page === 'settings' ? "active" : "" ?>">
+				<a href="<?= base_url('settings') ?>" rel="noopener noreferrer">
+					<i class="fa fa-cog"></i> <span>Settings</span>
+				</a>
+			</li>
+		<?php endif; ?>
+	</ul>
 
-	</section>
-	<!-- /.sidebar -->
+</section>
+<!-- /.sidebar -->
 </aside>

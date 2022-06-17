@@ -96,9 +96,14 @@ class Soal extends CI_Controller
             'judul'        => 'Soal',
             'subjudul'  => 'Buat Soal Kraepelin',
         ];
-        $baris = $this->input->post('baris', true);
-        $kolom = $this->input->post('kolom', true);
-        $data['kraepelin'] = $this->generatesoalkraepelin($baris, $kolom);
+        $post = $this->input->post(NULL, TRUE);
+        if ($post) {
+            $baris = $post['baris'];
+            $kolom = $post['kolom'];
+            $data['baris'] = $baris;
+            $data['kolom'] = $kolom;
+            $data['angkas'] = $this->generatesoalkraepelin($baris, $kolom)['angkas'];
+        }
         $data['dosen'] = $this->soal->getDosenWhereMatkul('kraepelin');
         $data['soal'] = $this->soal->getKraepelin();
 
@@ -302,7 +307,7 @@ class Soal extends CI_Controller
         return $this->soal->getMatkulDosen($username, true);
     }
 
-    public function generatesoalkraepelin($rows, $columns)
+    public function generatesoalkraepelin($rows=28, $columns=50)
     {
         // generate angka
         $angkas = [];
@@ -313,8 +318,6 @@ class Soal extends CI_Controller
             }
             $angkas[] = $angka;
         }
-
-        echo json_encode($angkas);
 
         // generate jawaban
         $jawabans = [];
@@ -327,7 +330,6 @@ class Soal extends CI_Controller
             }
             $jawabans[] = $jawaban;
         }
-        echo json_encode(['angkas' => $angkas, 'jawabans' => $jawabans]);
         return ['angkas' => $angkas, 'jawabans' => $jawabans];
     }
 }
