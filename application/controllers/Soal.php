@@ -39,10 +39,10 @@ class Soal extends CI_Controller
             $data['matkul'] = $this->master->getAllMatkul();
 
             if ($this->input->get('pilih') == 1) {
-                redirect('soal/add');
+                redirect('soal/pilihanGanda');
             }
             if ($this->input->get('pilih') == 2) {
-                redirect('soal/addkraepelin');
+                redirect('soal/esay');
             }
             if ($this->input->get('pilih') == 3) {
                 redirect('soal/addkraepelin');
@@ -75,13 +75,13 @@ class Soal extends CI_Controller
         $this->load->view('_templates/dashboard/_footer.php');
     }
 
-    public function add()
+    public function pilihanGanda()
     {
         $user = $this->ion_auth->user()->row();
         $data = [
             'user'      => $user,
             'judul'        => 'Soal',
-            'subjudul'  => 'Buat Soal'
+            'subjudul'  => 'Buat Soal Pilihan Ganda'
         ];
 
         if ($this->ion_auth->is_admin()) {
@@ -97,7 +97,32 @@ class Soal extends CI_Controller
         }
 
         $this->load->view('_templates/dashboard/_header.php', $data);
-        $this->load->view('soal/add');
+        $this->load->view('soal/pilihanGanda');
+        $this->load->view('_templates/dashboard/_footer.php');
+    }
+    public function esay()
+    {
+        $user = $this->ion_auth->user()->row();
+        $data = [
+            'user'      => $user,
+            'judul'        => 'Soal',
+            'subjudul'  => 'Buat Soal Esay'
+        ];
+
+        if ($this->ion_auth->is_admin()) {
+            //Jika admin maka tampilkan semua matkul
+            $data['dosen'] = $this->soal->getAllDosen();
+        } else {
+            //Jika bukan maka matkul dipilih otomatis sesuai matkul dosen
+            if (!$this->iskraepelin($user->username)) {
+                $data['dosen'] = $this->soal->getMatkulDosen($user->username);
+            } else {
+                redirect('soal/addkraepelin');
+            }
+        }
+
+        $this->load->view('_templates/dashboard/_header.php', $data);
+        $this->load->view('soal/esay');
         $this->load->view('_templates/dashboard/_footer.php');
     }
 
@@ -191,7 +216,7 @@ class Soal extends CI_Controller
 
 
         if ($this->form_validation->run() === FALSE) {
-            $method === 'add' ? $this->add() : $this->edit($this->input->post('id_soal', true));
+            $method === 'add' ? $this->pilihanGanda() : $this->edit($this->input->post('id_soal', true));
         } else {
             $data = [
                 'soal'      => $this->input->post('soal', true),
