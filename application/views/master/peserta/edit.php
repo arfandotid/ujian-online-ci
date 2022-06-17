@@ -27,6 +27,16 @@
                     <small class="help-block"></small>
                 </div>
                 <div class="form-group">
+                    <label for="tanggal_lahir">Tanggal Lahir</label>
+                    <input value="<?= $mahasiswa->tanggal_lahir ?>" type="text" name="tanggal_lahir" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask placeholder="dd/mm/yyyy">
+                    <small class="help-block"></small>
+                </div>
+                <div class="form-group">
+                    <label for="tempat_lahir">Tempat Lahir</label>
+                    <input value="<?= $mahasiswa->tempat_lahir ?>" placeholder="Tempat Lahir" type="text" name="tempat_lahir" class="form-control">
+                    <small class="help-block"></small>
+                </div>
+                <div class="form-group">
                     <label for="jenis_kelamin">Jenis Kelamin</label>
                     <select name="jenis_kelamin" class="form-control select2">
                         <option value="">-- Pilih --</option>
