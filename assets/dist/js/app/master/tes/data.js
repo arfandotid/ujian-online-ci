@@ -34,11 +34,12 @@ $(document).ready(function() {
         orderable: false,
         searchable: false
       },
-      { data: "nama_matkul" }
+      { data: "nama_matkul" },
+      { data: "nama_tipesoal" }
     ],
     columnDefs: [
       {
-        targets: 2,
+        targets: 3,
         data: "id_matkul",
         render: function(data, type, row, meta) {
           return `<div class="text-center">

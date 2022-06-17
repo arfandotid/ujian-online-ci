@@ -166,8 +166,9 @@ class Master_model extends CI_Model
 
     public function getDataMatkul()
     {
-        $this->datatables->select('id_matkul, nama_matkul');
+        $this->datatables->select('id_matkul, nama_matkul, nama_tipesoal');
         $this->datatables->from('matkul');
+        $this->datatables->join('tipesoal', 'tipesoal_id=id_tipesoal');
         return $this->datatables->generate();
     }
 
@@ -296,6 +297,12 @@ class Master_model extends CI_Model
         $this->datatables->select('id_tipesoal, nama_tipesoal');
         $this->datatables->from('tipesoal');
         return $this->datatables->generate();
+    }
+
+    public function getAllTipesoal()
+    {
+        return $this->db->get('tipesoal')->result();
+        
     }
 
     public function getTipesoalById($id, $single = false)
