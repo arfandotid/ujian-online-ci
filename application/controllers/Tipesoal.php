@@ -35,9 +35,9 @@ class Tipesoal extends CI_Controller
 			'judul'	=> 'Tipe Soal',
 			'subjudul' => 'Data Tipe Soal'
 		];
-		$this->load->view('_templates/dashboard/_header.php', $data);
+		$this->_header($data);
 		$this->load->view('master/tipesoal/data');
-		$this->load->view('_templates/dashboard/_footer.php');
+		$this->_footer();
 	}
 
 	public function data()
@@ -53,16 +53,16 @@ class Tipesoal extends CI_Controller
 			'subjudul'	=> 'Tambah Data Jenis Tes',
 			'banyak'	=> $this->input->post('banyak', true)
 		];
-		$this->load->view('_templates/dashboard/_header.php', $data);
+		$this->_header($data);
 		$this->load->view('master/tipesoal/add');
-		$this->load->view('_templates/dashboard/_footer.php');
+		$this->_footer();
 	}
 
 	public function edit()
 	{
 		$chk = $this->input->post('checked', true);
 		if (!$chk) {
-			redirect('tes');
+			redirect('tipesoal');
 		} else {
 			$matkul = $this->master->getMatkulById($chk);
 			$data = [
@@ -71,9 +71,9 @@ class Tipesoal extends CI_Controller
 				'subjudul'	=> 'Edit Data Jenis Tes',
 				'matkul'	=> $matkul
 			];
-			$this->load->view('_templates/dashboard/_header.php', $data);
+			$this->_header($data);
 			$this->load->view('master/tipesoal/edit');
-			$this->load->view('_templates/dashboard/_footer.php');
+			$this->_footer();
 		}
 	}
 
@@ -204,10 +204,20 @@ class Tipesoal extends CI_Controller
 
 		$save = $this->master->create('matkul', $jurusan, true);
 		if ($save) {
-			redirect('tes');
+			redirect('tipesoal');
 		} else {
-			redirect('tes/import');
+			redirect('tipesoal/import');
 		}
+	}
+
+	public function _header($data = null)
+	{
+		$this->load->view('_templates/dashboard/_header', $data);
+	}
+
+	public function _footer()
+	{
+		$this->load->view('_templates/dashboard/_footer.php');
 	}
 }
 
