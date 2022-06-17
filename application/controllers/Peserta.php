@@ -87,11 +87,11 @@ class Peserta extends CI_Controller
 		$this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required');
 		$this->form_validation->set_rules('jurusan', 'Jurusan', 'required');
 		$this->form_validation->set_rules('kelas', 'Kelas', 'required');
-		$this->form_validation->set_rules('tanggal_lahir', 'Tanggal_Lahir', 'required');
-		$this->form_validation->set_rules('tempat_lahir', 'Tempat_Lahir', 'required');
-		$this->form_validation->set_rules('alamat', 'alamat', 'required');
-		$this->form_validation->set_rules('pendidikan', 'pendidikan', 'required');
-		$this->form_validation->set_rules('pekerjaan', 'pekerjaan', 'required');
+		// $this->form_validation->set_rules('tanggal_lahir', 'Tanggal_Lahir', 'required');
+		// $this->form_validation->set_rules('tempat_lahir', 'Tempat_Lahir', 'required');
+		// $this->form_validation->set_rules('alamat', 'alamat', 'required');
+		// $this->form_validation->set_rules('pendidikan', 'pendidikan', 'required');
+		// $this->form_validation->set_rules('pekerjaan', 'pekerjaan', 'required');
 
 		$this->form_validation->set_message('required', 'Kolom {field} wajib diisi');
 	}

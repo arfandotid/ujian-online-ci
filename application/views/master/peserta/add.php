@@ -28,7 +28,7 @@
                 </div>
                 <div class="form-group">
                     <label for="tanggal_lahir">Tanggal Lahir</label>
-                    <input type="text" name="tanggal_lahir" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask placeholder="dd/mm/yyyy">
+                    <input type="text" name="tanggal_lahir" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
                     <small class="help-block"></small>
                 </div>
                 <div class="form-group">
