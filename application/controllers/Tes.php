@@ -51,13 +51,14 @@ class Tes extends CI_Controller
 			'user' 		=> $this->ion_auth->user()->row(),
 			'judul'		=> 'Tambah Jenis Tes',
 			'subjudul'	=> 'Tambah Data Jenis Tes',
-			'banyak'	=> $this->input->post('banyak', true)
+			'banyak'	=> $this->input->post('banyak', true),
+			'tipesoal'	=> $this->master->getAllTipesoal()
 		];
 		$this->load->view('_templates/dashboard/_header.php', $data);
 		$this->load->view('master/tes/add');
 		$this->load->view('_templates/dashboard/_footer.php');
 	}
-
+	
 	public function edit()
 	{
 		$chk = $this->input->post('checked', true);
@@ -69,6 +70,7 @@ class Tes extends CI_Controller
 				'user' 		=> $this->ion_auth->user()->row(),
 				'judul'		=> 'Edit Jenis Tes',
 				'subjudul'	=> 'Edit Data Jenis Tes',
+				'tipesoal'	=> $this->master->getAllTipesoal(),
 				'matkul'	=> $matkul
 			];
 			$this->load->view('_templates/dashboard/_header.php', $data);
@@ -76,13 +78,14 @@ class Tes extends CI_Controller
 			$this->load->view('_templates/dashboard/_footer.php');
 		}
 	}
-
+	
 	public function save()
 	{
 		$rows = count($this->input->post('nama_matkul', true));
 		$mode = $this->input->post('mode', true);
 		for ($i = 1; $i <= $rows; $i++) {
 			$nama_matkul = 'nama_matkul[' . $i . ']';
+			$tipesoal_id = 'tipesoal_id[' . $i . ']';
 			$this->form_validation->set_rules($nama_matkul, 'Jenis Tes', 'required');
 			$this->form_validation->set_message('required', '{field} Wajib diisi');
 
@@ -94,7 +97,8 @@ class Tes extends CI_Controller
 			} else {
 				if ($mode == 'add') {
 					$insert[] = [
-						'nama_matkul' => $this->input->post($nama_matkul, true)
+						'nama_matkul' => $this->input->post($nama_matkul, true),
+						'tipesoal_id' => $this->input->post($tipesoal_id, true)
 					];
 				} else if ($mode == 'edit') {
 					$update[] = array(

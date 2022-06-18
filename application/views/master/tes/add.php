@@ -8,7 +8,7 @@
     </div>
     <div class="box-body">
         <div class="row">
-            <div class="col-sm-offset-4 col-sm-4">
+            <div class="col-sm-offset-3 col-sm-6">
                 <div class="my-2">
                     <div class="form-horizontal form-inline">
                         <a href="<?= base_url('tes') ?>" class="btn btn-default btn-xs">
@@ -25,6 +25,7 @@
                         <tr>
                             <th># No</th>
                             <th>Jenis Tes</th>
+                            <th>Tipe Soal</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,6 +35,18 @@
                                 <td>
                                     <div class="form-group">
                                         <input autofocus="autofocus" onfocus="this.select()" autocomplete="off" type="text" name="nama_matkul[<?= $i ?>]" class="form-control">
+                                        <span class="d-none">DON'T DELETE THIS</span>
+                                        <small class="help-block text-right"></small>
+                                    </div>
+                                </td>
+                                <td width="200">
+                                    <div class="form-group">
+                                        <select required="required" name="tipesoal_id[<?= $i ?>]" class="form-control input-sm select2" style="width: 100%!important">
+                                            <option value="" disabled selected>-- Pilih --</option>
+                                            <?php foreach ($tipesoal as $t) : ?>
+                                                <option value="<?= $t->id_tipesoal ?>"><?= $t->nama_tipesoal ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
                                         <small class="help-block text-right"></small>
                                     </div>
                                 </td>
