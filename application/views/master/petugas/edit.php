@@ -13,7 +13,7 @@
             <div class="col-sm-4 col-sm-offset-4">
                 <div class="form-group">
                     <label for="nip">NIK</label>
-                    <input value="<?= $data->nip ?>" autofocus="autofocus" onfocus="this.select()" type="number" id="nip" class="form-control" name="nip" placeholder="NIP">
+                    <input value="<?= $data->nip ?>" autofocus="autofocus" onfocus="this.select()" type="number" id="nip" class="form-control" name="nip" placeholder="NIK">
                     <small class="help-block"></small>
                 </div>
                 <div class="form-group">
