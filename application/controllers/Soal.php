@@ -27,37 +27,32 @@ class Soal extends CI_Controller
 
     public function index()
     {
-        $user = $this->ion_auth->user()->row();
-        $data = [
-            'user' => $user,
-            'judul'    => 'Soal',
-            'subjudul' => 'Bank Soal'
-        ];
+        $post = $this->input->post(NULL, TRUE);
+        if (!$post){
+            $user = $this->ion_auth->user()->row();
+            $data = [
+                'user' => $user,
+                'judul'    => 'Soal',
+                'subjudul' => 'Bank Soal',
+                'dropdown' => $this->master->getDosenKelasMatkul()
+            ];
 
-        if ($this->ion_auth->is_admin()) {
-            //Jika admin maka tampilkan semua matkul
-            $data['matkul'] = $this->master->getAllMatkul();
+            if ($this->ion_auth->is_admin()) {
+                //Jika admin maka tampilkan semua matkul
+                $data['matkul'] = $this->master->getAllMatkul();
+            } else {
+                //Jika bukan maka matkul dipilih otomatis sesuai matkul 
+                $data['matkul'] = $this->soal->getMatkulDosen($user->username);
+            }
 
-            if ($this->input->get('pilih') == 1) {
-                redirect('soal/pilihanGanda');
-            }
-            if ($this->input->get('pilih') == 2) {
-                redirect('soal/esay');
-            }
-            if ($this->input->get('pilih') == 3) {
-                redirect('soal/addkraepelin');
-            }
-            if ($this->input->get('pilih') == 4) {
-                redirect('soal/addkraepelin');
-            }
-        } else {
-            //Jika bukan maka matkul dipilih otomatis sesuai matkul 
-            $data['matkul'] = $this->soal->getMatkulDosen($user->username);
+            $this->load->view('_templates/dashboard/_header.php', $data);
+            $this->load->view('soal/data');
+            $this->load->view('_templates/dashboard/_footer.php');
         }
-
-        $this->load->view('_templates/dashboard/_header.php', $data);
-        $this->load->view('soal/data');
-        $this->load->view('_templates/dashboard/_footer.php');
+        else{
+            $slug = $this->db->get_where('tipesoal_slug', ['tipesoal_id' => $post['id_tipesoal']])->row();
+            $this->output_json(['status' => true, 'slug' => $slug->slug]);
+        }
     }
 
     public function detail($id)

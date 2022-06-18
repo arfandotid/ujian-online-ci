@@ -28,7 +28,7 @@
 				<div class="pull-right">
 
 
-					<button type="button" data-toggle="modal" data-target="#myModal" class="btn bg-purple btn-flat btn-sm"><i class="fa fa-plus"></i> Buat Soal</button>
+					<button type="button" data-toggle="modal" data-target="#add-soal" class="btn bg-purple btn-flat btn-sm"><i class="fa fa-plus"></i> Buat Soal</button>
 
 
 					<button type="button" onclick="reload_ajax()" class="btn btn-flat btn-sm bg-maroon"><i class="fa fa-refresh"></i> Reload</button>
@@ -70,30 +70,34 @@
 	<?= form_close(); ?>
 </div>
 
-<div class="modal fade" id="myModal">
+<div class="modal fade" id="add-soal">
 	<div class="modal-dialog modal-sm">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">×</span></button>
-				<h4 class="modal-title">Buat Soal</h4>
-			</div>
+					<h4 class="modal-title">Buat Soal</h4>
+				</div>
 
-			<form action="<?= base_url('soal'); ?>">
+				<?= form_open('soal', 'class="form" id="tambah"'); ?>
 				<div class="modal-body">
 					<div class="form-group">
 						<label for="banyak">Pilih jenis tes yang akan di buat</label>
-						<select id="" name="pilih" class="form-control select2" style="width:100% !important">
+						<select id="jenis-tes" name="pilih" class="form-control select2" style="width:100% !important" required>
 							<option value="" disabled selected>-- Pilihan Jenis Tes --</option>
-							<option value="1">Pilihan Ganda</option>
-							<option value="2">Esay</option>
-							<option value="3">Jawaban singkat</option>
-							<option value="4">Soal Kraepelin</option>
+							<?php foreach ($dropdown as $d) : ?>
+								<option value="<?= $d->id_matkul.':'.$d->id_jurusan.':'.$d->tipesoal_id.':'.$d->id_dosen ?>"><?= $d->nama_matkul.' - '.$d->nama_jurusan ?></option>
+							<?php endforeach ?>
 						</select>
+						
+						<input type="hidden" name="id_matkul" id="inputmatkul" class="form-control">
+						<input type="hidden" name="id_jurusan" id="inputjurusan" class="form-control">
+						<input type="hidden" name="id_tipesoal" id="inputtipesoal" class="form-control">
+						<input type="hidden" name="id_dosen" id="inputdosen" class="form-control">
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="submit" class="btn btn-primary">Generate</button>
+					<button type="submit" class="btn btn-primary">Buat Soal</button>
 				</div>
 			</form>
 		</div>
@@ -120,6 +124,44 @@
 				}
 				table.ajax.url(url).load();
 			});
+			$('#jenis-tes').on('change', function() {
+				let ids = $(this).val().split(':');
+				id_matkul = ids[0];
+				id_jurusan = ids[1];
+				id_tipesoal = ids[2];
+				id_dosen = ids[3];
+				$("#inputmatkul").val(id_matkul);
+				$("#inputjurusan").val(id_jurusan);
+				$("#inputtipesoal").val(id_tipesoal);
+				$("#inputdosen").val(id_dosen);
+				
+				// ajax 
+				$.ajax({
+					url: base_url + 'soal',
+					data: $('form#tambah').serialize(),
+					type: "POST",
+					success: function(respon) {
+						if (respon.status) {
+							$('form#tambah').attr("action", respon.slug);
+						} else {
+							Swal({
+								title: "Gagal",
+								text: "Slug tidak ditemukan",
+								type: "error"
+							});
+						}
+					},
+					error: function() {
+						Swal({
+							title: "Gagal",
+							text: "Slug tidak ditemukan",
+							type: "error"
+						});
+					}
+				});
+
+				// akhir ajax				
+			});
 		});
 	</script>
 <?php endif; ?>
@@ -133,4 +175,4 @@
 			table.ajax.url(url).load();
 		});
 	</script>
-<?php endif; ?>
+	<?php endif; ?>

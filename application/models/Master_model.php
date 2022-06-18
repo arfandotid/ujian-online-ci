@@ -316,4 +316,12 @@ class Master_model extends CI_Model
         }
         return $query;
     }
+
+
+    // Dosen Kelas Matkul
+    public function getDosenKelasMatkul()
+    {
+        return $this->db->get('view_dosen_kelas_jurusan_matkul')->result();
+
+    }
 }
