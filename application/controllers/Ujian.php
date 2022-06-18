@@ -218,8 +218,8 @@ class Ujian extends CI_Controller
 		$token = $this->input->get('token');
 		$data = [
 			'user' 		=> $user,
-			'judul'		=> 'Ujian',
-			'subjudul'	=> 'List Ujian',
+			'judul'		=> 'Mulai',
+			'subjudul'	=> 'List Tes',
 			'mhs' 		=> $this->ujian->getIdMahasiswa($user->username),
 		];
 		$this->load->view('_templates/dashboard/_header.php', $data);
