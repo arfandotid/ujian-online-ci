@@ -31,11 +31,12 @@ CREATE TABLE IF NOT EXISTS `dosen` (
   UNIQUE KEY `nip` (`nip`),
   KEY `matkul_id` (`matkul_id`),
   CONSTRAINT `dosen_ibfk_1` FOREIGN KEY (`matkul_id`) REFERENCES `matkul` (`id_matkul`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table ci_online_test.dosen: ~0 rows (approximately)
-DELETE FROM `dosen`;
+-- Dumping data for table ci_online_test.dosen: ~1 rows (approximately)
 /*!40000 ALTER TABLE `dosen` DISABLE KEYS */;
+INSERT INTO `dosen` (`id_dosen`, `nip`, `nama_dosen`, `email`, `matkul_id`) VALUES
+	(1, '18120510899', 'Arif Pambudi', 'arifpambudi242@gmail.com', 5);
 /*!40000 ALTER TABLE `dosen` ENABLE KEYS */;
 
 -- Dumping structure for table ci_online_test.groups
@@ -48,7 +49,6 @@ CREATE TABLE IF NOT EXISTS `groups` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ci_online_test.groups: ~3 rows (approximately)
-DELETE FROM `groups`;
 /*!40000 ALTER TABLE `groups` DISABLE KEYS */;
 INSERT INTO `groups` (`id`, `name`, `description`) VALUES
 	(1, 'admin', 'Administrator'),
@@ -78,7 +78,6 @@ CREATE TABLE IF NOT EXISTS `h_ujian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ci_online_test.h_ujian: ~0 rows (approximately)
-DELETE FROM `h_ujian`;
 /*!40000 ALTER TABLE `h_ujian` DISABLE KEYS */;
 /*!40000 ALTER TABLE `h_ujian` ENABLE KEYS */;
 
@@ -88,11 +87,14 @@ CREATE TABLE IF NOT EXISTS `jurusan` (
   `id_jurusan` int(11) NOT NULL AUTO_INCREMENT,
   `nama_jurusan` varchar(30) NOT NULL,
   PRIMARY KEY (`id_jurusan`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ci_online_test.jurusan: ~0 rows (approximately)
-DELETE FROM `jurusan`;
+-- Dumping data for table ci_online_test.jurusan: ~3 rows (approximately)
 /*!40000 ALTER TABLE `jurusan` DISABLE KEYS */;
+INSERT INTO `jurusan` (`id_jurusan`, `nama_jurusan`) VALUES
+	(1, 'umur 7 - 13 tahun'),
+	(2, 'umur 14 - 17 tahun'),
+	(3, 'umur 18 - 22 tahun');
 /*!40000 ALTER TABLE `jurusan` ENABLE KEYS */;
 
 -- Dumping structure for table ci_online_test.jurusan_matkul
@@ -109,7 +111,6 @@ CREATE TABLE IF NOT EXISTS `jurusan_matkul` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ci_online_test.jurusan_matkul: ~0 rows (approximately)
-DELETE FROM `jurusan_matkul`;
 /*!40000 ALTER TABLE `jurusan_matkul` DISABLE KEYS */;
 /*!40000 ALTER TABLE `jurusan_matkul` ENABLE KEYS */;
 
@@ -121,11 +122,14 @@ CREATE TABLE IF NOT EXISTS `kelas` (
   `jurusan_id` int(11) NOT NULL,
   PRIMARY KEY (`id_kelas`),
   KEY `jurusan_id` (`jurusan_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ci_online_test.kelas: ~0 rows (approximately)
-DELETE FROM `kelas`;
+-- Dumping data for table ci_online_test.kelas: ~3 rows (approximately)
 /*!40000 ALTER TABLE `kelas` DISABLE KEYS */;
+INSERT INTO `kelas` (`id_kelas`, `nama_kelas`, `jurusan_id`) VALUES
+	(1, 'tes 18 06 2022', 2),
+	(2, 'tes 18 06 2022', 3),
+	(3, 'tes 18 06 2022', 3);
 /*!40000 ALTER TABLE `kelas` ENABLE KEYS */;
 
 -- Dumping structure for table ci_online_test.kelas_dosen
@@ -142,7 +146,6 @@ CREATE TABLE IF NOT EXISTS `kelas_dosen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ci_online_test.kelas_dosen: ~0 rows (approximately)
-DELETE FROM `kelas_dosen`;
 /*!40000 ALTER TABLE `kelas_dosen` DISABLE KEYS */;
 /*!40000 ALTER TABLE `kelas_dosen` ENABLE KEYS */;
 
@@ -157,28 +160,31 @@ CREATE TABLE IF NOT EXISTS `login_attempts` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ci_online_test.login_attempts: ~0 rows (approximately)
-DELETE FROM `login_attempts`;
 /*!40000 ALTER TABLE `login_attempts` DISABLE KEYS */;
 /*!40000 ALTER TABLE `login_attempts` ENABLE KEYS */;
 
 -- Dumping structure for table ci_online_test.mahasiswa
 DROP TABLE IF EXISTS `mahasiswa`;
 CREATE TABLE IF NOT EXISTS `mahasiswa` (
-  `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT,
+  `id_mahasiswa` int(11) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `nim` char(20) NOT NULL,
   `email` varchar(254) NOT NULL,
   `jenis_kelamin` enum('L','P') NOT NULL,
+  `tempat_lahir` varchar(30) NOT NULL,
+  `tanggal_lahir` text NOT NULL,
+  `alamat` varchar(51) NOT NULL,
+  `pendidikan` varchar(51) NOT NULL,
+  `pekerjaan` varchar(51) NOT NULL,
   `kelas_id` int(11) NOT NULL COMMENT 'kelas&jurusan',
   PRIMARY KEY (`id_mahasiswa`),
   UNIQUE KEY `nim` (`nim`),
   UNIQUE KEY `email` (`email`),
   KEY `kelas_id` (`kelas_id`),
-  CONSTRAINT `mahasiswa_ibfk_2` FOREIGN KEY (`kelas_id`) REFERENCES `kelas` (`id_kelas`)
+  CONSTRAINT `FK_mahasiswa_kelas` FOREIGN KEY (`kelas_id`) REFERENCES `kelas` (`id_kelas`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dumping data for table ci_online_test.mahasiswa: ~0 rows (approximately)
-DELETE FROM `mahasiswa`;
 /*!40000 ALTER TABLE `mahasiswa` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mahasiswa` ENABLE KEYS */;
 
@@ -190,13 +196,14 @@ CREATE TABLE IF NOT EXISTS `matkul` (
   `tipesoal_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_matkul`),
   KEY `tipesoal_id` (`tipesoal_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ci_online_test.matkul: ~0 rows (approximately)
-DELETE FROM `matkul`;
+-- Dumping data for table ci_online_test.matkul: ~3 rows (approximately)
 /*!40000 ALTER TABLE `matkul` DISABLE KEYS */;
 INSERT INTO `matkul` (`id_matkul`, `nama_matkul`, `tipesoal_id`) VALUES
-	(2, 'masuk', 3);
+	(4, 'Kraepelin', 4),
+	(5, 'Intellegent', 1),
+	(6, 'Papi Costic', 3);
 /*!40000 ALTER TABLE `matkul` ENABLE KEYS */;
 
 -- Dumping structure for table ci_online_test.m_ujian
@@ -220,7 +227,6 @@ CREATE TABLE IF NOT EXISTS `m_ujian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ci_online_test.m_ujian: ~0 rows (approximately)
-DELETE FROM `m_ujian`;
 /*!40000 ALTER TABLE `m_ujian` DISABLE KEYS */;
 /*!40000 ALTER TABLE `m_ujian` ENABLE KEYS */;
 
@@ -255,7 +261,6 @@ CREATE TABLE IF NOT EXISTS `tb_soal` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ci_online_test.tb_soal: ~0 rows (approximately)
-DELETE FROM `tb_soal`;
 /*!40000 ALTER TABLE `tb_soal` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tb_soal` ENABLE KEYS */;
 
@@ -268,7 +273,6 @@ CREATE TABLE IF NOT EXISTS `tipesoal` (
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ci_online_test.tipesoal: ~4 rows (approximately)
-DELETE FROM `tipesoal`;
 /*!40000 ALTER TABLE `tipesoal` DISABLE KEYS */;
 INSERT INTO `tipesoal` (`id_tipesoal`, `nama_tipesoal`) VALUES
 	(1, 'Pilihan Ganda'),
@@ -291,7 +295,6 @@ CREATE TABLE IF NOT EXISTS `tipesoal_matkul` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ci_online_test.tipesoal_matkul: ~0 rows (approximately)
-DELETE FROM `tipesoal_matkul`;
 /*!40000 ALTER TABLE `tipesoal_matkul` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tipesoal_matkul` ENABLE KEYS */;
 
@@ -307,7 +310,6 @@ CREATE TABLE IF NOT EXISTS `tipesoal_slug` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table ci_online_test.tipesoal_slug: ~0 rows (approximately)
-DELETE FROM `tipesoal_slug`;
 /*!40000 ALTER TABLE `tipesoal_slug` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tipesoal_slug` ENABLE KEYS */;
 
@@ -338,10 +340,9 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `uc_forgotten_password_selector` (`forgotten_password_selector`),
   UNIQUE KEY `uc_remember_selector` (`remember_selector`),
   UNIQUE KEY `uc_email` (`email`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ci_online_test.users: ~0 rows (approximately)
-DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
 	(1, '127.0.0.1', 'Administrator', '$2y$12$tGY.AtcyXrh7WmccdbT1rOuKEcTsKH6sIUmDr0ore1yN4LnKTTtuu', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1655385287, 1, 'Admin', 'Istrator', 'ADMIN', '0');
@@ -359,10 +360,9 @@ CREATE TABLE IF NOT EXISTS `users_groups` (
   KEY `fk_users_groups_groups1_idx` (`group_id`),
   CONSTRAINT `fk_users_groups_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_users_groups_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ci_online_test.users_groups: ~0 rows (approximately)
-DELETE FROM `users_groups`;
 /*!40000 ALTER TABLE `users_groups` DISABLE KEYS */;
 INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 	(3, 1, 1);
