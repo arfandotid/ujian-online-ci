@@ -22,6 +22,7 @@
 				<tr>
 					<th>No.</th>
 					<th>Jenis Tes</th>
+					<th>Tipe Soal</th>
 					<th class="text-center">
 						<input type="checkbox" class="select_all">
 					</th>
@@ -31,6 +32,7 @@
 				<tr>
 					<th>No.</th>
 					<th>Jenis Tes</th>
+					<th>Tipe Soal</th>
 					<th class="text-center">
 						<input type="checkbox" class="select_all">
 					</th>

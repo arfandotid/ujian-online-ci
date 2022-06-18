@@ -8,7 +8,7 @@
     </div>
     <div class="box-body">
         <div class="row">
-            <div class="col-sm-offset-4 col-sm-4">
+        <div class="col-sm-offset-3 col-sm-6">
                 <div class="my-2">
                     <div class="form-horizontal form-inline">
                         <a href="<?= base_url('tes') ?>" class="btn btn-default btn-xs">
@@ -25,6 +25,7 @@
                         <tr>
                             <th># No</th>
                             <th>Tes</th>
+                            <th>Tipe Soal</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,7 +37,18 @@
                                 <td>
                                     <div class="form-group">
                                         <?= form_hidden('id_matkul[' . $no . ']', $row->id_matkul) ?>
-                                        <input autofocus="autofocus" onfocus="this.select()" autocomplete="off" value="<?= $row->nama_matkul ?>" type="text" name="nama_matkul[<?= $no ?>]" class="input-sm form-control">
+                                        <input autofocus="autofocus" onfocus="this.select()" autocomplete="off" value="<?= $row->nama_matkul ?>" type="text" name="nama_matkul[<?= $no ?>]" class="input-md form-control">
+                                        <small class="help-block text-right"></small>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <select required="required" name="tipesoal_id[<?= $no ?>]" class="input-sm form-control select2" style="width: 100%!important">
+                                            <option value="" disabled>-- Pilih --</option>
+                                            <?php foreach ($tipesoal as $j) : ?>
+                                                <option <?= $row->tipesoal_id == $j->id_tipesoal ? "selected='selected'" : "" ?> value="<?= $j->id_tipesoal ?>"><?= $j->nama_tipesoal ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
                                         <small class="help-block text-right"></small>
                                     </div>
                                 </td>
