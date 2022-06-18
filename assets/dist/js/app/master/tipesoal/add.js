@@ -14,16 +14,16 @@ $(document).ready(function () {
         e.preventDefault();
         e.stopImmediatePropagation();
 
-        var btn = $('#submit');
-        btn.attr('disabled', 'disabled').text('Wait...');
+        // var btn = $('#submit');
+        // btn.attr('disabled', 'disabled').text('Wait...');
 
         $.ajax({
             url: $(this).attr('action'),
             data: $(this).serialize(),
             method: 'POST',
             success: function (data) {
-                btn.removeAttr('disabled').text('Simpan');
-                console.log(data);
+                // btn.removeAttr('disabled').text('Simpan');
+                // console.log(data);
                 if (data.status) {
                     Swal({
                         "title": "Sukses",

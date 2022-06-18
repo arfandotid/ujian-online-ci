@@ -94,12 +94,14 @@ class Tipesoal extends CI_Controller
 			} else {
 				if ($mode == 'add') {
 					$insert[] = [
-						'nama_tipesoal' => $this->input->post($nama_tipesoal, true)
+						'nama_tipesoal' => $this->input->post($nama_tipesoal, true),
+						'slug' => strtolower(implode('', explode(' ', $this->input->post($nama_tipesoal, true))))
 					];
 				} else if ($mode == 'edit') {
 					$update[] = array(
 						'id_tipesoal'	=> $this->input->post('id_tipesoal[' . $i . ']', true),
-						'nama_tipesoal' 	=> $this->input->post($nama_tipesoal, true)
+						'nama_tipesoal' 	=> $this->input->post($nama_tipesoal, true),
+						'slug' => strtolower(implode('', explode(' ', $this->input->post($nama_tipesoal, true))))
 					);
 				}
 				$status = TRUE;

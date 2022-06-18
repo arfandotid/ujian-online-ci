@@ -50,7 +50,7 @@ class Soal extends CI_Controller
             $this->load->view('_templates/dashboard/_footer.php');
         }
         else{
-            $slug = $this->db->get_where('tipesoal_slug', ['tipesoal_id' => $post['id_tipesoal']])->row();
+            $slug = $this->db->get_where('tipesoal', ['id_tipesoal' => $post['id_tipesoal']])->row();
             $this->output_json(['status' => true, 'slug' => $slug->slug]);
         }
     }
