@@ -64,9 +64,7 @@ CREATE TABLE `groups` (
 --
 
 INSERT INTO `groups` (`id`, `name`, `description`) VALUES
-(1, 'admin', 'Administrator'),
-(2, 'petugas', 'Pembuat Soal dan ujian'),
-(3, 'peserta', 'Peserta Ujian');
+(1, 'admin', 'Administrator');
 
 -- --------------------------------------------------------
 
@@ -147,14 +145,6 @@ CREATE TABLE `login_attempts` (
   `login` varchar(100) NOT NULL,
   `time` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data untuk tabel `login_attempts`
---
-
-INSERT INTO `login_attempts` (`id`, `ip_address`, `login`, `time`) VALUES
-(13, '::1', 'naruto@mail.com', 1655551006),
-(14, '::1', 'naruto@mail.com', 1655551019);
 
 -- --------------------------------------------------------
 
@@ -307,12 +297,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'Administrator', '$2y$12$tGY.AtcyXrh7WmccdbT1rOuKEcTsKH6sIUmDr0ore1yN4LnKTTtuu', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1655556408, 1, 'Admin', 'Istrator', 'ADMIN', '0'),
-(13, '127.0.0.1', '2685352735', '$2y$10$1G/bwt8CjVDzTlKpxCO45eJEV7bgRYPNOxpQ9jCkfeCU87AHWgUnG', 'petugas@papicostic.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1655361071, 1655387255, 1, 'Petugas', 'Costic', NULL, NULL),
-(14, '127.0.0.1', '88888888', '$2y$10$.EL1TSgW38ewV1BjkWzri.njj2kcYhmA8fKz9QKJvsRpBb8S/PJkm', 'petugas@kraepelin.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1655366345, 1655394258, 1, 'Petugas', 'Kraepelin', NULL, NULL),
-(23, '::1', '172451642761', '$2y$10$uPKQbA9jjh3yy5h7TYiEeeYqdvle/bc7AcinUPVOfQqGHOVL2AP92', 'petugas@tesiq.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1655540506, NULL, 1, 'Petugas', 'IQ', NULL, NULL),
-(24, '::1', '123123123', '$2y$10$C1QiwJVzIrJu310bSk2msudUzQaFiphP53s0JX6WxMz0.H3zbNqu2', 'petugas@mail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1655540946, 1655556438, 1, 'petugas', 'petugas', NULL, NULL),
-(25, '::1', '321321321', '$2y$10$BMCLiXFb5HGt732NrbZFBu/DjOnoXZ.ma6u1X.Qbit//5pQUN9.Hi', 'peserta@mail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1655541513, 1655556852, 1, 'peserta', 'peserta', NULL, NULL);
+(1, '127.0.0.1', 'Administrator', '$2y$12$tGY.AtcyXrh7WmccdbT1rOuKEcTsKH6sIUmDr0ore1yN4LnKTTtuu', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1655556408, 1, 'Admin', 'Istrator', 'ADMIN', '0');
 
 -- --------------------------------------------------------
 
@@ -331,12 +316,7 @@ CREATE TABLE `users_groups` (
 --
 
 INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
-(3, 1, 1),
-(15, 13, 2),
-(16, 14, 2),
-(25, 23, 2),
-(26, 24, 2),
-(27, 25, 3);
+(3, 1, 1);
 
 --
 -- Indexes for dumped tables
