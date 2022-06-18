@@ -36,7 +36,7 @@
                         <thead>
                             <tr>
                                 <td>No</td>
-                                <td>NIP</td>
+                                <td>NIK</td>
                                 <td>Nama</td>
                                 <td>Email</td>
                                 <td>ID Jenis Tes</td>
@@ -44,13 +44,13 @@
                         </thead>
                         <tbody>
                             <?php
-                                $status = true;
-                                if (empty($import)) {
-                                    echo '<tr><td colspan="2" class="text-center">Data kosong! pastikan anda menggunakan format yang telah disediakan.</td></tr>';
-                                } else {
-                                    $no = 1;
-                                    foreach ($import as $data) :
-                                        ?>
+                            $status = true;
+                            if (empty($import)) {
+                                echo '<tr><td colspan="2" class="text-center">Data kosong! pastikan anda menggunakan format yang telah disediakan.</td></tr>';
+                            } else {
+                                $no = 1;
+                                foreach ($import as $data) :
+                            ?>
                                     <tr>
                                         <td><?= $no++; ?></td>
                                         <td class="<?= $data['nip'] == null ? 'bg-danger' : ''; ?>">
@@ -67,12 +67,12 @@
                                         </td>
                                     </tr>
                             <?php
-                                        if ($data['nip'] == null || $data['nama_dosen'] == null || $data['email'] == null || $data['matkul_id'] == null) {
-                                            $status = false;
-                                        }
-                                    endforeach;
-                                }
-                                ?>
+                                    if ($data['nip'] == null || $data['nama_dosen'] == null || $data['email'] == null || $data['matkul_id'] == null) {
+                                        $status = false;
+                                    }
+                                endforeach;
+                            }
+                            ?>
                         </tbody>
                     </table>
                     <?php if ($status) : ?>
