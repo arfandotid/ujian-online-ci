@@ -41,6 +41,7 @@ $(document).ready(function () {
                 "targets": 4,
                 "data": {
                     "id_ujian": "id_ujian",
+                    "token": "token",
                     "ada": "ada"
                 },
                 "render": function (data, type, row, meta) {
@@ -51,7 +52,7 @@ $(document).ready(function () {
 									<i class="fa fa-print"></i> Lihat Hasil
 								</a>`;
                     } else {
-                        btn = `<a class="btn btn-xs btn-primary" href="${base_url}ujian/token/${data.id_ujian}">
+                        btn = `<a class="btn btn-xs btn-primary" href="${base_url}ujian/latihan/${data.id_ujian}?token=${data.token}">
 								<i class="fa fa-pencil"></i> Mulai Latihan
 							</a>`;
                     }

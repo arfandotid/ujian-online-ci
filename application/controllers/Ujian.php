@@ -215,7 +215,7 @@ class Ujian extends CI_Controller
 		$this->akses_mahasiswa();
 
 		$user = $this->ion_auth->user()->row();
-
+		$token = $this->input->get('token');
 		$data = [
 			'user' 		=> $user,
 			'judul'		=> 'Ujian',
@@ -242,6 +242,23 @@ class Ujian extends CI_Controller
 		];
 		$this->load->view('_templates/topnav/_header.php', $data);
 		$this->load->view('ujian/token');
+		$this->load->view('_templates/topnav/_footer.php');
+	}
+	public function latihan($id)
+	{
+		$this->akses_mahasiswa();
+		$user = $this->ion_auth->user()->row();
+		$data = [
+			'user' 		=> $user,
+			'judul'		=> 'Latihan',
+			'subjudul'	=> 'Latihan Tes',
+			'mhs' 		=> $this->ujian->getIdMahasiswa($user->username),
+			'ujian'		=> $this->ujian->getUjianById($id),
+			'encrypted_id' => urlencode($this->encryption->encrypt($id)),
+		];
+
+		$this->load->view('_templates/topnav/_header.php', $data);
+		$this->load->view('ujian/latihan');
 		$this->load->view('_templates/topnav/_footer.php');
 	}
 

@@ -17,7 +17,7 @@ class Ujian_model extends CI_Model
 
     public function getListLatihanTes($id, $kelas, $latihan = false)
     {
-        $this->datatables->select("a.id_ujian, e.nama_dosen, d.nama_kelas, a.nama_ujian, b.nama_matkul, a.jumlah_soal, CONCAT(a.tgl_mulai, ' <br/> (', a.waktu, ' Menit)') as waktu,  (SELECT COUNT(id) FROM h_ujian h WHERE h.mahasiswa_id = {$id} AND h.ujian_id = a.id_ujian) AS ada");
+        $this->datatables->select("a.id_ujian, a.token, e.nama_dosen, d.nama_kelas, a.nama_ujian, b.nama_matkul, a.jumlah_soal, CONCAT(a.tgl_mulai, ' <br/> (', a.waktu, ' Menit)') as waktu,  (SELECT COUNT(id) FROM h_ujian h WHERE h.mahasiswa_id = {$id} AND h.ujian_id = a.id_ujian) AS ada");
         $this->datatables->from('m_ujian a');
         $this->datatables->join('matkul b', 'a.matkul_id = b.id_matkul');
         $this->datatables->join('kelas_dosen c', "a.dosen_id = c.dosen_id");

@@ -46,9 +46,7 @@
                             <th>No.</th>
                             <th>Nama Ujian</th>
                             <th>Jenis Tes</th>
-
                             <th>Jumlah Soal</th>
-
                             <th class="text-center">Aksi</th>
                         </tr>
                     </thead>
@@ -57,9 +55,7 @@
                             <th>No.</th>
                             <th>Nama Ujian</th>
                             <th>Jenis Tes</th>
-
                             <th>Jumlah Soal</th>
-
                             <th class="text-center">Aksi</th>
                         </tr>
                     </tfoot>
