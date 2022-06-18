@@ -103,7 +103,8 @@ class Tes extends CI_Controller
 				} else if ($mode == 'edit') {
 					$update[] = array(
 						'id_matkul'	=> $this->input->post('id_matkul[' . $i . ']', true),
-						'nama_matkul' 	=> $this->input->post($nama_matkul, true)
+						'nama_matkul' 	=> $this->input->post($nama_matkul, true),
+						'tipesoal_id' => $this->input->post($tipesoal_id, true)
 					);
 				}
 				$status = TRUE;

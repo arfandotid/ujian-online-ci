@@ -189,15 +189,14 @@ CREATE TABLE IF NOT EXISTS `matkul` (
   `nama_matkul` varchar(50) NOT NULL,
   `tipesoal_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_matkul`),
-  KEY `tipesoal_id` (`tipesoal_id`),
-  CONSTRAINT `fk_matkul_tipesoal` FOREIGN KEY (`tipesoal_id`) REFERENCES `tipesoal` (`id_tipesoal`)
+  KEY `tipesoal_id` (`tipesoal_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ci_online_test.matkul: ~1 rows (approximately)
+-- Dumping data for table ci_online_test.matkul: ~0 rows (approximately)
 DELETE FROM `matkul`;
 /*!40000 ALTER TABLE `matkul` DISABLE KEYS */;
 INSERT INTO `matkul` (`id_matkul`, `nama_matkul`, `tipesoal_id`) VALUES
-	(2, 'masuk', 2);
+	(2, 'masuk', 3);
 /*!40000 ALTER TABLE `matkul` ENABLE KEYS */;
 
 -- Dumping structure for table ci_online_test.m_ujian
@@ -260,30 +259,6 @@ DELETE FROM `tb_soal`;
 /*!40000 ALTER TABLE `tb_soal` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tb_soal` ENABLE KEYS */;
 
--- Dumping structure for table ci_online_test.tb_soal_kraepelin
-DROP TABLE IF EXISTS `tb_soal_kraepelin`;
-CREATE TABLE IF NOT EXISTS `tb_soal_kraepelin` (
-  `id_soal` int(11) NOT NULL AUTO_INCREMENT,
-  `dosen_id` int(11) NOT NULL,
-  `matkul_id` int(11) NOT NULL,
-  `soal` longtext NOT NULL,
-  `jawaban` longtext NOT NULL,
-  `created_on` int(11) NOT NULL,
-  `updated_on` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_soal`),
-  KEY `matkul_id` (`matkul_id`),
-  KEY `dosen_id` (`dosen_id`),
-  CONSTRAINT `tb_soal_kraepelin_ibfk_1` FOREIGN KEY (`matkul_id`) REFERENCES `matkul` (`id_matkul`),
-  CONSTRAINT `tb_soal_kraepelin_ibfk_2` FOREIGN KEY (`dosen_id`) REFERENCES `dosen` (`id_dosen`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
--- Dumping data for table ci_online_test.tb_soal_kraepelin: ~0 rows (approximately)
-DELETE FROM `tb_soal_kraepelin`;
-/*!40000 ALTER TABLE `tb_soal_kraepelin` DISABLE KEYS */;
-INSERT INTO `tb_soal_kraepelin` (`id_soal`, `dosen_id`, `matkul_id`, `soal`, `jawaban`, `created_on`, `updated_on`) VALUES
-	(1, 1, 2, '1', '1', 1655384401, 1655384412);
-/*!40000 ALTER TABLE `tb_soal_kraepelin` ENABLE KEYS */;
-
 -- Dumping structure for table ci_online_test.tipesoal
 DROP TABLE IF EXISTS `tipesoal`;
 CREATE TABLE IF NOT EXISTS `tipesoal` (
@@ -331,14 +306,9 @@ CREATE TABLE IF NOT EXISTS `tipesoal_slug` (
   CONSTRAINT `fk_tipesoal_slug` FOREIGN KEY (`tipesoal_id`) REFERENCES `tipesoal` (`id_tipesoal`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
--- Dumping data for table ci_online_test.tipesoal_slug: ~4 rows (approximately)
+-- Dumping data for table ci_online_test.tipesoal_slug: ~0 rows (approximately)
 DELETE FROM `tipesoal_slug`;
 /*!40000 ALTER TABLE `tipesoal_slug` DISABLE KEYS */;
-INSERT INTO `tipesoal_slug` (`id`, `tipesoal_id`, `slug`) VALUES
-	(1, 1, 'soal/addpilihanganda'),
-	(2, 18, 'soal/addkraepelin'),
-	(3, 2, 'soal/addessay'),
-	(4, 3, 'soal/addpapicostic');
 /*!40000 ALTER TABLE `tipesoal_slug` ENABLE KEYS */;
 
 -- Dumping structure for table ci_online_test.users
