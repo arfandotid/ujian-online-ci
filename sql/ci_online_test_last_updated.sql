@@ -191,11 +191,13 @@ CREATE TABLE IF NOT EXISTS `matkul` (
   PRIMARY KEY (`id_matkul`),
   KEY `tipesoal_id` (`tipesoal_id`),
   CONSTRAINT `fk_matkul_tipesoal` FOREIGN KEY (`tipesoal_id`) REFERENCES `tipesoal` (`id_tipesoal`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ci_online_test.matkul: ~0 rows (approximately)
+-- Dumping data for table ci_online_test.matkul: ~1 rows (approximately)
 DELETE FROM `matkul`;
 /*!40000 ALTER TABLE `matkul` DISABLE KEYS */;
+INSERT INTO `matkul` (`id_matkul`, `nama_matkul`, `tipesoal_id`) VALUES
+	(2, 'masuk', 2);
 /*!40000 ALTER TABLE `matkul` ENABLE KEYS */;
 
 -- Dumping structure for table ci_online_test.m_ujian
@@ -368,7 +370,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `uc_email` (`email`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ci_online_test.users: ~1 rows (approximately)
+-- Dumping data for table ci_online_test.users: ~0 rows (approximately)
 DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
@@ -389,12 +391,32 @@ CREATE TABLE IF NOT EXISTS `users_groups` (
   CONSTRAINT `fk_users_groups_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ci_online_test.users_groups: ~1 rows (approximately)
+-- Dumping data for table ci_online_test.users_groups: ~0 rows (approximately)
 DELETE FROM `users_groups`;
 /*!40000 ALTER TABLE `users_groups` DISABLE KEYS */;
 INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 	(3, 1, 1);
 /*!40000 ALTER TABLE `users_groups` ENABLE KEYS */;
+
+-- Dumping structure for view ci_online_test.view_dosen_kelas_jurusan_matkul
+DROP VIEW IF EXISTS `view_dosen_kelas_jurusan_matkul`;
+-- Creating temporary table to overcome VIEW dependency errors
+CREATE TABLE `view_dosen_kelas_jurusan_matkul` (
+	`id_dosen` INT(11) NOT NULL,
+	`nip` CHAR(12) NOT NULL COLLATE 'latin1_swedish_ci',
+	`nama_dosen` VARCHAR(50) NOT NULL COLLATE 'latin1_swedish_ci',
+	`email` VARCHAR(254) NOT NULL COLLATE 'latin1_swedish_ci',
+	`matkul_id` INT(11) NOT NULL,
+	`id` INT(11) NOT NULL,
+	`kelas_id` INT(11) NOT NULL,
+	`dosen_id` INT(11) NOT NULL,
+	`id_kelas` INT(11) NOT NULL,
+	`nama_kelas` VARCHAR(30) NOT NULL COLLATE 'utf8_general_ci',
+	`jurusan_id` INT(11) NOT NULL,
+	`id_matkul` INT(11) NOT NULL,
+	`nama_matkul` VARCHAR(50) NOT NULL COLLATE 'utf8_general_ci',
+	`tipesoal_id` INT(11) NULL
+) ENGINE=MyISAM;
 
 -- Dumping structure for trigger ci_online_test.edit_user_dosen
 DROP TRIGGER IF EXISTS `edit_user_dosen`;
@@ -411,6 +433,15 @@ DELIMITER //
 CREATE TRIGGER `hapus_user_dosen` BEFORE DELETE ON `dosen` FOR EACH ROW DELETE FROM `users` WHERE `users`.`username` = OLD.nip//
 DELIMITER ;
 SET SQL_MODE=@OLDTMP_SQL_MODE;
+
+-- Dumping structure for view ci_online_test.view_dosen_kelas_jurusan_matkul
+DROP VIEW IF EXISTS `view_dosen_kelas_jurusan_matkul`;
+-- Removing temporary table and create final VIEW structure
+DROP TABLE IF EXISTS `view_dosen_kelas_jurusan_matkul`;
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `view_dosen_kelas_jurusan_matkul` AS SELECT * FROM dosen d
+JOIN kelas_dosen kd ON kd.dosen_id = d.id_dosen
+JOIN kelas k ON k.id_kelas = kd.kelas_id
+JOIN matkul m ON m.id_matkul = d.matkul_id ;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
