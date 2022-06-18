@@ -31,12 +31,12 @@ CREATE TABLE IF NOT EXISTS `dosen` (
   UNIQUE KEY `nip` (`nip`),
   KEY `matkul_id` (`matkul_id`),
   CONSTRAINT `dosen_ibfk_1` FOREIGN KEY (`matkul_id`) REFERENCES `matkul` (`id_matkul`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table ci_online_test.dosen: ~1 rows (approximately)
 /*!40000 ALTER TABLE `dosen` DISABLE KEYS */;
 INSERT INTO `dosen` (`id_dosen`, `nip`, `nama_dosen`, `email`, `matkul_id`) VALUES
-	(1, '18120510899', 'Arif Pambudi', 'arifpambudi242@gmail.com', 5);
+	(3, '182687162871', 'Arif Pambudi', 'arifpambudi242@gmail.com', 7);
 /*!40000 ALTER TABLE `dosen` ENABLE KEYS */;
 
 -- Dumping structure for table ci_online_test.groups
@@ -108,10 +108,12 @@ CREATE TABLE IF NOT EXISTS `jurusan_matkul` (
   KEY `matkul_id` (`matkul_id`),
   CONSTRAINT `jurusan_matkul_ibfk_1` FOREIGN KEY (`jurusan_id`) REFERENCES `jurusan` (`id_jurusan`),
   CONSTRAINT `jurusan_matkul_ibfk_2` FOREIGN KEY (`matkul_id`) REFERENCES `matkul` (`id_matkul`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ci_online_test.jurusan_matkul: ~0 rows (approximately)
+-- Dumping data for table ci_online_test.jurusan_matkul: ~1 rows (approximately)
 /*!40000 ALTER TABLE `jurusan_matkul` DISABLE KEYS */;
+INSERT INTO `jurusan_matkul` (`id`, `matkul_id`, `jurusan_id`) VALUES
+	(4, 7, 3);
 /*!40000 ALTER TABLE `jurusan_matkul` ENABLE KEYS */;
 
 -- Dumping structure for table ci_online_test.kelas
@@ -143,10 +145,12 @@ CREATE TABLE IF NOT EXISTS `kelas_dosen` (
   KEY `dosen_id` (`dosen_id`),
   CONSTRAINT `kelas_dosen_ibfk_1` FOREIGN KEY (`dosen_id`) REFERENCES `dosen` (`id_dosen`),
   CONSTRAINT `kelas_dosen_ibfk_2` FOREIGN KEY (`kelas_id`) REFERENCES `kelas` (`id_kelas`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ci_online_test.kelas_dosen: ~0 rows (approximately)
+-- Dumping data for table ci_online_test.kelas_dosen: ~1 rows (approximately)
 /*!40000 ALTER TABLE `kelas_dosen` DISABLE KEYS */;
+INSERT INTO `kelas_dosen` (`id`, `kelas_id`, `dosen_id`) VALUES
+	(7, 2, 3);
 /*!40000 ALTER TABLE `kelas_dosen` ENABLE KEYS */;
 
 -- Dumping structure for table ci_online_test.login_attempts
@@ -184,8 +188,10 @@ CREATE TABLE IF NOT EXISTS `mahasiswa` (
   CONSTRAINT `FK_mahasiswa_kelas` FOREIGN KEY (`kelas_id`) REFERENCES `kelas` (`id_kelas`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table ci_online_test.mahasiswa: ~0 rows (approximately)
+-- Dumping data for table ci_online_test.mahasiswa: ~1 rows (approximately)
 /*!40000 ALTER TABLE `mahasiswa` DISABLE KEYS */;
+INSERT INTO `mahasiswa` (`id_mahasiswa`, `nama`, `nim`, `email`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `pendidikan`, `pekerjaan`, `kelas_id`) VALUES
+	(0, 'Sembilan Sembilan', '999999999', 'sembilan@gmail.com', 'L', 'Sumber Jaya', '10/08/1999', 'RT. 003', 'S1', 'Freelanceer', 2);
 /*!40000 ALTER TABLE `mahasiswa` ENABLE KEYS */;
 
 -- Dumping structure for table ci_online_test.matkul
@@ -195,15 +201,14 @@ CREATE TABLE IF NOT EXISTS `matkul` (
   `nama_matkul` varchar(50) NOT NULL,
   `tipesoal_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_matkul`),
-  KEY `tipesoal_id` (`tipesoal_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+  KEY `tipesoal_id` (`tipesoal_id`),
+  CONSTRAINT `fk_tipesoal_matkul` FOREIGN KEY (`tipesoal_id`) REFERENCES `tipesoal` (`id_tipesoal`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ci_online_test.matkul: ~3 rows (approximately)
+-- Dumping data for table ci_online_test.matkul: ~1 rows (approximately)
 /*!40000 ALTER TABLE `matkul` DISABLE KEYS */;
 INSERT INTO `matkul` (`id_matkul`, `nama_matkul`, `tipesoal_id`) VALUES
-	(4, 'Kraepelin', 4),
-	(5, 'Intellegent', 1),
-	(6, 'Papi Costic', 3);
+	(7, 'Intelligent', 1);
 /*!40000 ALTER TABLE `matkul` ENABLE KEYS */;
 
 -- Dumping structure for table ci_online_test.m_ujian
@@ -269,49 +274,18 @@ DROP TABLE IF EXISTS `tipesoal`;
 CREATE TABLE IF NOT EXISTS `tipesoal` (
   `id_tipesoal` int(11) NOT NULL AUTO_INCREMENT,
   `nama_tipesoal` varchar(50) NOT NULL,
+  `slug` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_tipesoal`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ci_online_test.tipesoal: ~4 rows (approximately)
 /*!40000 ALTER TABLE `tipesoal` DISABLE KEYS */;
-INSERT INTO `tipesoal` (`id_tipesoal`, `nama_tipesoal`) VALUES
-	(1, 'Pilihan Ganda'),
-	(2, 'Essay'),
-	(3, 'Papi Costic'),
-	(4, 'Kraepelin');
+INSERT INTO `tipesoal` (`id_tipesoal`, `nama_tipesoal`, `slug`) VALUES
+	(1, 'Pilihan Ganda', 'pilihanganda'),
+	(2, 'Essay', 'essay'),
+	(3, 'Papi Costic', 'papicostic'),
+	(4, 'Kraepelin', 'kraepelin');
 /*!40000 ALTER TABLE `tipesoal` ENABLE KEYS */;
-
--- Dumping structure for table ci_online_test.tipesoal_matkul
-DROP TABLE IF EXISTS `tipesoal_matkul`;
-CREATE TABLE IF NOT EXISTS `tipesoal_matkul` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `matkul_id` int(11) NOT NULL,
-  `tipesoal_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`) USING BTREE,
-  KEY `tipesoal_id` (`tipesoal_id`) USING BTREE,
-  KEY `matkul_id` (`matkul_id`) USING BTREE,
-  CONSTRAINT `tipesoal_matkul_ibfk_1` FOREIGN KEY (`tipesoal_id`) REFERENCES `tipesoal` (`id_tipesoal`),
-  CONSTRAINT `tipesoal_matkul_ibfk_2` FOREIGN KEY (`matkul_id`) REFERENCES `matkul` (`id_matkul`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-
--- Dumping data for table ci_online_test.tipesoal_matkul: ~0 rows (approximately)
-/*!40000 ALTER TABLE `tipesoal_matkul` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tipesoal_matkul` ENABLE KEYS */;
-
--- Dumping structure for table ci_online_test.tipesoal_slug
-DROP TABLE IF EXISTS `tipesoal_slug`;
-CREATE TABLE IF NOT EXISTS `tipesoal_slug` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tipesoal_id` int(11) NOT NULL,
-  `slug` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `tipesoal_id` (`tipesoal_id`),
-  CONSTRAINT `fk_tipesoal_slug` FOREIGN KEY (`tipesoal_id`) REFERENCES `tipesoal` (`id_tipesoal`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
-
--- Dumping data for table ci_online_test.tipesoal_slug: ~0 rows (approximately)
-/*!40000 ALTER TABLE `tipesoal_slug` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tipesoal_slug` ENABLE KEYS */;
 
 -- Dumping structure for table ci_online_test.users
 DROP TABLE IF EXISTS `users`;
@@ -342,10 +316,11 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `uc_email` (`email`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ci_online_test.users: ~0 rows (approximately)
+-- Dumping data for table ci_online_test.users: ~2 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-	(1, '127.0.0.1', 'Administrator', '$2y$12$tGY.AtcyXrh7WmccdbT1rOuKEcTsKH6sIUmDr0ore1yN4LnKTTtuu', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1655385287, 1, 'Admin', 'Istrator', 'ADMIN', '0');
+	(1, '127.0.0.1', 'Administrator', '$2y$12$tGY.AtcyXrh7WmccdbT1rOuKEcTsKH6sIUmDr0ore1yN4LnKTTtuu', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1655385287, 1, 'Admin', 'Istrator', 'ADMIN', '0'),
+	(15, '127.0.0.1', '999999999', '$2y$10$5Hu4b3BrockguFnLIR29replFdRVA7i7ed8ulnJ/pparU5QNlccnW', 'sembilan@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1655567056, NULL, 1, 'Sembilan', 'Sembilan', NULL, NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 -- Dumping structure for table ci_online_test.users_groups
@@ -362,10 +337,11 @@ CREATE TABLE IF NOT EXISTS `users_groups` (
   CONSTRAINT `fk_users_groups_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ci_online_test.users_groups: ~0 rows (approximately)
+-- Dumping data for table ci_online_test.users_groups: ~2 rows (approximately)
 /*!40000 ALTER TABLE `users_groups` DISABLE KEYS */;
 INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
-	(3, 1, 1);
+	(3, 1, 1),
+	(17, 15, 3);
 /*!40000 ALTER TABLE `users_groups` ENABLE KEYS */;
 
 -- Dumping structure for view ci_online_test.view_dosen_kelas_jurusan_matkul
@@ -385,7 +361,9 @@ CREATE TABLE `view_dosen_kelas_jurusan_matkul` (
 	`jurusan_id` INT(11) NOT NULL,
 	`id_matkul` INT(11) NOT NULL,
 	`nama_matkul` VARCHAR(50) NOT NULL COLLATE 'utf8_general_ci',
-	`tipesoal_id` INT(11) NULL
+	`tipesoal_id` INT(11) NULL,
+	`id_jurusan` INT(11) NOT NULL,
+	`nama_jurusan` VARCHAR(30) NOT NULL COLLATE 'utf8_general_ci'
 ) ENGINE=MyISAM;
 
 -- Dumping structure for trigger ci_online_test.edit_user_dosen
@@ -404,6 +382,16 @@ CREATE TRIGGER `hapus_user_dosen` BEFORE DELETE ON `dosen` FOR EACH ROW DELETE F
 DELIMITER ;
 SET SQL_MODE=@OLDTMP_SQL_MODE;
 
+-- Dumping structure for trigger ci_online_test.saat_tambah_tipesoal
+DROP TRIGGER IF EXISTS `saat_tambah_tipesoal`;
+SET @OLDTMP_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
+DELIMITER //
+CREATE TRIGGER `saat_tambah_tipesoal` BEFORE INSERT ON `dosen` FOR EACH ROW BEGIN
+
+END//
+DELIMITER ;
+SET SQL_MODE=@OLDTMP_SQL_MODE;
+
 -- Dumping structure for view ci_online_test.view_dosen_kelas_jurusan_matkul
 DROP VIEW IF EXISTS `view_dosen_kelas_jurusan_matkul`;
 -- Removing temporary table and create final VIEW structure
@@ -411,7 +399,8 @@ DROP TABLE IF EXISTS `view_dosen_kelas_jurusan_matkul`;
 CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `view_dosen_kelas_jurusan_matkul` AS SELECT * FROM dosen d
 JOIN kelas_dosen kd ON kd.dosen_id = d.id_dosen
 JOIN kelas k ON k.id_kelas = kd.kelas_id
-JOIN matkul m ON m.id_matkul = d.matkul_id ;
+JOIN matkul m ON m.id_matkul = d.matkul_id 
+JOIN jurusan j ON j.id_jurusan = k.jurusan_id ;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
