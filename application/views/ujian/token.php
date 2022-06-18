@@ -24,7 +24,7 @@
                         <td><?= $mhs->nama_kelas ?> / <?= $mhs->nama_jurusan ?></td>
                     </tr>
                     <tr>
-                        <th>Nama Ujian</th>
+                        <th>Nama Tes</th>
                         <td><?= $ujian->nama_ujian ?></td>
                     </tr>
                     <tr>

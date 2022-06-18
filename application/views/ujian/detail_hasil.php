@@ -20,7 +20,7 @@
             <div class="col-sm-6">
                 <table class="table w-100">
                     <tr>
-                        <th>Nama Ujian</th>
+                        <th>Nama Tes</th>
                         <td><?= $ujian->nama_ujian ?></td>
                     </tr>
                     <tr>

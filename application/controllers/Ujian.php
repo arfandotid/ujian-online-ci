@@ -119,7 +119,7 @@ class Ujian extends CI_Controller
 		$jml 	= $this->ujian->getJumlahSoal($dosen->id_dosen)->jml_soal;
 		$jml_a 	= $jml + 1; // Jika tidak mengerti, silahkan baca user_guide codeigniter tentang form_validation pada bagian less_than
 
-		$this->form_validation->set_rules('nama_ujian', 'Nama Ujian', 'required|alpha_numeric_spaces|max_length[50]');
+		$this->form_validation->set_rules('nama_ujian', 'Nama Tes', 'required|alpha_numeric_spaces|max_length[50]');
 		$this->form_validation->set_rules('jumlah_soal', 'Jumlah Soal', "required|integer|less_than[{$jml_a}]|greater_than[0]", ['less_than' => "Soal tidak cukup, anda hanya punya {$jml} soal"]);
 		$this->form_validation->set_rules('tgl_mulai', 'Tanggal Mulai', 'required');
 		$this->form_validation->set_rules('tgl_selesai', 'Tanggal Selesai', 'required');

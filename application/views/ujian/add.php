@@ -1,8 +1,8 @@
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title"><?=$subjudul?></h3>
+        <h3 class="box-title"><?= $subjudul ?></h3>
         <div class="box-tools pull-right">
-            <a href="<?=base_url()?>ujian/master" class="btn btn-sm btn-flat btn-warning">
+            <a href="<?= base_url() ?>ujian/master" class="btn btn-sm btn-flat btn-warning">
                 <i class="fa fa-arrow-left"></i> Batal
             </a>
         </div>
@@ -12,18 +12,18 @@
             <div class="col-sm-4">
                 <div class="alert bg-purple">
                     <h4>Jenis Tes <i class="fa fa-book pull-right"></i></h4>
-                    <p><?=$matkul->nama_matkul?></p>
+                    <p><?= $matkul->nama_matkul ?></p>
                 </div>
                 <div class="alert bg-purple">
                     <h4>Petugas <i class="fa fa-address-book-o pull-right"></i></h4>
-                    <p><?=$dosen->nama_dosen?></p>
+                    <p><?= $dosen->nama_dosen ?></p>
                 </div>
             </div>
             <div class="col-sm-4">
-                <?=form_open('ujian/save', array('id'=>'formujian'), array('method'=>'add','dosen_id'=>$dosen->id_dosen, 'matkul_id'=>$matkul->matkul_id))?>
+                <?= form_open('ujian/save', array('id' => 'formujian'), array('method' => 'add', 'dosen_id' => $dosen->id_dosen, 'matkul_id' => $matkul->matkul_id)) ?>
                 <div class="form-group">
-                    <label for="nama_ujian">Nama Ujian</label>
-                    <input autofocus="autofocus" onfocus="this.select()" placeholder="Nama Ujian" type="text" class="form-control" name="nama_ujian">
+                    <label for="nama_ujian">Nama Tes</label>
+                    <input autofocus="autofocus" onfocus="this.select()" placeholder="Nama Tes" type="text" class="form-control" name="nama_ujian">
                     <small class="help-block"></small>
                 </div>
                 <div class="form-group">
@@ -61,10 +61,10 @@
                     </button>
                     <button id="submit" type="submit" class="btn btn-flat bg-purple"><i class="fa fa-save"></i> Simpan</button>
                 </div>
-                <?=form_close()?>
+                <?= form_close() ?>
             </div>
         </div>
     </div>
 </div>
 
-<script src="<?=base_url()?>assets/dist/js/app/ujian/add.js"></script>
+<script src="<?= base_url() ?>assets/dist/js/app/ujian/add.js"></script>

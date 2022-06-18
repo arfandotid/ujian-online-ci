@@ -54,7 +54,7 @@ $(document).ready(function () {
 								</a>`;
                     } else {
                         btn = `<a class="btn btn-xs btn-primary" href="${base_url}ujian/token/${data.id_ujian}">
-								<i class="fa fa-pencil"></i> Mulai Ujian
+								<i class="fa fa-pencil"></i> Mulai Tes
 							</a>`;
                     }
                     return `<div class="text-center">

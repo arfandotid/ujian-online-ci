@@ -44,7 +44,7 @@
                     <thead>
                         <tr>
                             <th>No.</th>
-                            <th>Nama Ujian</th>
+                            <th>Nama Tes</th>
                             <th>Jenis Tes</th>
                             <th>Jumlah Soal</th>
                             <th class="text-center">Aksi</th>
@@ -53,7 +53,7 @@
                     <tfoot>
                         <tr>
                             <th>No.</th>
-                            <th>Nama Ujian</th>
+                            <th>Nama Tes</th>
                             <th>Jenis Tes</th>
                             <th>Jumlah Soal</th>
                             <th class="text-center">Aksi</th>
