@@ -127,7 +127,7 @@ class Master_model extends CI_Model
             if ($id_jurusan === []) {
                 $id_jurusan = null;
             }
-            
+
             $this->db->select('*');
             $this->db->from('jurusan');
             $this->db->where_not_in('id_jurusan', $id_jurusan);
@@ -138,7 +138,7 @@ class Master_model extends CI_Model
 
     public function getKelasByJurusan($id)
     {
-        $query = $this->db->get_where('kelas', array('jurusan_id'=>$id));
+        $query = $this->db->get_where('kelas', array('jurusan_id' => $id));
         return $query->result();
     }
 
@@ -156,7 +156,7 @@ class Master_model extends CI_Model
 
     public function getDosenById($id)
     {
-        $query = $this->db->get_where('dosen', array('id_dosen'=>$id));
+        $query = $this->db->get_where('dosen', array('id_dosen' => $id));
         return $query->row();
     }
 
@@ -183,7 +183,7 @@ class Master_model extends CI_Model
             $this->db->order_by('nama_matkul');
             $query = $this->db->get('matkul')->result();
         } else {
-            $query = $this->db->get_where('matkul', array('id_matkul'=>$id))->row();
+            $query = $this->db->get_where('matkul', array('id_matkul' => $id))->row();
         }
         return $query;
     }
@@ -224,7 +224,7 @@ class Master_model extends CI_Model
         return $this->db->get()->result();
     }
 
-    
+
     public function getAllKelas()
     {
         $this->db->select('id_kelas, nama_kelas, nama_jurusan');
@@ -233,7 +233,7 @@ class Master_model extends CI_Model
         $this->db->order_by('nama_kelas');
         return $this->db->get()->result();
     }
-    
+
     public function getKelasByDosen($id)
     {
         $this->db->select('kelas.id_kelas');
@@ -305,7 +305,7 @@ class Master_model extends CI_Model
             $this->db->order_by('nama_tipesoal');
             $query = $this->db->get('tipesoal')->result();
         } else {
-            $query = $this->db->get_where('tipesoal', array('id_tipesoal'=>$id))->row();
+            $query = $this->db->get_where('tipesoal', array('id_tipesoal' => $id))->row();
         }
         return $query;
     }

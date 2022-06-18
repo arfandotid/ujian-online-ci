@@ -46,6 +46,21 @@
                     <small class="help-block"></small>
                 </div>
                 <div class="form-group">
+                    <label for="alamat">Alamat</label>
+                    <input value="<?= $mahasiswa->alamat ?>" placeholder="Alamat" type="text" name="alamat" class="form-control">
+                    <small class="help-block"></small>
+                </div>
+                <div class="form-group">
+                    <label for="pendidikan">Pendidikan</label>
+                    <input value="<?= $mahasiswa->pendidikan ?>" placeholder="Pendidikan" type="text" name="pendidikan" class="form-control">
+                    <small class="help-block"></small>
+                </div>
+                <div class="form-group">
+                    <label for="pekerjaan">Pekerjaan</label>
+                    <input value="<?= $mahasiswa->pekerjaan ?>" placeholder="Pekerjaan" type="text" name="pekerjaan" class="form-control">
+                    <small class="help-block"></small>
+                </div>
+                <div class="form-group">
                     <label for="jurusan">Kategori</label>
                     <select id="jurusan" name="jurusan" class="form-control select2">
                         <option value="" disabled selected>-- Pilih --</option>
