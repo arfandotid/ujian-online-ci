@@ -86,7 +86,7 @@
 					<select id="jenis-tes" name="pilih" class="form-control select2" style="width:100% !important" required>
 						<option value="" disabled selected>-- Pilihan Jenis Tes --</option>
 						<?php foreach ($dropdown as $d) : ?>
-							<option value="<?= $d->id_matkul . ':' . $d->jurusan_id . ':' . $d->tipesoal_id . ':' . $d->id_dosen ?>"><?= $d->nama_jurusan.' - '.$d->nama_matkul ?></option>
+							<option value="<?= $d->id_matkul . ':' . $d->jurusan_id . ':' . $d->tipesoal_id . ':' . $d->id_dosen ?>"><?= $d->nama_dosen.' - '.$d->nama_matkul ?></option>
 						<?php endforeach ?>
 					</select>
 
@@ -142,7 +142,7 @@
 					type: "POST",
 					success: function(respon) {
 						if (respon.status) {
-							$('form#tambah').attr("action", respon.slug);
+							$('form#tambah').attr("action", base_url+'soal/add' +respon.slug);
 						} else {
 							Swal({
 								title: "Gagal",
