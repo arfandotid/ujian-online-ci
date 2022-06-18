@@ -32,7 +32,7 @@
                         <td><?= $dosen->nama_dosen ?></td>
                     </tr>
                     <tr>
-                        <th>NIP</th>
+                        <th>NIK</th>
                         <td><?= $dosen->nip ?></td>
                     </tr>
                     <tr>
@@ -85,8 +85,12 @@
                 </div>
                 <table class="table table-hover">
                     <tr>
-                        <th>NIM</th>
+                        <th>NIK</th>
                         <td><?= $mahasiswa->nim ?></td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td><?= $mahasiswa->email ?></td>
                     </tr>
                     <tr>
                         <th>Nama</th>
@@ -97,8 +101,24 @@
                         <td><?= $mahasiswa->jenis_kelamin === 'L' ? "Laki-laki" : "Perempuan"; ?></td>
                     </tr>
                     <tr>
-                        <th>Email</th>
-                        <td><?= $mahasiswa->email ?></td>
+                        <th>Tanggal Lahir</th>
+                        <td><?= $mahasiswa->tanggal_lahir ?></td>
+                    </tr>
+                    <tr>
+                        <th>Tempat Lahir</th>
+                        <td><?= $mahasiswa->tempat_lahir ?></td>
+                    </tr>
+                    <tr>
+                        <th>Alamat</th>
+                        <td><?= $mahasiswa->alamat ?></td>
+                    </tr>
+                    <tr>
+                        <th>Pendidikan</th>
+                        <td><?= $mahasiswa->pendidikan ?></td>
+                    </tr>
+                    <tr>
+                        <th>Pekerjaan</th>
+                        <td><?= $mahasiswa->pekerjaan ?></td>
                     </tr>
                     <tr>
                         <th>Kategori Tes</th>

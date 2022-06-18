@@ -20,7 +20,7 @@
             <thead>
                 <tr>
                     <th>No.</th>
-                    <th>NIP</th>
+                    <th>NIK</th>
                     <th>Nama Petugas</th>
                     <th>Email</th>
                     <th>Jenis Tes</th>
@@ -34,7 +34,7 @@
             <tfoot>
                 <tr>
                     <th>No.</th>
-                    <th>NIP</th>
+                    <th>NIK</th>
                     <th>Nama Petugas</th>
                     <th>Email</th>
                     <th>Jenis Tes</th>

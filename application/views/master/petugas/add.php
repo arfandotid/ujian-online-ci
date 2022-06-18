@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-sm-4 col-sm-offset-4">
                 <div class="form-group">
-                    <label for="nip">NIP</label>
+                    <label for="nip">NIK</label>
                     <input autofocus="autofocus" onfocus="this.select()" type="number" id="nip" class="form-control" name="nip" placeholder="NIP">
                     <small class="help-block"></small>
                 </div>

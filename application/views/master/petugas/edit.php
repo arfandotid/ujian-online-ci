@@ -1,9 +1,9 @@
-<?=form_open('petugas/save', array('id'=>'formdosen'), array('method'=>'edit', 'id_dosen'=>$data->id_dosen));?>
+<?= form_open('petugas/save', array('id' => 'formdosen'), array('method' => 'edit', 'id_dosen' => $data->id_dosen)); ?>
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title">Form <?=$subjudul?></h3>
+        <h3 class="box-title">Form <?= $subjudul ?></h3>
         <div class="box-tools pull-right">
-            <a href="<?=base_url()?>petugas" class="btn btn-sm btn-flat btn-warning">
+            <a href="<?= base_url() ?>petugas" class="btn btn-sm btn-flat btn-warning">
                 <i class="fa fa-arrow-left"></i> Batal
             </a>
         </div>
@@ -12,18 +12,18 @@
         <div class="row">
             <div class="col-sm-4 col-sm-offset-4">
                 <div class="form-group">
-                    <label for="nip">NIP</label>
-                    <input value="<?=$data->nip?>" autofocus="autofocus" onfocus="this.select()" type="number" id="nip" class="form-control" name="nip" placeholder="NIP">
+                    <label for="nip">NIK</label>
+                    <input value="<?= $data->nip ?>" autofocus="autofocus" onfocus="this.select()" type="number" id="nip" class="form-control" name="nip" placeholder="NIP">
                     <small class="help-block"></small>
                 </div>
                 <div class="form-group">
                     <label for="nama_dosen">Nama Petugas</label>
-                    <input value="<?=$data->nama_dosen?>" type="text" class="form-control" name="nama_dosen" placeholder="Nama petugas">
+                    <input value="<?= $data->nama_dosen ?>" type="text" class="form-control" name="nama_dosen" placeholder="Nama petugas">
                     <small class="help-block"></small>
                 </div>
                 <div class="form-group">
                     <label for="email">Email Petugas</label>
-                    <input value="<?=$data->email?>" type="text" class="form-control" name="email" placeholder="Email petugas">
+                    <input value="<?= $data->email ?>" type="text" class="form-control" name="email" placeholder="Email petugas">
                     <small class="help-block"></small>
                 </div>
                 <div class="form-group">
@@ -31,7 +31,7 @@
                     <select name="matkul" id="matkul" class="form-control select2" style="width: 100%!important">
                         <option value="" disabled selected>Pilih Jenis Tes</option>
                         <?php foreach ($matkul as $row) : ?>
-                            <option <?=$data->matkul_id===$row->id_matkul?"selected":""?> value="<?=$row->id_matkul?>"><?=$row->nama_matkul?></option>
+                            <option <?= $data->matkul_id === $row->id_matkul ? "selected" : "" ?> value="<?= $row->id_matkul ?>"><?= $row->nama_matkul ?></option>
                         <?php endforeach; ?>
                     </select>
                     <small class="help-block"></small>
@@ -48,6 +48,6 @@
         </div>
     </div>
 </div>
-<?=form_close();?>
+<?= form_close(); ?>
 
-<script src="<?=base_url()?>assets/dist/js/app/master/petugas/edit.js"></script>
+<script src="<?= base_url() ?>assets/dist/js/app/master/petugas/edit.js"></script>

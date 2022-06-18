@@ -163,7 +163,7 @@ class Petugas extends CI_Controller
 			$this->ion_auth->register($username, $password, $email, $additional_data, $group);
 			$data = [
 				'status'	=> true,
-				'msg'	 => 'User berhasil dibuat. NIP digunakan sebagai password pada saat login.'
+				'msg'	 => 'User berhasil dibuat. NIK digunakan sebagai password pada saat login.'
 			];
 		}
 		$this->output_json($data);
