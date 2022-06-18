@@ -76,29 +76,29 @@
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">×</span></button>
-					<h4 class="modal-title">Buat Soal</h4>
-				</div>
+				<h4 class="modal-title">Buat Soal</h4>
+			</div>
 
-				<?= form_open('soal', 'class="form" id="tambah"'); ?>
-				<div class="modal-body">
-					<div class="form-group">
-						<label for="banyak">Pilih jenis tes yang akan di buat</label>
-						<select id="jenis-tes" name="pilih" class="form-control select2" style="width:100% !important" required>
-							<option value="" disabled selected>-- Pilihan Jenis Tes --</option>
-							<?php foreach ($dropdown as $d) : ?>
-								<option value="<?= $d->id_matkul.':'.$d->id_jurusan.':'.$d->tipesoal_id.':'.$d->id_dosen ?>"><?= $d->nama_matkul.' - '.$d->nama_jurusan ?></option>
-							<?php endforeach ?>
-						</select>
-						
-						<input type="hidden" name="id_matkul" id="inputmatkul" class="form-control">
-						<input type="hidden" name="id_jurusan" id="inputjurusan" class="form-control">
-						<input type="hidden" name="id_tipesoal" id="inputtipesoal" class="form-control">
-						<input type="hidden" name="id_dosen" id="inputdosen" class="form-control">
-					</div>
+			<?= form_open('soal', 'class="form" id="tambah"'); ?>
+			<div class="modal-body">
+				<div class="form-group">
+					<label for="banyak">Pilih jenis tes yang akan di buat</label>
+					<select id="jenis-tes" name="pilih" class="form-control select2" style="width:100% !important" required>
+						<option value="" disabled selected>-- Pilihan Jenis Tes --</option>
+						<?php foreach ($dropdown as $d) : ?>
+							<option value="<?= $d->id_matkul . ':' . $d->jurusan_id . ':' . $d->tipesoal_id . ':' . $d->id_dosen ?>"><?= $d->nama_matkul . ' - ' . $d->nama_jurusan ?></option>
+						<?php endforeach ?>
+					</select>
+
+					<input type="hidden" name="id_matkul" id="inputmatkul" class="form-control">
+					<input type="hidden" name="id_jurusan" id="inputjurusan" class="form-control">
+					<input type="hidden" name="id_tipesoal" id="inputtipesoal" class="form-control">
+					<input type="hidden" name="id_dosen" id="inputdosen" class="form-control">
 				</div>
-				<div class="modal-footer">
-					<button type="submit" class="btn btn-primary">Buat Soal</button>
-				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-primary">Buat Soal</button>
+			</div>
 			</form>
 		</div>
 		<!-- /.modal-content -->
@@ -134,7 +134,7 @@
 				$("#inputjurusan").val(id_jurusan);
 				$("#inputtipesoal").val(id_tipesoal);
 				$("#inputdosen").val(id_dosen);
-				
+
 				// ajax 
 				$.ajax({
 					url: base_url + 'soal',
@@ -175,4 +175,4 @@
 			table.ajax.url(url).load();
 		});
 	</script>
-	<?php endif; ?>
+<?php endif; ?>
