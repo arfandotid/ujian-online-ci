@@ -35,7 +35,7 @@ class Master_model extends CI_Model
     }
 
     /**
-     * Data Kelas
+     * Data ruang
      */
 
     public function getDataKelas()
@@ -127,7 +127,7 @@ class Master_model extends CI_Model
             if ($id_jurusan === []) {
                 $id_jurusan = null;
             }
-            
+
             $this->db->select('*');
             $this->db->from('jurusan');
             $this->db->where_not_in('id_jurusan', $id_jurusan);
@@ -138,12 +138,12 @@ class Master_model extends CI_Model
 
     public function getKelasByJurusan($id)
     {
-        $query = $this->db->get_where('kelas', array('jurusan_id'=>$id));
+        $query = $this->db->get_where('kelas', array('jurusan_id' => $id));
         return $query->result();
     }
 
     /**
-     * Data Dosen
+     * Data petugas
      */
 
     public function getDataDosen()
@@ -156,7 +156,7 @@ class Master_model extends CI_Model
 
     public function getDosenById($id)
     {
-        $query = $this->db->get_where('dosen', array('id_dosen'=>$id));
+        $query = $this->db->get_where('dosen', array('id_dosen' => $id));
         return $query->row();
     }
 
@@ -166,8 +166,9 @@ class Master_model extends CI_Model
 
     public function getDataMatkul()
     {
-        $this->datatables->select('id_matkul, nama_matkul');
+        $this->datatables->select('id_matkul, nama_matkul, nama_tipesoal');
         $this->datatables->from('matkul');
+        $this->datatables->join('tipesoal', 'tipesoal_id=id_tipesoal');
         return $this->datatables->generate();
     }
 
@@ -183,13 +184,13 @@ class Master_model extends CI_Model
             $this->db->order_by('nama_matkul');
             $query = $this->db->get('matkul')->result();
         } else {
-            $query = $this->db->get_where('matkul', array('id_matkul'=>$id))->row();
+            $query = $this->db->get_where('matkul', array('id_matkul' => $id))->row();
         }
         return $query;
     }
 
     /**
-     * Data Kelas Dosen
+     * Data ruang petugas
      */
 
     public function getKelasDosen()
@@ -224,7 +225,7 @@ class Master_model extends CI_Model
         return $this->db->get()->result();
     }
 
-    
+
     public function getAllKelas()
     {
         $this->db->select('id_kelas, nama_kelas, nama_jurusan');
@@ -233,7 +234,7 @@ class Master_model extends CI_Model
         $this->db->order_by('nama_kelas');
         return $this->db->get()->result();
     }
-    
+
     public function getKelasByDosen($id)
     {
         $this->db->select('kelas.id_kelas');
@@ -287,5 +288,40 @@ class Master_model extends CI_Model
         $this->db->where('matkul_id', $id);
         $query = $this->db->get()->result();
         return $query;
+    }
+
+    // tipe soal
+
+    public function getDataTipesoal()
+    {
+        $this->datatables->select('id_tipesoal, nama_tipesoal');
+        $this->datatables->from('tipesoal');
+        return $this->datatables->generate();
+    }
+
+    public function getAllTipesoal()
+    {
+        return $this->db->get('tipesoal')->result();
+        
+    }
+
+    public function getTipesoalById($id, $single = false)
+    {
+        if ($single === false) {
+            $this->db->where_in('id_tipesoal', $id);
+            $this->db->order_by('nama_tipesoal');
+            $query = $this->db->get('tipesoal')->result();
+        } else {
+            $query = $this->db->get_where('tipesoal', array('id_tipesoal' => $id))->row();
+        }
+        return $query;
+    }
+
+
+    // Dosen Kelas Matkul
+    public function getDosenKelasMatkul()
+    {
+        return $this->db->get('view_dosen_kelas_jurusan_matkul')->result();
+
     }
 }

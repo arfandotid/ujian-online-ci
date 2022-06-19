@@ -1,32 +1,34 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class HasilUjian extends CI_Controller {
+class HasilUjian extends CI_Controller
+{
 
-	public function __construct(){
+	public function __construct()
+	{
 		parent::__construct();
-		if (!$this->ion_auth->logged_in()){
+		if (!$this->ion_auth->logged_in()) {
 			redirect('auth');
 		}
-		
-		$this->load->library(['datatables']);// Load Library Ignited-Datatables
+
+		$this->load->library(['datatables']); // Load Library Ignited-Datatables
 		$this->load->model('Master_model', 'master');
 		$this->load->model('Ujian_model', 'ujian');
-		
+
 		$this->user = $this->ion_auth->user()->row();
 	}
 
 	public function output_json($data, $encode = true)
 	{
-		if($encode) $data = json_encode($data);
+		if ($encode) $data = json_encode($data);
 		$this->output->set_content_type('application/json')->set_output($data);
 	}
 
 	public function data()
 	{
 		$nip_dosen = null;
-		
-		if( $this->ion_auth->in_group('dosen') ) {
+
+		if ($this->ion_auth->in_group('dosen')) {
 			$nip_dosen = $this->user->username;
 		}
 
@@ -42,14 +44,14 @@ class HasilUjian extends CI_Controller {
 	{
 		$data = [
 			'user' => $this->user,
-			'judul'	=> 'Ujian',
-			'subjudul'=> 'Hasil Ujian',
+			'judul'	=> 'Tes',
+			'subjudul' => 'Hasil Tes',
 		];
 		$this->load->view('_templates/dashboard/_header.php', $data);
 		$this->load->view('ujian/hasil');
 		$this->load->view('_templates/dashboard/_footer.php');
 	}
-	
+
 	public function detail($id)
 	{
 		$ujian = $this->ujian->getUjianById($id);
@@ -57,8 +59,8 @@ class HasilUjian extends CI_Controller {
 
 		$data = [
 			'user' => $this->user,
-			'judul'	=> 'Ujian',
-			'subjudul'=> 'Detail Hasil Ujian',
+			'judul'	=> 'Tes',
+			'subjudul' => 'Detail Hasil Tes',
 			'ujian'	=> $ujian,
 			'nilai'	=> $nilai
 		];
@@ -75,13 +77,13 @@ class HasilUjian extends CI_Controller {
 		$mhs 	= $this->ujian->getIdMahasiswa($this->user->username);
 		$hasil 	= $this->ujian->HslUjian($id, $mhs->id_mahasiswa)->row();
 		$ujian 	= $this->ujian->getUjianById($id);
-		
+
 		$data = [
 			'ujian' => $ujian,
 			'hasil' => $hasil,
 			'mhs'	=> $mhs
 		];
-		
+
 		$this->load->view('ujian/cetak', $data);
 	}
 
@@ -101,5 +103,4 @@ class HasilUjian extends CI_Controller {
 
 		$this->load->view('ujian/cetak_detail', $data);
 	}
-	
 }

@@ -7,10 +7,10 @@
 			<footer class="main-footer">
 				<!-- To the right -->
 				<div class="pull-right hidden-xs">
-					Computer Based Test v2
+					Computer Based Beta Test
 				</div>
 				<!-- Default to the left -->
-				<strong>Copyright &copy; 2019. By <a href="https://instagram.com/mghifariarfan">Muhammad Ghifari Arfananda</a>. </strong> All rights reserved
+				<strong>Copyright &copy; 2022. By Psikologi. </strong> All rights reserved
 			</footer>
 
 			</div>
@@ -32,6 +32,10 @@
 
 			<script src="<?= base_url() ?>assets/bower_components/pace/pace.min.js"></script>
 			<script src="<?= base_url() ?>assets/dist/js/adminlte.min.js"></script>
+
+			<script src="<?= base_url() ?>assets/plugins/input-mask/jquery.inputmask.js"></script>
+			<script src="<?= base_url() ?>assets/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+			<script src="<?= base_url() ?>assets/plugins/input-mask/jquery.inputmask.extensions.js"></script>
 
 			<!-- Textarea editor -->
 			<script src="<?= base_url() ?>assets/bower_components/codemirror/lib/codemirror.min.js"></script>
@@ -84,6 +88,20 @@
 						]
 					});
 				});
+				// $('#dosen_id').on('select2:select', function (e) {
+				// 	alert(this.value);
+				// });
+			</script>
+
+			<script>
+				$(function() {
+					//Datemask dd/mm/yyyy
+					$('#datemask').inputmask('dd/mm/yyyy', {
+						'placeholder': 'dd/mm/yyyy'
+					})
+					//Money Euro
+					$('[data-mask]').inputmask()
+				})
 			</script>
 
 			</body>

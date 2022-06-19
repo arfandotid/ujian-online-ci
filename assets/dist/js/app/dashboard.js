@@ -3,7 +3,7 @@ $(document).ajaxStart(function () {
 });
 
 $("select").closest("form").on("reset",function(ev){
-var targetJQForm = $(ev.target);
+	var targetJQForm = $(ev.target);
 	setTimeout((function(){
 		$(this).find("select").trigger("change");
 	}).bind(targetJQForm),0);
@@ -53,4 +53,23 @@ $(document).ready(function(){
 			}
 		});
 	});
+	// arah kemana menu
+	$('#dosen_id').on('change', function(e){
+		opt = this.options[this.selectedIndex].text;
+		if (opt.toLowerCase().includes('kraepelin')){
+			if (!window.location.href.includes('kraepelin')){
+				window.location.href =  base_url+'soal/addkraepelin';
+			}
+		}
+		else{
+			if (window.location.href.includes('kraepelin')){
+				window.location.href =  base_url+'soal/add';
+			}
+		}
+	});
+	
+	$('#generate').on('click', function(e){
+		alert('kraepelin generated');
+	});
+
 });
