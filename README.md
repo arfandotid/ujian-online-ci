@@ -3,7 +3,7 @@
 Aplikasi Ujian Online Menggunakan CodeIgniter 3
 
 <h1>Catatan</h1>
-<p>Disarankan upgrade PHP ke versi terbaru (7.3 atau lebih tinggi)</p>
+<p>Disarankan menggunakan PHP versi 7</p>
 
 <h1>Cara Install</h1>
     Buat database dengan nama <kbd>ci_online_test</kbd>. Kemudian import database pada folder <kbd>sql</kbd>. Jangan lupa setting lagi file <kbd>config.php</kbd> nya. 
