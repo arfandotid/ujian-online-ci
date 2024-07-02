@@ -1,8 +1,8 @@
 # Aplikasi Ujian Online Menggunakan CodeIgniter 3
 
-[!NOTE]
-Disarankan menggunakan PHP versi 7. \
-Tidak dapat berjalan di PHP versi 8 ke atas
+> [!NOTE]
+> Disarankan menggunakan PHP versi 7.
+> Tidak dapat berjalan di PHP versi 8 ke atas
 
 # Cara Install
 
@@ -15,7 +15,7 @@ Tidak dapat berjalan di PHP versi 8 ke atas
 
 1. Lakukan seperti cara diatas, namun perlu mengubah file **_.htaccess_**.
 2. Jika di dalam folder project tidak terdapat file **_.htaccess_** silahkan dibuat saja.
-3. Kemudian bisa isi dengan kode berikut ini : \
+3. Kemudian bisa isi dengan kode berikut ini :
 
 ```
  <IfModule mod_rewrite.c>
@@ -31,7 +31,7 @@ Tidak dapat berjalan di PHP versi 8 ke atas
 
 1. Lakukan cara install seperti biasa.
 2. Ubah setting pada file `/etc/nginx/sites-available/default`.
-3. Lalu tambahkan kode berikut ini : \
+3. Lalu tambahkan kode berikut ini :
 
 ```
 location /NAMA_FOLDER_PROJECT {
