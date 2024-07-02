@@ -1,21 +1,21 @@
 # Aplikasi Ujian Online Menggunakan CodeIgniter 3
 
-> [!NOTE]
-> Disarankan menggunakan PHP versi 7.
+> [!IMPORTANT]
+> Disarankan menggunakan PHP versi 7. \
 > Tidak dapat berjalan di PHP versi 8 ke atas
 
 # Cara Install
 
 1. Buat database dengan nama **_ci_online_test_**.
 2. Kemudian import database pada folder **_sql_**.
-3. Ubah **_base_url_** setting file **_config.php_**.
-4. dan juga ubah **_date_default_timezone_set_** pada **_config.php_**.<br/>
+3. dan juga ubah **_date_default_timezone_set_** pada **_config.php_**.<br/>
 
-# Install di CPanel Hosting
+# Install di CPanel Hosting (Jika dihosting)
 
-1. Lakukan seperti cara diatas, namun perlu mengubah file **_.htaccess_**.
-2. Jika di dalam folder project tidak terdapat file **_.htaccess_** silahkan dibuat saja.
-3. Kemudian bisa isi dengan kode berikut ini :
+1. Lakukan seperti cara diatas.
+2. Pada file **_config.php_** ubah **_base_url_** dengan domain anda dengan menyertakan `http://` atau `https://`.
+3. Jika di dalam folder project tidak terdapat file **_.htaccess_** silahkan dibuat saja.
+4. Kemudian bisa isi dengan kode berikut ini :
 
 ```
  <IfModule mod_rewrite.c>
@@ -27,7 +27,7 @@
  </IfModule>
 ```
 
-# Install di NGINX
+# Install di NGINX (Alternatif Apache)
 
 1. Lakukan cara install seperti biasa.
 2. Ubah setting pada file `/etc/nginx/sites-available/default`.
